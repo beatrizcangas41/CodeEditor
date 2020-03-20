@@ -1,8 +1,9 @@
-package Controllers;
+package Questions;
+// Questions 7 - 13
 
 import java.util.Scanner;
 
-public class CodeEditorQuestions {
+class b_CodeEditorQuestions {
 
     public static char TrueFalseAns() {
         Scanner tfObj = new Scanner(System.in);
