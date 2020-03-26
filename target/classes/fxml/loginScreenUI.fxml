@@ -8,7 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0" style="-fx-background-color: #ffffff;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PasswordForgotController">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0"
+          style="-fx-background-color: #ffffff;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="controllers.ForgotPasswordController">
 
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -20,16 +22,15 @@
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="20.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="20.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="20.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
     </rowConstraints>
 
     <columnConstraints>
-        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="30.0" />
         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
@@ -39,7 +40,9 @@
         <ColumnConstraints />
     </columnConstraints>
 
-    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="49.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="PASSWORD" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="49.0" prefWidth="200.0"
+               style="-fx-border-color: #ffffff;" text="PASSWORD" GridPane.columnIndex="1" GridPane.columnSpan="2"
+               GridPane.rowIndex="8">
         <font>
             <Font name="Verdana Bold" size="14.0" />
         </font>
@@ -50,7 +53,11 @@
             <Insets right="20.0" />
         </GridPane.margin>
     </TextField>
-    <TextField fx:id="usernameTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="username" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <TextField fx:id="usernameTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+               nodeOrientation="LEFT_TO_RIGHT" promptText="username"
+               style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+               GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+               GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets />
         </GridPane.margin>
@@ -58,7 +65,9 @@
          <Font name="Verdana" size="14.0" />
       </font>
     </TextField>
-    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="243.0" style="-fx-border-color: #ffffff;" text="USERNAME" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="243.0"
+               style="-fx-border-color: #ffffff;" text="USERNAME" GridPane.columnIndex="1" GridPane.columnSpan="2"
+               GridPane.rowIndex="6">
         <font>
             <Font name="Verdana Bold" size="14.0" />
         </font>
@@ -69,7 +78,11 @@
             <Insets right="20.0" />
         </GridPane.margin>
     </TextField>
-    <PasswordField fx:id="passwordField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <PasswordField fx:id="passwordField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                   nodeOrientation="LEFT_TO_RIGHT" promptText="password"
+                   style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+                   GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+                   GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets />
         </GridPane.margin>
@@ -78,9 +91,15 @@
       </font>
     </PasswordField>
 
-    <Button fx:id="loginButtonPressed" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onAction="#loginButtonPressed" prefHeight="40.0" prefWidth="292.0" style="-fx-background-color: #3BB2B8; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="LOGIN" textAlignment="CENTER" textFill="#f5f5f5" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="loginButtonPressed" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0"
+            maxHeight="-Infinity" maxWidth="-Infinity" onAction="#loginButtonPressed" prefHeight="62.0"
+            prefWidth="207.0"
+            style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+            text="LOGIN" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS"
+            GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+            GridPane.rowIndex="10" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
-            <Insets left="60.0" right="50.0" />
+            <Insets />
         </GridPane.margin>
         <font>
             <Font name="Segoe UI Bold" size="18.0" />
@@ -89,35 +108,28 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-
-    <Button fx:id="registerButtonPressed" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#registerButtonPressed" prefHeight="39.0" prefWidth="247.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="REGISTER" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="12">
-        <font>
-            <Font name="Verdana Bold" size="16.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets bottom="20.0" top="20.0" />
-        </GridPane.margin>
-    </Button>
-    <Button fx:id="forgotPasswordButtonPressed" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#forgotPasswordButtonPressed" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="FORGOT PASSWORD ?" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="12">
-        <font>
-            <Font name="Verdana Bold" size="16.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets bottom="20.0" left="60.0" top="20.0" />
-        </GridPane.margin>
-    </Button>
-    <ImageView fitHeight="195.0" fitWidth="341.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <ImageView fitHeight="195.0" fitWidth="341.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true"
+               GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+               GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
         <Image url="@../images/Logo.png" />
     </ImageView>
+   <Button fx:id="forgotPassword" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#forgotPassword"
+           prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;" text="Forgot Password ?"
+           textFill="#1691dd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
+      <font>
+         <Font name="Verdana" size="14.0" />
+      </font>
+   </Button>
+   <Button fx:id="registerButton" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="376.0" mnemonicParsing="false"
+           onAction="#registerButton" prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;"
+           text="Register" textFill="#1691dd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+      <font>
+         <Font name="Verdana" size="14.0" />
+      </font>
+   </Button>
     <cursor>
         <Cursor fx:constant="DEFAULT" />
     </cursor>
