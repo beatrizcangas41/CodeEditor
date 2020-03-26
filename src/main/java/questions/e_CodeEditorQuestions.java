@@ -3,7 +3,7 @@ package questions;
 
 import java.util.Scanner;
 
-class b_CodeEditorQuestions {
+class e_CodeEditorQuestions {
 
     public static char TrueFalseAns() {
         char tfans = 'T';
@@ -33,7 +33,7 @@ class b_CodeEditorQuestions {
         return mcans;
     }
 
-    static void Question7() {//27. TRUE
+    static void Question27() {//27. TRUE
         System.out.println("\n\n27. The preprocessor directive that allows for standard input and output is:\n\n" +
                 "#include <iostream>\n\n" + "a. True\n" + "b. False\n\n");
         char ans = TrueFalseAns();
@@ -44,7 +44,7 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question8() {//28. C
+    static void Question28() {//28. C
         System.out.println("28. Which of the following is the insertion operator?\n\n" +
                 "a. >>\n" + "b. ==\n" + "c. <<\n" + "d. \\\n\n");
         char ans = MulChoiceAns();
@@ -55,7 +55,7 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question9() {//29. A
+    static void Question29() {//29. A
         System.out.println("29. Which of the following is the extraction operator?\n\n" + 
                 "a. >>\n" + "b. ==\n" + "c. <<\n" + "d. \\\n\n");
         char ans = MulChoiceAns();
@@ -66,7 +66,7 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question10() {//30. TRUE
+    static void Question30() {//30. TRUE
         System.out.println("30. The extraction operator is used with the standard input “cin”.\n\n" + "a. True\n" +
                 "b. False\n\n");
         char ans = TrueFalseAns();
@@ -77,7 +77,7 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question11() {//31. FALSE
+    static void Question31() {//31. FALSE
         System.out.println("31. The insertion operator is used with the standard input “cin”.\n\n" + "a. True\n" +
                 "b. False\n\n");
         char ans = TrueFalseAns();
@@ -88,7 +88,7 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question12() {//32. TRUE
+    static void Question32() {//32. TRUE
         System.out.println("32. The following code correctly accepts a user entered value into the string “hobby”" + 
                            " and prints “Your favorite hobby is” followed by the hobby entered by the user:\n\n" +
                            "#include <iostream>\n" + "#include <string>\n" + "using namespace std;\n\n" +
