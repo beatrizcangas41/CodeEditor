@@ -35,6 +35,12 @@
         <!-- http://repo1.maven.org/maven2/javax/mail/mail/1.4.7/mail-1.4.7.jar -->
 
         <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>8.40.16</version>
+        </dependency>
+
+        <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>1.4.7</version>

@@ -3,6 +3,8 @@ package questions;
 
 import java.util.Scanner;
 
+import static util.dialogCreator.displayErrorDialog;
+
 class b_CodeEditorQuestions {
 
     public static char TrueFalseAns() {
@@ -10,6 +12,7 @@ class b_CodeEditorQuestions {
         do{
             if(tfans != 'T' && tfans != 't' && tfans != 'F' && tfans != 'f'){
                 System.out.println("You have entered an invalid character.  Please try again!");
+                displayErrorDialog("Error", "You have entered an invalid character.  Please try again!");
             }
             Scanner tfObj = new Scanner(System.in);
             System.out.println("Enter T for True and F for False:");
