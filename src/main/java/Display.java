@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class Display extends Application {
 
-    private ArrayList<Question> question = new ArrayList<>();
+    private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<User> users = new ArrayList<>();
 
     @Override
@@ -26,8 +26,8 @@ public class Display extends Application {
         stage.show();
     }
 
-    public void addQuestionList(Question book) {
-        // Question.add(question);
+    public void addQuestion(Question question) {
+        questions.add(question);
     }
 
     public static void main(String[] args) {
