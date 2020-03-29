@@ -8,7 +8,6 @@ import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class sceneChange {
 
@@ -17,7 +16,7 @@ public class sceneChange {
         stage.close();
 
         try {
-            Object page = FXMLLoader.load(Objects.requireNonNull(sceneChange.class.getClassLoader().getResource(fxml)));
+            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene((Parent) page, width, height);
             Stage newStage = new Stage();
@@ -31,12 +30,31 @@ public class sceneChange {
         }
     }
 
-    public static FXMLLoader sceneChangeButton(String fxml, Button button, int width, int height) {
+    public static void sceneChangeButton(String fxml, Button button) {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
 
         try {
-            Object page = FXMLLoader.load(Objects.requireNonNull(sceneChange.class.getClassLoader().getResource(fxml)));
+            Parent root = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
+
+            Scene newScene = new Scene(root);
+            Stage newStage = new Stage();
+
+            newStage.setTitle("Code Learner");
+
+            newStage.setScene(newScene);
+            newStage.show();
+            newScene.getUserData();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static FXMLLoader sceneChangeButtonPopup(String fxml, int width, int height) {
+
+        try {
+            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene((Parent) page, width, height);
             Stage newStage = new Stage();
@@ -52,14 +70,16 @@ public class sceneChange {
         }
     }
 
-    public static FXMLLoader sceneChangeButtonPopup(String fxml, int width, int height) {
+    public static FXMLLoader sceneChangeButton(String fxml, Button button, int width, int height) {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
 
         try {
-            Object page = FXMLLoader.load(Objects.requireNonNull(sceneChange.class.getClassLoader().getResource(fxml)));
+            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene((Parent) page, width, height);
             Stage newStage = new Stage();
-            newStage.setTitle("Code Learner");
+            newStage.setTitle("Owl Library");
 
             newStage.setScene(newScene);
             newStage.show();
