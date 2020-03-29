@@ -69,25 +69,4 @@ public class sceneChange {
             return null;
         }
     }
-
-    public static FXMLLoader sceneChangeButton(String fxml, Button button, int width, int height) {
-        Stage stage = (Stage) button.getScene().getWindow();
-        stage.close();
-
-        try {
-            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
-
-            Scene newScene = new Scene((Parent) page, width, height);
-            Stage newStage = new Stage();
-            newStage.setTitle("Owl Library");
-
-            newStage.setScene(newScene);
-            newStage.show();
-            return (FXMLLoader) newScene.getUserData();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

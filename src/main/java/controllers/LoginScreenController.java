@@ -11,10 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import util.sceneChange;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static database.UserDatabaseHandler.*;
 import static util.dialogCreator.displayErrorDialog;
@@ -40,8 +40,8 @@ public class LoginScreenController {
         String uName = usernameTextField.getText();
         String pwrd = passwordField.getText();
 
-        try {
 
+        try {
             if (userExists(uName)) {
                 if (!verifyLoginCredentials(uName, pwrd))
                     displayErrorDialog("Input not valid", "Wrong Username or Password");
@@ -51,7 +51,20 @@ public class LoginScreenController {
                     if (user_type.equals("Admin")) {
                         System.out.println("Admin Page");
 
-                        sceneChange.sceneChangeButton("fxml/AdminMainScreenUI.fxml", loginButtonPressed, 1200, 800);
+                        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
+                        stage.close();
+
+                        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/AdminMainScreenUI.fxml")));
+                        Scene scene = new Scene(page, 800, 500);
+                        Stage newStage = new Stage();
+                        newStage.setTitle("Code Learner");
+
+                        newStage.setScene(scene);
+                        newStage.show();
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/AdminMainScreenUI.fxml"));
+                        Parent root = loader.load();
+
 
                     } else if (user_type.equals("User")) {
 
@@ -84,15 +97,49 @@ public class LoginScreenController {
         }
     }
 
-    public void registerButtonPressed(ActionEvent actionEvent) {
+    @FXML
+    public void forgotPassword(ActionEvent actionEvent) throws IOException {
 
+        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
+        stage.close();
+
+        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/ForgotPasswordUI.fxml")));
+        Scene scene = new Scene(page, 800, 500);
+        Stage newStage = new Stage();
+        newStage.setTitle("Code Learner");
+
+        newStage.setScene(scene);
+        newStage.show();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ForgotPasswordUI.fxml"));
+        Parent root = loader.load();
+
+        /*
         System.out.println("The account page has been loaded");
-        sceneChange.sceneChangeButton("fxml/AccountScreenUI.fxml", registerButtonPressed, 800, 500);
+        sceneChange.sceneChangeButton("fxml/ForgotPasswordUI.fxml", registerButtonPressed);
+         */
     }
 
-    public void forgotPasswordButtonPressed(ActionEvent actionEvent) {
-        System.out.println("The account page has been loaded");
-        sceneChange.sceneChangeButton("fxml/ForgotPasswordUI.fxml", registerButtonPressed, 800, 500);
-    }
+    @FXML
+    public void registerButton(ActionEvent actionEvent) throws IOException {
 
+        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
+        stage.close();
+
+        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/RegisterUI.fxml")));
+        Scene scene = new Scene(page, 800, 500);
+        Stage newStage = new Stage();
+        newStage.setTitle("Code Learner");
+
+        newStage.setScene(scene);
+        newStage.show();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/RegisterUI.fxml"));
+        Parent root = loader.load();
+
+        /*
+        System.out.println("The account page has been loaded");
+        sceneChange.sceneChangeButton("fxml/AccountScreenUI.fxml", registerButtonPressed);
+         */
+    }
 }
