@@ -2,7 +2,7 @@ package model;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class Question extends User {
+public class Question {
     private SimpleIntegerProperty questionId = new SimpleIntegerProperty();
     private String answer, description, solution;
     private static boolean questionAnswered, questionCorrect;
