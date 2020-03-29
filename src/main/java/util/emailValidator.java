@@ -11,7 +11,6 @@ public class emailValidator {
     private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
 
     public static boolean emailValidator(String email) {
-
         if (email == null) return false;
 
         Matcher matcher = EMAIL_PATTERN.matcher(email);

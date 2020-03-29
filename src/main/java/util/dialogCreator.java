@@ -27,7 +27,7 @@ public class dialogCreator {
         alert.showAndWait();
     }
 
-    public void displayConfirmationDialog(String header, String message) throws IOException {
+    public void displayConfirmationDialog(String header, String message, String fxml) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(header);
@@ -36,7 +36,7 @@ public class dialogCreator {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.CANCEL) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/AddressUpdateUI.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(fxml));
             Parent parent = loader.load();
 
             Scene newScene = new Scene(parent, 800, 500);

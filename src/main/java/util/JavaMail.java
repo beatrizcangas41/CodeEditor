@@ -44,10 +44,10 @@ public class JavaMail {
         properties.put("SMTP TLS/SSL Required", "yes");
 
         //Your gmail address
-        final String myAccountEmail = "OwlLibraryBookstore@gmail.com";
+        final String myAccountEmail = "codelearner2020fau@gmail.com";
 
         //Your password using App Passwords
-        final String password = "ogonvexwmvazcwqc";
+        final String password = "codelearner2020";
 
         System.out.println("Preparing to send email");
 
