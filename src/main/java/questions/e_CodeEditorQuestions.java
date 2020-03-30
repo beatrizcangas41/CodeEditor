@@ -110,6 +110,5 @@ class e_CodeEditorQuestions {
         Question30();
         Question31();
         Question32();
-        // testing, 123
     }
 }
