@@ -8,7 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0" style="-fx-background-color: #ffffff;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ForgotPasswordController">
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0"
+          style="-fx-background-color: #ffffff;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="controllers.LoginScreenController">
 
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" />

@@ -24,7 +24,7 @@ public class LoginScreenController {
     private UserDatabaseHandler userDatabaseHandler;
     private Object userMainScreenController;
 
-    @FXML private Button registerButtonPressed, loginButtonPressed, forgotPasswordButtonPressed;
+    @FXML private Button registerButton, loginButtonPressed, forgotPassword;
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Label lblFromController2;
@@ -74,7 +74,7 @@ public class LoginScreenController {
                         System.out.println("User Page");
 
                         //Load second scene
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
                         Parent root = loader.load();
 
                         userMainScreenController = loader.getController();
@@ -127,7 +127,7 @@ public class LoginScreenController {
         stage.close();
 
         Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/RegisterUI.fxml")));
-        Scene scene = new Scene(page, 800, 500);
+        Scene scene = new Scene(page);
         Stage newStage = new Stage();
         newStage.setTitle("Code Learner");
 
