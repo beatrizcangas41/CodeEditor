@@ -48,7 +48,7 @@ public class a_CodeEditorQuestions {
                 "int main()\n" + "{\n" + "int a;\n" + "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
         char ans = TrueFalseAns();
         if(ans == 'T' || ans == 't'){
-            System.out.println("\nCorrect great job!\n\n");
+            System.out.println("\nCorrect great job!\n\n"); 
         }else{
             System.out.println("\nSorry that is incorrect\n\n");
         }

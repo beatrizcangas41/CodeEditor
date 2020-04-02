@@ -164,7 +164,7 @@ public class UserDatabaseHandler {
             System.out.println("pw entered: " + password);
         }
 
-        if (BCrypt.checkpw(password, dbPassword)) {
+        if (password != null && dbPassword != null && BCrypt.checkpw(password, dbPassword)) {
             System.out.println("It matches");
             return true;
         } else {

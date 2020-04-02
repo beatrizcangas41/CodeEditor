@@ -9,7 +9,6 @@ import java.util.UUID;
 public class JavaMail {
 
     private Session mailSession;
-    private static String subject;
     private static String token;
 
     public static String pwrdGenerator() {
@@ -47,7 +46,7 @@ public class JavaMail {
         final String myAccountEmail = "codelearner2020fau@gmail.com";
 
         //Your password using App Passwords
-        final String password = "codelearner2020";
+        final String password = "rdiocvjcucfmwwjq";
 
         System.out.println("Preparing to send email");
 
@@ -59,20 +58,20 @@ public class JavaMail {
                     }
                 });
 
-        Message message = prepareMessage(session, myAccountEmail, recipient);
+        Message message = prepareMessage(session, recipient);
 
         System.out.println("Message sent successfully");
     }
 
 
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient) throws MessagingException {
+    private static Message prepareMessage(Session session, String recipient) throws MessagingException {
 
         Message message = new MimeMessage(session);
 
-        subject = "Password Reset Token";
+        String subject = "Password Reset Token";
 
-        message.setFrom(new InternetAddress(myAccountEmail));
-        message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+        message.setFrom(new InternetAddress("codelearner2020fau@gmail.com"));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
         message.setSubject(subject);
 
         //language=HTML
