@@ -82,7 +82,7 @@
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
-        <Image url="@../images/Logo.png" />
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
    <Button fx:id="forgotPassword" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;" text="Forgot Password ?" textFill="#1691dd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
       <font>

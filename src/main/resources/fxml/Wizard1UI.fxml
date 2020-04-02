@@ -46,7 +46,7 @@
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
-        <Image url="@../images/Logo.png" />
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
     <fx:include source="ActionBar.fxml" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="15" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />

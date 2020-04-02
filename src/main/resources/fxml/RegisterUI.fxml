@@ -48,7 +48,7 @@
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
-        <Image url="@../images/Logo.png" />
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
     <TextField fx:id="nameTextField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="name" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
