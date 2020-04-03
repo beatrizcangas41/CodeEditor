@@ -9,10 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import util.sceneChange;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import static database.UserDatabaseHandler.addToken;
 import static database.UserDatabaseHandler.verifyUsernameAndEmail;
@@ -23,9 +20,13 @@ import static util.emailValidator.emailValidator;
 public class ForgotPasswordController {
     @FXML
     public Button confirmEmail, goBackButton, loginButtonPressed;
+    @FXML
     public TextField  uName, email1, email2;
+    @FXML
     public PasswordField passwordField;
+    @FXML
     public Button registerButton;
+    @FXML
     public Button forgotPassword;
 
     @FXML
