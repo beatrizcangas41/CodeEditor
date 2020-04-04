@@ -8,6 +8,23 @@ public class Question {
     private static boolean questionAnswered, questionCorrect;
     public static int totalNumberOfQuestions = 0;
 
+    public Question() {
+        this.answer = null;
+        this.description = null;
+        this.solution = null;
+    }
+
+    public Question(String answer, String description, String solution) {
+        this.answer = answer;
+        this.description = description;
+        this.solution = solution;
+    }
+
+    public Question(String description, String solution) {
+        this.description = description;
+        this.solution = solution;
+    }
+
     public static int getTotalNumberOfQuestions() {
         return totalNumberOfQuestions;
     }
@@ -22,18 +39,6 @@ public class Question {
 
     public static void setQuestionCorrect(boolean questionCorrect) {
         Question.questionCorrect = questionCorrect;
-    }
-
-    public Question() {
-        this.answer = null;
-        this.description = null;
-        this.solution = null;
-    }
-
-    public Question(String answer, String description, String solution) {
-        this.answer = answer;
-        this.description = description;
-        this.solution = solution;
     }
 
     public static boolean isQuestionAnswered() {
