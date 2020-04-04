@@ -1,37 +1,8 @@
 package test_questions;
 // Questions 20 - 26
-import java.util.Scanner;
+import static util.QuestionType.*;
 
 class d_CodeEditorQuestions {
-
-    public static char TrueFalseAns() {
-        char tfans = 'A';
-
-        do{
-            Scanner tfObj = new Scanner(System.in);
-            System.out.println("Enter A for True and B for False:");
-            tfans = tfObj.next().charAt(0);
-            if(tfans != 'A' && tfans != 'a' && tfans != 'B' && tfans != 'b'){
-                System.out.println("You have entered an invalid character.  Please try again!");
-            }
-        }while(tfans != 'A' && tfans != 'a' && tfans != 'B' && tfans != 'b');
-        return tfans;
-    }
-
-    public static char MulChoiceAns(){
-        char mcans = 'A';
-        do{
-            Scanner mcObj = new Scanner(System.in);
-            System.out.println("Enter (a), (b), (c), or (d):");
-            mcans = mcObj.next().charAt(0);
-            if(mcans != 'a' && mcans != 'A' && mcans != 'b' && mcans != 'B' &&
-                    mcans != 'c' && mcans != 'C' && mcans != 'd' && mcans != 'D'){
-                System.out.println("You have entered an invalid character.  Please try again!");
-            }
-        }while(mcans != 'a' && mcans != 'A' && mcans != 'b' && mcans != 'B' &&
-                mcans != 'c' && mcans != 'C' && mcans != 'd' && mcans != 'D');
-        return mcans;
-    }
 
     static void Question20() {//20. d.All of the above
         System.out.println("\n\n20. Which of the following are the correct way(s) of incrementing the variable x by 1. " +

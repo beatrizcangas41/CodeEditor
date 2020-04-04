@@ -1,40 +1,9 @@
 package test_questions;
 // Questions 7 - 13
 
-import java.util.Scanner;
-
-import static util.dialogCreator.displayErrorDialog;
+import static util.QuestionType.*;
 
 class b_CodeEditorQuestions {
-
-    public static char TrueFalseAns() {
-        char tfans = 'T';
-        do{
-            if(tfans != 'T' && tfans != 't' && tfans != 'F' && tfans != 'f'){
-                System.out.println("You have entered an invalid character.  Please try again!");
-                displayErrorDialog("Error", "You have entered an invalid character.  Please try again!");
-            }
-            Scanner tfObj = new Scanner(System.in);
-            System.out.println("Enter T for True and F for False:");
-            tfans = tfObj.next().charAt(0);
-        }while(tfans != 'T' && tfans != 't' && tfans != 'F' && tfans != 'f');
-        return tfans;
-    }
-
-    public static char MulChoiceAns(){
-        char mcans = 'A';
-        do{
-            if(mcans != 'a' && mcans != 'A' && mcans != 'b' && mcans != 'B' &&
-                    mcans != 'c' && mcans != 'C' && mcans != 'd' && mcans != 'D'){
-                System.out.println("You have entered an invalid character.  Please try again!");
-            }
-            Scanner mcObj = new Scanner(System.in);
-            System.out.println("Enter (a), (b), (c), or (d):");
-            mcans = mcObj.next().charAt(0);
-        }while(mcans != 'a' && mcans != 'A' && mcans != 'b' && mcans != 'B' &&
-                mcans != 'c' && mcans != 'C' && mcans != 'd' && mcans != 'D');
-        return mcans;
-    }
 
     static void Question7() {//7. FALSE
         System.out.println("\n\n7. The following is an appropriate way to declare a variable as an int.\n\n" +
