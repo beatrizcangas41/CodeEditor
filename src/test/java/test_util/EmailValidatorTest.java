@@ -1,6 +1,6 @@
 package test_util;
 
-import static util.emailValidator.emailValidator;
+import static util.EmailValidator.emailValidator;
 
 public class EmailValidatorTest {
 

@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 import static database.UserDatabaseHandler.*;
-import static util.dialogCreator.displayErrorDialog;
+import static util.DialogCreator.displayErrorDialog;
 
 public class LoginScreenController {
 

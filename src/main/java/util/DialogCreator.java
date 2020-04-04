@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-public class dialogCreator {
+public class DialogCreator {
 
     public static void displayErrorDialog(String header, String message){
         Alert alert = new Alert(Alert.AlertType.ERROR);

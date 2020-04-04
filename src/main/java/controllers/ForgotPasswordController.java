@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import util.sceneChange;
+import util.SceneChange;
 
 import java.sql.*;
 
@@ -15,7 +15,7 @@ import static database.UserDatabaseHandler.addToken;
 import static database.UserDatabaseHandler.verifyUsernameAndEmail;
 import static util.JavaMail.getToken;
 import static util.JavaMail.sendMail;
-import static util.emailValidator.emailValidator;
+import static util.EmailValidator.emailValidator;
 
 public class ForgotPasswordController {
     @FXML
@@ -97,7 +97,7 @@ public class ForgotPasswordController {
 
                                 System.out.println("Confirmation Sent");
 
-                                sceneChange.sceneChangeButton("fxml/PasswordResetUI.fxml", confirmEmail);
+                                SceneChange.sceneChangeButton("fxml/PasswordResetUI.fxml", confirmEmail);
 
                             } else {
                                 System.out.print("The Email address " + emailEntered1 + " isn't valid");
@@ -128,7 +128,7 @@ public class ForgotPasswordController {
     void goBackButton(ActionEvent actionEvent) {
         System.out.println("Go Back Button Pressed");
 
-        sceneChange.sceneChangeButton("fxml/loginScreenUI.fxml", goBackButton);
+        SceneChange.sceneChangeButton("fxml/loginScreenUI.fxml", goBackButton);
     }
 
     public void loginButtonPressed(ActionEvent actionEvent) {

@@ -9,14 +9,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class sceneChange {
+public class SceneChange {
 
     public static void sceneChangeMenuButton(String fxml, MenuButton button, int width, int height) {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
 
         try {
-            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
+            Object page = FXMLLoader.load(SceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene((Parent) page, width, height);
             Stage newStage = new Stage();
@@ -35,7 +35,7 @@ public class sceneChange {
         stage.close();
 
         try {
-            Parent root = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
+            Parent root = FXMLLoader.load(SceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene(root);
             Stage newStage = new Stage();
@@ -54,7 +54,7 @@ public class sceneChange {
     public static FXMLLoader sceneChangeButtonPopup(String fxml, int width, int height) {
 
         try {
-            Object page = FXMLLoader.load(sceneChange.class.getClassLoader().getResource(fxml));
+            Object page = FXMLLoader.load(SceneChange.class.getClassLoader().getResource(fxml));
 
             Scene newScene = new Scene((Parent) page, width, height);
             Stage newStage = new Stage();
