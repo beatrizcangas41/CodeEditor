@@ -224,4 +224,16 @@ public class UserDatabaseHandler {
 
         return pstmt.executeQuery(query2);
     }
+
+    public static void updateAddress(String address, String username) throws SQLException {
+
+        String query = "UPDATE user SET address = ? where username = ?";
+        PreparedStatement pstmt1 = connection.prepareStatement(query);
+
+        pstmt1.setString(1, address);
+        pstmt1.setString(2, username);
+
+        pstmt1.execute();
+    }
+
 }
