@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Performance extends Score {
 
-    private static double performance;
+    private double performance;
     private List <Score> scores = new ArrayList<>();
     private double score;
 

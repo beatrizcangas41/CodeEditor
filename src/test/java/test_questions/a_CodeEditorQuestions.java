@@ -1,18 +1,14 @@
-package questions;
-// Questions 7 - 13
+package test_questions;
+// Questions 1 - 6
 
 import java.util.Scanner;
 
-import static util.dialogCreator.displayErrorDialog;
-
-class b_CodeEditorQuestions {
-
+public class a_CodeEditorQuestions {
     public static char TrueFalseAns() {
         char tfans = 'T';
         do{
             if(tfans != 'T' && tfans != 't' && tfans != 'F' && tfans != 'f'){
                 System.out.println("You have entered an invalid character.  Please try again!");
-                displayErrorDialog("Error", "You have entered an invalid character.  Please try again!");
             }
             Scanner tfObj = new Scanner(System.in);
             System.out.println("Enter T for True and F for False:");
@@ -36,20 +32,9 @@ class b_CodeEditorQuestions {
         return mcans;
     }
 
-    static void Question7() {//7. FALSE
-        System.out.println("\n\n7. The following is an appropriate way to declare a variable as an int.\n\n" +
-                "int main()\n" + "{\n" + "int = a;\n" + "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
-        char ans = TrueFalseAns();
-        if(ans == 'F' || ans == 'f'){
-            System.out.println("\nCorrect great job!\n\n");
-        }else{
-            System.out.println("\nSorry that is incorrect\n\n");
-        }
-    }
-
-    static void Question8() {//8. TRUE
-        System.out.println("8. The following is an appropriate way to declare a variable as an int.\n\n" +
-                "int main()\n" + "{\n" + "int a;\n" + "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
+    static void Question1() {// TRUE
+        System.out.println("\n\n1. The following is an appropriate way to print a statement\n\n" +
+                "cout << " + "\"I love C++\";");
         char ans = TrueFalseAns();
         if(ans == 'T' || ans == 't'){
             System.out.println("\nCorrect great job!\n\n");
@@ -58,8 +43,19 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question9() {//9. TRUE
-        System.out.println("9. The following is an appropriate way to declare and initialize a variable as an " +
+    static void Question2() {// TRUE
+        System.out.println("2. The following is an appropriate way to declare a variable as an int.\n\n" +
+                "int main()\n" + "{\n" + "int a;\n" + "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
+        char ans = TrueFalseAns();
+        if(ans == 'T' || ans == 't'){
+            System.out.println("\nCorrect great job!\n\n"); 
+        }else{
+            System.out.println("\nSorry that is incorrect\n\n");
+        }
+    }
+
+    static void Question3() {// TRUE
+        System.out.println("3. The following is an appropriate way to declare and initialize a variable as an " +
                 "integer.\n\n" + "int main()\n" + "{\n" + "int a = 5;\n" + "return 0;\n" + "}\n\n" + "a. True\n" +
                 "b. False\n\n");
         char ans = TrueFalseAns();
@@ -70,8 +66,8 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question10() {//10. TRUE
-        System.out.println("10. The two following codes are equivalent.\n\n" + "\tdouble a, b, c;\n\n" +
+    static void Question4() {// TRUE
+        System.out.println("4. The two following codes are equivalent.\n\n" + "\tdouble a, b, c;\n\n" +
                 "and\n\n" + "\tdouble a;\n" + "\tdouble b;\n" + "\tdouble c;\n\n" + "a. True\n" +
                 "b. False\n\n");
         char ans = TrueFalseAns();
@@ -82,8 +78,8 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question11() {//11. c. STRING
-        System.out.println("11. Which of the following is the appropriate variable type to use with the word " +
+    static void Question5() {// c. STRING
+        System.out.println("5. Which of the following is the appropriate variable type to use with the word " +
                 "“float”?\n\n" + "a. word\n" + "b. char\n" + "c. string\n" + "d. float\n\n");
         char ans = MulChoiceAns();
         if(ans == 'C' || ans == 'c'){
@@ -93,8 +89,8 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question12() {//12. d. ;
-        System.out.println("12. What is the correct statement ending character in c++?\n\n" +
+    static void Question6() {//12. d. ;
+        System.out.println("6. What is the correct statement ending character in c++?\n\n" +
                 "a. :\n" + "b. #\n" + "c. /\n" + "d. ;\n\n");
         char ans = MulChoiceAns();
         if(ans == 'D' || ans == 'd'){
@@ -104,26 +100,13 @@ class b_CodeEditorQuestions {
         }
     }
 
-    static void Question13() {//13. TRUE
-        System.out.println("13. The following code will print Arnold Schwarzenegger to the screen.\n\n" +
-                "#include <iostream>\n" + "#include <string>\n" + "using namespace std;\n" + "int main ()\n" +
-                "{\n" + "string name;\n" + "name = \"Arnold Schwarzenegger\";\n" + "cout << name;\n" +
-                "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
-        char ans = TrueFalseAns();
-        if(ans == 'T' || ans == 't'){
-            System.out.println("\nCorrect great job!\n\n");
-        }else{
-            System.out.println("\nSorry that is incorrect\n\n");
-        }
-    }
-
     public static void main(String[] args) {
-        Question7();
-        Question8();
-        Question9();
-        Question10();
-        Question11();
-        Question12();
-        Question13();
+        Question1();
+        Question2();
+        Question3();
+        Question4();
+        Question5();
+        Question6();
     }
 }
+

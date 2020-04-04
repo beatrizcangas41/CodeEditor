@@ -1,4 +1,4 @@
-package questions;
+package test_questions;
 // Questions 27 - 32
 
 import java.util.Scanner;
