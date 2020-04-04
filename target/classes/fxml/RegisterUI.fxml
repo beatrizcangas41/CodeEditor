@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0" style="-fx-border-color: #ffcc99; -fx-background-color: white;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
+
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="28.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+    </rowConstraints>
+
+    <columnConstraints>
+        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="50.0" />
+        <ColumnConstraints />
+    </columnConstraints>
+    <ImageView fitHeight="195.0" fitWidth="341.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets right="10.0" top="10.0" />
+        </GridPane.margin>
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
+    </ImageView>
+
+    <TextField fx:id="nameTextField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="name" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </TextField>
+    <TextField fx:id="emailTextField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="email address" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="8" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </TextField>
+    <TextField fx:id="emailTextField2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="email address confirmation" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+    </TextField>
+    <TextField fx:id="usernameTextField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="username" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </TextField>
+    <TextField fx:id="passwordField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </TextField>
+    <TextField fx:id="passwordField2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="password confirmation" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="16" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="50.0" right="50.0" />
+        </GridPane.margin>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </TextField>
+    <Button fx:id="cancelButtonPressed" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#cancelButtonPressed" prefWidth="155.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="GO BACK " textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="18" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Verdana Bold" size="18.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets left="50.0" right="25.0" />
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="createAccountPressed" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#createAccountPressed" prefWidth="155.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="CREATE  ACCOUNT" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="18" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Segoe UI Bold" size="18.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets left="25.0" right="50.0" />
+        </GridPane.margin>
+    </Button>
+   <TextField alignment="CENTER_RIGHT" editable="false" layoutX="66.0" layoutY="271.0" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="NAME" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6">
+      <font>
+         <Font name="Verdana Bold" size="14.0" />
+      </font>
+      <effect>
+         <ColorAdjust contrast="1.0" />
+      </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+   </TextField>
+
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="EMAIL ADDRESS" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
+        <font> <Font name="Verdana Bold" size="14.0" /> </font>
+        <effect> <ColorAdjust contrast="1.0" /> </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+    </TextField>
+
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="45.0" prefWidth="147.0" style="-fx-border-color: #ffffff;" text="CONFIRM EMAIL" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="10">
+        <font> <Font name="Verdana Bold" size="14.0" /> </font>
+        <effect> <ColorAdjust contrast="1.0" /> </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+    </TextField>
+
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="49.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="USERNAME" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="12">
+        <font> <Font name="Verdana Bold" size="14.0" /> </font>
+        <effect> <ColorAdjust contrast="1.0" /> </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+    </TextField>
+
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="PASSWORD" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="14">
+        <font> <Font name="Verdana Bold" size="14.0" /> </font>
+        <effect> <ColorAdjust contrast="1.0" /> </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+    </TextField>
+
+    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="45.0" prefWidth="147.0" style="-fx-border-color: #ffffff;" text="CONFIRM PASSWORD" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="16">
+        <font> <Font name="Verdana Bold" size="14.0" /> </font>
+        <effect> <ColorAdjust contrast="1.0" /> </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+    </TextField>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+    <opaqueInsets>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+    </opaqueInsets>
+</GridPane>
