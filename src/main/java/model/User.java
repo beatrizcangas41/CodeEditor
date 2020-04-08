@@ -20,6 +20,16 @@ public class User {
         this.address = address;
     }
 
+    public User(int userID, String name, String username, String password, String address, String email, String user_type) {
+        this.userID = userID;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+        this.user_type = user_type;
+    }
+
     public String getAddress() {
         return address;
     }
