@@ -9,8 +9,8 @@
 <?import javafx.scene.text.Font?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="1.7976931348623157E308"
           maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #ffcc99;"
-          xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.Wizard3Controller">
-
+          xmlns="http://javafx.com/javafx/11.0.1"
+          fx:controller="controllers.Wizard5Controller">
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -111,5 +111,4 @@
         </GridPane.margin>
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
-
 </GridPane>

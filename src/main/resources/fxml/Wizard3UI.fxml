@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-
-<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #ffcc99;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="1.7976931348623157E308"
+          maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #ffcc99;"
+          xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.Wizard3Controller">
 
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -42,12 +44,72 @@
         <ColumnConstraints />
     </columnConstraints>
 
-    <ImageView fitHeight="151.0" fitWidth="285.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0"
+            maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="75.0"
+            style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+            text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS"
+            GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16"
+            GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets left="5.0" right="5.0" />
+        </GridPane.margin>
+        <padding>
+            <Insets left="5.0" right="5.0" />
+        </padding>
+    </Button>
+
+    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0"
+            maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="75.0"
+            style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+            text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS"
+            GridPane.columnIndex="5" GridPane.rowIndex="16">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <padding>
+            <Insets left="5.0" right="5.0" />
+        </padding>
+        <GridPane.margin>
+            <Insets left="5.0" right="5.0" />
+        </GridPane.margin>
+    </Button>
+
+    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0"
+            maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="75.0"
+            style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );"
+            text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS"
+            GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16"
+            GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="5.0" right="5.0" />
+        </GridPane.margin>
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <padding>
+            <Insets left="5.0" right="5.0" />
+        </padding>
+    </Button>
+
+    <ImageView fitHeight="151.0" fitWidth="285.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true"
+               GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER"
+               GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
-    <fx:include source="ActionBar.fxml" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="15" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
 </GridPane>
