@@ -7,7 +7,7 @@ import util.SceneChange;
 
 import javax.annotation.PostConstruct;
 
-public class Wizard1Controller {
+public class Wizard5Controller {
 
     @FXML
     private Button nextButton, backButton, finishButton;

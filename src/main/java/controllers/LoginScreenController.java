@@ -21,16 +21,13 @@ import static util.DialogCreator.displayErrorDialog;
 
 public class LoginScreenController {
 
-    private UserDatabaseHandler userDatabaseHandler;
-    private Object userMainScreenController;
-
     @FXML private Button registerButton, loginButtonPressed, forgotPassword;
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Label lblFromController2;
 
     @FXML public void initialize() {
-        userDatabaseHandler = new UserDatabaseHandler();
+        UserDatabaseHandler userDatabaseHandler = new UserDatabaseHandler();
        // userMainScreenController = new UserMainScreenController();
     }
 
@@ -74,15 +71,16 @@ public class LoginScreenController {
                         System.out.println("User Page");
 
                         //Load second scene
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
                         Parent root = loader.load();
 
-                        userMainScreenController = loader.getController();
+                        Object userMainScreenController = loader.getController();
                         // userMainScreenController.setName(uName);
 
                         //Show scene 2 in new window
                         Stage stage = new Stage();
-                        stage.setScene(new Scene(root, 1200, 800));
+                        stage.setScene(new Scene(root));
+                        // stage.setScene(new Scene(root, 1200, 800));
                         stage.setTitle("Code Learner");
                         stage.show();
                     }

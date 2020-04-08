@@ -3,16 +3,13 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-import javax.annotation.PostConstruct;
-
-public class WizardDoneController extends AbstractWizardController {
+public class WizardDoneController {
 
     @FXML
-    private Button nextButton;
+    private Button backButton, nextButton, finishButton;
 
-    @PostConstruct
+    @FXML
     public void init() {
         nextButton.setDisable(true);
-        getFinishButton().setDisable(true);
     }
 }

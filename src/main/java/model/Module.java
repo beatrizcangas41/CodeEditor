@@ -11,7 +11,7 @@ public class Module extends Question {
     private SimpleIntegerProperty moduleID;
     public List<Question> moduleQuestions = new ArrayList<>();
 
-    public Module() {
+    public Module(String moduleName) {
         this.moduleName = null;
     }
 

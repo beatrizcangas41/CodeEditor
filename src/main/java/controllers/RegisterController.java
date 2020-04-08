@@ -68,6 +68,8 @@ public class RegisterController {
                 if (connection != null) {
                     System.out.println("Connection Successful");
 
+
+
                     try {
                         if (userExists(uName1) || verifyEmail(uName1, email1)) {
                             if (userExists(uName1) && verifyEmail(uName1, email1)) {

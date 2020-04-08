@@ -62,7 +62,7 @@ public class a_CodeEditorQuestions {
         }
     }
 
-    static void Question6() {//12. d. ;
+    static void Question6() {// d. ;
         System.out.println("6. What is the correct statement ending character in c++?\n\n" +
                 "a. :\n" + "b. #\n" + "c. /\n" + "d. ;\n\n");
         char ans = MulChoiceAns();

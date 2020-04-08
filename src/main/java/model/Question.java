@@ -4,7 +4,11 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class Question {
     private SimpleIntegerProperty questionId = new SimpleIntegerProperty();
-    private String answer, description, solution;
+    private String answer;
+    private String description;
+    private String solution;
+
+    private String question_type;
     private static boolean questionAnswered, questionCorrect;
     public static int totalNumberOfQuestions = 0;
 
@@ -23,6 +27,13 @@ public class Question {
     public Question(String description, String solution) {
         this.description = description;
         this.solution = solution;
+    }
+    public String getQuestion_type() {
+        return question_type;
+    }
+
+    public void setQuestion_type(String question_type) {
+        this.question_type = question_type;
     }
 
     public static int getTotalNumberOfQuestions() {
