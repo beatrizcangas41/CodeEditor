@@ -2,7 +2,7 @@
 package controllers;
 
 import database.DatabaseConnector;
-import database.UserDatabaseHandler;
+import database.UserDBHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,12 +16,12 @@ import util.SceneChange;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import static database.UserDatabaseHandler.*;
+import static database.UserDBHandler.*;
 import static util.EmailValidator.emailValidator;
 
 public class RegisterController {
 
-    private UserDatabaseHandler userDatabaseHandler;
+    private UserDBHandler userDBHandler;
 
     @FXML
     private Button createAccountPressed, cancelButtonPressed;
@@ -46,7 +46,7 @@ public class RegisterController {
             System.out.println("missing credentials");
 
             String message = "Something went wrong. Please verify your input(s), they may be empty. ";
-            DialogCreator.displayErrorDialog("Input not valid", message);
+            DialogCreator.displayErrorDialog("Error", "Input not valid", message);
         }
 
         else if (!name1.isEmpty() && !email1.isEmpty() && !email2.isEmpty() &&
@@ -54,12 +54,12 @@ public class RegisterController {
 
             if (!email1.equals(email2)) {
                 String message = "Email address is not a match. Please try again. ";
-                DialogCreator.displayErrorDialog("Input not valid", message);
+                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
             }
 
             else if (!pwrd1.equals(pwrd2)) {
                 String message = "Password is not a match. Please try again. ";
-                DialogCreator.displayErrorDialog("Input not valid", message);
+                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
             }
 
             else {
@@ -74,24 +74,24 @@ public class RegisterController {
                         if (userExists(uName1) || verifyEmail(uName1, email1)) {
                             if (userExists(uName1) && verifyEmail(uName1, email1)) {
                                 String message = "Username and email already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Input not valid", message);
+                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
                             }
 
                             else if (userExists(uName1)) {
                                 String message = "Username already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Input not valid", message);
+                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
                             }
 
                             else if(verifyEmail(uName1, email1)) {
                                 String message = "Email already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Input not valid", message);
+                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
                             }
                         }
 
                         else {
                             if (!emailValidator(email1)) {
                                 String message = "Invalid email, wrong format. Please try again. ";
-                                DialogCreator.displayErrorDialog("Input not valid", message);
+                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
                             }
 
                             else {

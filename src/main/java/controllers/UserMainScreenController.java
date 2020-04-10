@@ -21,7 +21,7 @@ public class UserMainScreenController {
 
     @FXML
     public void GoToModules(ActionEvent actionEvent) {
-        SceneChange.sceneChangeButton("fxml/ModulePickerScreenUI.fxml", ModulesButton);
+        SceneChange.sceneChangeButton("fxml/LanguagePickerUI.fxml", ModulesButton);
     }
 
     @FXML

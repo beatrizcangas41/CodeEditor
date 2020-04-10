@@ -11,8 +11,8 @@ import util.SceneChange;
 
 import java.sql.*;
 
-import static database.UserDatabaseHandler.addToken;
-import static database.UserDatabaseHandler.verifyUsernameAndEmail;
+import static database.UserDBHandler.addToken;
+import static database.UserDBHandler.verifyUsernameAndEmail;
 import static util.JavaMail.getToken;
 import static util.JavaMail.sendMail;
 import static util.EmailValidator.emailValidator;

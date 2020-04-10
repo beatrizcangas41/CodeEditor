@@ -7,7 +7,7 @@ import java.sql.*;
 
 import static util.JavaMail.getToken;
 
-public class UserDatabaseHandler {
+public class UserDBHandler {
     private static Connection connection = DatabaseConnector.getConnection();
 
     public static User getUserByUsername(String username) throws SQLException{

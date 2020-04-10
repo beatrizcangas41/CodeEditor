@@ -3,7 +3,7 @@ package database;
 import java.sql.*;
 import java.util.Objects;
 
-public class QuestionDatabaseHandler {
+public class QuestionDBHandler {
     private static Connection connection = DatabaseConnector.getConnection();
 
     public static ResultSet getQuestions() throws SQLException {

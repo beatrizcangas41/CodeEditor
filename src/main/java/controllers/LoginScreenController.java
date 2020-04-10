@@ -1,6 +1,6 @@
 package controllers;
 
-import database.UserDatabaseHandler;
+import database.UserDBHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 
-import static database.UserDatabaseHandler.*;
+import static database.UserDBHandler.*;
 import static util.DialogCreator.displayErrorDialog;
 
 public class LoginScreenController {
@@ -27,7 +27,7 @@ public class LoginScreenController {
     @FXML private Label lblFromController2;
 
     @FXML public void initialize() {
-        UserDatabaseHandler userDatabaseHandler = new UserDatabaseHandler();
+        UserDBHandler userDBHandler = new UserDBHandler();
        // userMainScreenController = new UserMainScreenController();
     }
 
@@ -41,7 +41,7 @@ public class LoginScreenController {
         try {
             if (userExists(uName)) {
                 if (!verifyLoginCredentials(uName, pwrd))
-                    displayErrorDialog("Input not valid", "Wrong Username or Password");
+                    displayErrorDialog("Error", "Input not valid", "Wrong Username or Password");
                 else {
                     String user_type = getUserTypeFromUsername(uName);
 
@@ -85,13 +85,13 @@ public class LoginScreenController {
                         stage.show();
                     }
 
-                    else displayErrorDialog("Error", "The user has not been classified ");
+                    else displayErrorDialog("Error", "Error", "The user has not been classified ");
                 }
             }
-            else displayErrorDialog("user does not exist", "please try again");
+            else displayErrorDialog("Error", "user does not exist", "please try again");
 
         } catch (SQLException e) {
-            displayErrorDialog("SQL Error", "Unable to verify credentials");
+            displayErrorDialog("Error", "SQL Error", "Unable to verify credentials");
         }
     }
 

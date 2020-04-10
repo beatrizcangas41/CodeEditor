@@ -11,64 +11,61 @@ public class a_CodeEditorQuestions {
         char ans = TrueFalseAns();
         if(ans == 'T' || ans == 't'){
             System.out.println("\nCorrect great job!\n\n");
-        }else{
+        } else {
             System.out.println("\nSorry that is incorrect\n\n");
         }
     }
 
     static void Question2() {// TRUE
-        System.out.println("2. The following is an appropriate way to declare a variable as an int.\n\n" +
-                "int main()\n" + "{\n" + "int a;\n" + "return 0;\n" + "}\n\n" + "a. True\n" + "b. False\n\n");
-        char ans = TrueFalseAns();
-        if(ans == 'T' || ans == 't'){
-            System.out.println("\nCorrect great job!\n\n"); 
-        }else{
-            System.out.println("\nSorry that is incorrect\n\n");
-        }
-    }
-
-    static void Question3() {// TRUE
-        System.out.println("3. The following is an appropriate way to declare and initialize a variable as an " +
-                "integer.\n\n" + "int main()\n" + "{\n" + "int a = 5;\n" + "return 0;\n" + "}\n\n" + "a. True\n" +
-                "b. False\n\n");
+        System.out.println("2. Super classes are also called Parent classes/Base classes.\n\n");
         char ans = TrueFalseAns();
         if(ans == 'T' || ans == 't'){
             System.out.println("\nCorrect great job!\n\n");
-        }else{
+        } else {
             System.out.println("\nSorry that is incorrect\n\n");
         }
     }
 
-    static void Question4() {// TRUE
-        System.out.println("4. The two following codes are equivalent.\n\n" + "\tdouble a, b, c;\n\n" +
-                "and\n\n" + "\tdouble a;\n" + "\tdouble b;\n" + "\tdouble c;\n\n" + "a. True\n" +
-                "b. False\n\n");
+    static void Question3() {// FALSE
+        System.out.println("3. The '#' is used for comments in c++");
         char ans = TrueFalseAns();
         if(ans == 'T' || ans == 't'){
             System.out.println("\nCorrect great job!\n\n");
-        }else{
+        } else {
             System.out.println("\nSorry that is incorrect\n\n");
         }
     }
 
-    static void Question5() {// c. STRING
-        System.out.println("5. Which of the following is the appropriate variable type to use with the word " +
-                "“float”?\n\n" + "a. word\n" + "b. char\n" + "c. string\n" + "d. float\n\n");
+    static void Question4() {// FALSE
+        System.out.println("4. When a loop is nested in side another loop, a break or continue statement\n" +
+                "terminates or restarts the outermost loop of the nested loop structure. ");
+        char ans = TrueFalseAns();
+        if(ans == 'T' || ans == 't'){
+            System.out.println("\nCorrect great job!\n\n");
+        } else {
+            System.out.println("\nSorry that is incorrect\n\n");
+        }
+    }
+
+    static void Question5() {// b. Operator precedence
+        System.out.println("5. Which of the following determines the operator that is processed prior to another\n" +
+                "operator? \n\n" + "a. Operator associativity \n" + "b. Operator precedence \n" + "c. Whether the operator is an arithmetic operator\n" +
+                "d. None of these determine the order in which operators are processed\n\n");
         char ans = MulChoiceAns();
         if(ans == 'C' || ans == 'c'){
             System.out.println("\nCorrect great job!\n\n");
-        }else{
+        } else {
             System.out.println("\nSorry that is incorrect\n\n");
         }
     }
 
-    static void Question6() {// d. ;
-        System.out.println("6. What is the correct statement ending character in c++?\n\n" +
-                "a. :\n" + "b. #\n" + "c. /\n" + "d. ;\n\n");
+    static void Question6() {// d. none of the above
+        System.out.println("6. A switch statement must have\n\n" +
+                "a. a default case \n" + "b. more than one non-default case\n" + "c. a break statement \n" + "d. none of the above\n\n");
         char ans = MulChoiceAns();
         if(ans == 'D' || ans == 'd'){
             System.out.println("\nCorrect great job!\n\n");
-        }else{
+        } else {
             System.out.println("\nSorry that is incorrect\n\n");
         }
     }

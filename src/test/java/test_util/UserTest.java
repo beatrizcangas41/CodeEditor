@@ -4,7 +4,7 @@ import model.User;
 
 import java.sql.SQLException;
 
-import static database.UserDatabaseHandler.*;
+import static database.UserDBHandler.*;
 
 public class UserTest {
 
