@@ -1,18 +1,16 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class WizardStartController {
-    @FXML public TextField moduleName;
-    @FXML public Button finishButton;
-    @FXML public Button backButton;
-    @FXML public Button nextButton;
 
+    @FXML private Button goBackButton, startButton;
+    @FXML private TextField moduleName;
     ModulePickerController modulePickerController;
-
 
     @FXML
     public void initialize() {
@@ -33,5 +31,12 @@ public class WizardStartController {
 
         moduleName.setText(name);
         System.out.println("text field: " + getModuleName());
+    }
+
+    public void goBackButton(ActionEvent actionEvent) {
+
+    }
+
+    public void goToQuestions(ActionEvent actionEvent) {
     }
 }

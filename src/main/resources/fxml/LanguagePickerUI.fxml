@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LanguagePickerController">
+<GridPane alignment="center" cache="true" cacheHint="QUALITY" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LanguagePickerController">
 
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="5.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="5.0" />
     </columnConstraints>
 
@@ -30,18 +30,18 @@
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="0.0" prefHeight="35.0" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="20.0" />
     </rowConstraints>
 
-    <ImageView fitHeight="150.0" fitWidth="246.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <ImageView fitHeight="156.0" fitWidth="202.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
@@ -56,7 +56,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
         <GridPane.margin>
-            <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+            <Insets bottom="5.0" left="30.0" right="20.0" top="5.0" />
         </GridPane.margin>
         <padding>
             <Insets left="5.0" right="5.0" />
@@ -71,7 +71,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
         <GridPane.margin>
-            <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            <Insets left="25.0" right="25.0" />
         </GridPane.margin>
     </Button>
     <Button fx:id="Java_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Java" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Java" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="5">
@@ -82,7 +82,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
         <GridPane.margin>
-            <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            <Insets left="25.0" right="25.0" />
         </GridPane.margin>
     </Button>
 
@@ -94,7 +94,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
         <GridPane.margin>
-            <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            <Insets left="25.0" right="25.0" />
         </GridPane.margin>
     </Button>
 
@@ -106,7 +106,7 @@
             <Cursor fx:constant="HAND" />
         </cursor>
         <GridPane.margin>
-            <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+            <Insets left="25.0" right="25.0" />
         </GridPane.margin>
     </Button>
    <Button fx:id="Swift_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="105.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Swift" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Swift" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9">
@@ -117,7 +117,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
       <GridPane.margin>
-         <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+         <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
    <Button fx:id="ObjectiveC_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#ObjectiveC" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Objective-C" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="11">
@@ -128,7 +128,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
       <GridPane.margin>
-         <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+         <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
    <Button fx:id="Ruby_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="105.0" layoutY="274.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Ruby" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Ruby" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9">
@@ -139,7 +139,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
       <GridPane.margin>
-         <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+         <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
    <Button fx:id="Python_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="274.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Python" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Python" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="7">
@@ -150,7 +150,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
       <GridPane.margin>
-         <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+         <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
 
