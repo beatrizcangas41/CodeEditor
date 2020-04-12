@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import static database.ModuleDBHandler.getModuleFromLanguageAndNumber;
-import static database.ModuleDBHandler.getModuleFromNumber;
+import static database.ModuleDBHandler.getModuleNameFromID;
 
 public class ModulePickerController {
 
@@ -31,49 +31,49 @@ public class ModulePickerController {
     }
 
     public void setButtonText(String languageName) throws SQLException {
-        if (getModuleFromLanguageAndNumber(1, languageName) != null) Module1Button.setText(getModuleFromNumber(1));
+        if (getModuleFromLanguageAndNumber(1, languageName) != null) Module1Button.setText(getModuleNameFromID(1));
         if (Module1Button.getText().contains("Module 1")) {
             Module1Button.setDisable(true);
             Module1Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(2, languageName) != null) Module2Button.setText(getModuleFromNumber(2));
+        if (getModuleFromLanguageAndNumber(2, languageName) != null) Module2Button.setText(getModuleNameFromID(2));
         if (Module2Button.getText().contains("Module 2")) {
             Module2Button.setDisable(true);
             Module2Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(3, languageName) != null) Module3Button.setText(getModuleFromNumber(3));
+        if (getModuleFromLanguageAndNumber(3, languageName) != null) Module3Button.setText(getModuleNameFromID(3));
         if (Module3Button.getText().contains("Module 3")) {
             Module3Button.setDisable(true);
             Module3Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(4, languageName) != null) Module4Button.setText(getModuleFromNumber(4));
+        if (getModuleFromLanguageAndNumber(4, languageName) != null) Module4Button.setText(getModuleNameFromID(4));
         if (Module4Button.getText().contains("Module 4")) {
             Module4Button.setDisable(true);
             Module4Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(5, languageName) != null) Module5Button.setText(getModuleFromNumber(5));
+        if (getModuleFromLanguageAndNumber(5, languageName) != null) Module5Button.setText(getModuleNameFromID(5));
         if (Module5Button.getText().contains("Module 5")) {
             Module5Button.setDisable(true);
             Module5Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(6, languageName) != null) Module6Button.setText(getModuleFromNumber(6));
+        if (getModuleFromLanguageAndNumber(6, languageName) != null) Module6Button.setText(getModuleNameFromID(6));
         if (Module6Button.getText().contains("Module 6")) {
             Module6Button.setDisable(true);
             Module6Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(7, languageName) != null) Module7Button.setText(getModuleFromNumber(7));
+        if (getModuleFromLanguageAndNumber(7, languageName) != null) Module7Button.setText(getModuleNameFromID(7));
         if (Module7Button.getText().contains("Module 7")) {
             Module7Button.setDisable(true);
             Module7Button.setText("");
         }
 
-        if (getModuleFromLanguageAndNumber(8, languageName) != null) Module8Button.setText(getModuleFromNumber(8));
+        if (getModuleFromLanguageAndNumber(8, languageName) != null) Module8Button.setText(getModuleNameFromID(8));
         if (Module8Button.getText().contains("Module 8")) {
             Module8Button.setDisable(true);
             Module8Button.setText("");
@@ -92,7 +92,7 @@ public class ModulePickerController {
         System.out.println(" (set) assign Language Name to string variable: " + languageName);
     }
 
-    public final void setModuleName(String name) throws SQLException {
+    public final void setModuleName(String name) {
         this.moduleName = name;
         System.out.println(" (set) assign Module Name to string variable: " + moduleName);
     }
@@ -130,6 +130,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -161,6 +162,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -191,6 +193,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -221,6 +224,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -251,6 +255,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -281,6 +286,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -311,6 +317,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {
@@ -341,6 +348,7 @@ public class ModulePickerController {
             stage.show();
 
             wizardStartController.setModuleName(getModuleName());
+            wizardStartController.setLanguageName(getLanguageName());
         }
 
         catch (IOException e) {

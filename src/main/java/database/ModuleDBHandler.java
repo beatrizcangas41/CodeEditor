@@ -8,15 +8,15 @@ import java.sql.Connection;
 
 public class ModuleDBHandler {
 
-    private static Connection connection = DatabaseConnector.getConnection();
+    static Connection connection = DatabaseConnector.getConnection();
 
-    public static ResultSet getModules() throws SQLException {
+    public static ResultSet getAllModules() throws SQLException {
         String query = "SELECT moduleName FROM question_module";
         PreparedStatement pstmt = ModuleDBHandler.connection.prepareStatement(query);
         return pstmt.executeQuery(query);
     }
 
-    public static String getModuleFromNumber(int moduleNumber) throws SQLException {
+    public static String getModuleNameFromID(int moduleNumber) throws SQLException {
 
         String query = "SELECT moduleName FROM module WHERE moduleID = '" + moduleNumber + "'";
         PreparedStatement pstmt = ModuleDBHandler.connection.prepareStatement(query);
@@ -28,6 +28,19 @@ public class ModuleDBHandler {
         System.out.println("query results: " + moduleName);
 
         return moduleName;
+    }
+
+    public static int getModuleIDFromName(String name) throws SQLException {
+
+        int moduleID = 0;
+
+        String query2 = "SELECT moduleID FROM module WHERE moduleName = '" + name + "'";
+        PreparedStatement pstmt2 = connection.prepareStatement(query2);
+        ResultSet results2 = pstmt2.executeQuery(query2);
+        while (results2.next()) moduleID = Integer.parseInt(results2.getString("moduleID"));
+        System.out.println("query results: " + moduleID);
+
+        return moduleID;
     }
 
     public static String getModuleFromLanguageAndNumber(int moduleNumber, String language) throws SQLException {
@@ -58,5 +71,15 @@ public class ModuleDBHandler {
         Statement s = ModuleDBHandler.connection.createStatement();
         s.executeUpdate("INSERT INTO `module` (moduleName) " +
                 "VALUES ('" + moduleName + "')");
+    }
+
+    public static void deleteModule(String moduleName) throws SQLException {
+
+        String query = "DELETE from module where moduleName = ?";
+
+        PreparedStatement preparedStmt = connection.prepareStatement(query);
+        preparedStmt.setString(1, moduleName);
+
+        preparedStmt.execute();
     }
 }

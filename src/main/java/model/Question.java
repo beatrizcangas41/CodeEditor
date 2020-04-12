@@ -1,16 +1,10 @@
 package model;
 
-import javafx.beans.property.SimpleIntegerProperty;
-
 public class Question {
-    private SimpleIntegerProperty questionId = new SimpleIntegerProperty();
-    private String answer;
-    private String description;
-    private String solution;
-
-    private String question_type;
     private static boolean questionAnswered, questionCorrect;
-    public static int totalNumberOfQuestions = 0;
+    private int questionId;
+    private static int totalNumberOfQuestions = 0;
+    private String answer, description, solution, choice_solution, question_type;
 
     public Question() {
         this.answer = null;
@@ -18,16 +12,25 @@ public class Question {
         this.solution = null;
     }
 
-    public Question(String answer, String description, String solution) {
-        this.answer = answer;
+    public Question(int questionID, String description, String questionType, String choice_solution, int moduleID, int languageID) {
+        this.questionId = questionID;
         this.description = description;
-        this.solution = solution;
+        this.question_type = questionType;
+        this.choice_solution = choice_solution;
     }
 
-    public Question(String description, String solution) {
-        this.description = description;
-        this.solution = solution;
+    public int getQuestionId() {
+        return questionId;
     }
+
+    public String getChoice_solution() {
+        return choice_solution;
+    }
+
+    public void setChoice_solution(String choice_solution) {
+        this.choice_solution = choice_solution;
+    }
+
     public String getQuestion_type() {
         return question_type;
     }
@@ -60,16 +63,12 @@ public class Question {
         Question.questionAnswered = questionAnswered;
     }
 
-    public int getQuestionId() {
-        return questionId.get();
-    }
-
-    public SimpleIntegerProperty questionIdProperty() {
+    public int questionIdProperty() {
         return questionId;
     }
 
     public void setQuestionId(int questionId) {
-        this.questionId.set(questionId);
+        this.questionId = questionId;
     }
 
     public String getAnswer() {

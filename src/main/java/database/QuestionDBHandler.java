@@ -3,20 +3,35 @@ package database;
 import java.sql.*;
 import java.util.Objects;
 
+import static database.ModuleDBHandler.getModuleIDFromName;
+import static database.ProgrammingLanguageDBHandler.getLanguageIDFromName;
+
 public class QuestionDBHandler {
     private static Connection connection = DatabaseConnector.getConnection();
 
-    public static ResultSet getQuestions() throws SQLException {
+    public static ResultSet getAllQuestions() throws SQLException {
 
         String query = "SELECT * FROM question";
         PreparedStatement pstmt = connection.prepareStatement(query);
         return pstmt.executeQuery(query);
     }
 
-    public static String getQuestionFromDescription(String description) throws SQLException {
+    public static ResultSet getQuestionFromModuleAndLanguage(String moduleName, String programmingLanguage) throws SQLException {
 
-        String formattedString = description.replace("[", "").replace("]", "");
-        //String string = formattedString.replaceAll("[\\[\\](){}]","");
+        System.out.println("lang: " + programmingLanguage + "\n" + "mod: " + moduleName);
+
+        int languageID = getLanguageIDFromName(programmingLanguage);
+        int moduleID = getModuleIDFromName(moduleName);
+
+        System.out.println("langID: " + languageID + "\n" + "modID: " + moduleID);
+
+        String query3 = "SELECT * FROM question WHERE moduleID = '" + moduleID + "' AND programming_language_ID = '" + languageID + "'";
+        PreparedStatement pstmt3 = connection.prepareStatement(query3);
+
+        return pstmt3.executeQuery(query3);
+    }
+
+    public static String getQuestionFromDescription(String description) throws SQLException {
 
         String query = "SELECT questionID FROM question where description = '" + description + "'";
         PreparedStatement pstmt = connection.prepareStatement(query);
