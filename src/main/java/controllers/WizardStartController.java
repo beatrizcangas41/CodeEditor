@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import util.SceneChange;
 
 public class WizardStartController {
 
@@ -34,7 +35,7 @@ public class WizardStartController {
     }
 
     public void goBackButton(ActionEvent actionEvent) {
-
+        SceneChange.sceneChangeButton("fxml/ModulePickerUI.fxml", goBackButton);
     }
 
     public void goToQuestions(ActionEvent actionEvent) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0" style="-fx-border-color: #ffcc99; -fx-background-color: white;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
+<GridPane alignment="center" cache="true" cacheHint="QUALITY" hgap="5.0" style="-fx-border-color: #ffcc99; -fx-background-color: white;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccountRegisterController">
 
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="10.0" />

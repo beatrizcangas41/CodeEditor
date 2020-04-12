@@ -19,7 +19,7 @@ import java.sql.Statement;
 import static database.UserDBHandler.*;
 import static util.EmailValidator.emailValidator;
 
-public class RegisterController {
+public class AccountRegisterController {
 
     private UserDBHandler userDBHandler;
 

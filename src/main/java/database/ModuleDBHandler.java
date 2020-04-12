@@ -30,6 +30,29 @@ public class ModuleDBHandler {
         return moduleName;
     }
 
+    public static String getModuleFromLanguageAndNumber(int moduleNumber, String language) throws SQLException {
+
+        System.out.println("programming language: " + language + "\n" + "Module Number: " + moduleNumber);
+
+        String query1 = "SELECT programming_language_ID FROM programming_language WHERE programming_language_name = '" + language + "'";
+        PreparedStatement pstmt1 = ModuleDBHandler.connection.prepareStatement(query1);
+        ResultSet results1 = pstmt1.executeQuery(query1);
+
+        int languageID = 0;
+        while (results1.next()) languageID = Integer.parseInt(results1.getString("programming_language_ID"));
+        System.out.println("query results: " + languageID);
+
+        String query2 = "SELECT moduleName FROM module WHERE moduleID = '" + moduleNumber + "' AND programming_language_ID = '" + languageID + "'";
+        PreparedStatement pstmt2 = ModuleDBHandler.connection.prepareStatement(query2);
+        ResultSet results2 = pstmt2.executeQuery(query2);
+
+        String moduleName = null;
+        while (results2.next()) moduleName = results2.getString("moduleName");
+        System.out.println("query results: " + moduleName);
+
+        return moduleName;
+    }
+
     public static void addModule(String moduleName) throws SQLException {
 
         Statement s = ModuleDBHandler.connection.createStatement();

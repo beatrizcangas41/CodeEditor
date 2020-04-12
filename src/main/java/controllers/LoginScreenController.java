@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import util.SceneChange;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,8 +32,7 @@ public class LoginScreenController {
        // userMainScreenController = new UserMainScreenController();
     }
 
-    @FXML
-    public void loginButtonPressed() throws IOException {
+    @FXML public void loginButtonPressed() throws IOException {
 
         String uName = usernameTextField.getText();
         String pwrd = passwordField.getText();
@@ -95,49 +95,15 @@ public class LoginScreenController {
         }
     }
 
-    @FXML
-    public void forgotPassword(ActionEvent actionEvent) throws IOException {
+    @FXML public void forgotPassword(ActionEvent actionEvent) throws IOException {
 
-        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
-        stage.close();
-
-        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/ForgotPasswordUI.fxml")));
-        Scene scene = new Scene(page, 800, 500);
-        Stage newStage = new Stage();
-        newStage.setTitle("Code Learner");
-
-        newStage.setScene(scene);
-        newStage.show();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ForgotPasswordUI.fxml"));
-        Parent root = loader.load();
-
-        /*
         System.out.println("The account page has been loaded");
-        sceneChange.sceneChangeButton("fxml/ForgotPasswordUI.fxml", registerButtonPressed);
-         */
+        SceneChange.sceneChangeButton("fxml/ForgotPasswordUI.fxml", forgotPassword);
     }
 
-    @FXML
-    public void registerButton(ActionEvent actionEvent) throws IOException {
+    @FXML public void registerButton(ActionEvent actionEvent) throws IOException {
 
-        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
-        stage.close();
-
-        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/RegisterUI.fxml")));
-        Scene scene = new Scene(page);
-        Stage newStage = new Stage();
-        newStage.setTitle("Code Learner");
-
-        newStage.setScene(scene);
-        newStage.show();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/RegisterUI.fxml"));
-        Parent root = loader.load();
-
-        /*
         System.out.println("The account page has been loaded");
-        sceneChange.sceneChangeButton("fxml/AccountScreenUI.fxml", registerButtonPressed);
-         */
+        SceneChange.sceneChangeButton("fxml/AccountRegisterUI.fxml", registerButton);
     }
 }
