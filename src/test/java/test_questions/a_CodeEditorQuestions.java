@@ -29,7 +29,7 @@ public class a_CodeEditorQuestions {
     static void Question3() {// FALSE
         System.out.println("3. The '#' is used for comments in c++");
         char ans = TrueFalseAns();
-        if(ans == 'T' || ans == 't'){
+        if(ans == 'F' || ans == 'f'){
             System.out.println("\nCorrect great job!\n\n");
         } else {
             System.out.println("\nSorry that is incorrect\n\n");
@@ -40,7 +40,7 @@ public class a_CodeEditorQuestions {
         System.out.println("4. When a loop is nested in side another loop, a break or continue statement\n" +
                 "terminates or restarts the outermost loop of the nested loop structure. ");
         char ans = TrueFalseAns();
-        if(ans == 'T' || ans == 't') {
+        if(ans == 'F' || ans == 'f'){
             System.out.println("\nCorrect great job!\n\n");
         } else {
             System.out.println("\nSorry that is incorrect\n\n");
