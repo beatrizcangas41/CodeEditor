@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import model.Question;
 
@@ -40,7 +41,11 @@ public class WizardStartController {
 
     public void setModuleName(String name) {
         System.out.println("string passed: " + name);
-        moduleName.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-text-inner-color: #3BB2B8");
+        moduleName.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-text-inner-color:  #80807E");
+        moduleName.setTextFormatter(new TextFormatter<>((change) -> {
+            change.setText(change.getText().toUpperCase());
+            return change;
+        }));
 
         if (name.equals("Hello World!, Line & Block Comments")) moduleName.setAlignment(Pos.CENTER_LEFT);
         else moduleName.setAlignment(Pos.CENTER);
@@ -113,7 +118,10 @@ public class WizardStartController {
         }
 
         String initialDescription = question.get(0).getDescription();
-        System.out.println("question: " + initialDescription);
+        String initialQuestionType = question.get(0).getQuestion_type();
+
+        System.out.println("1st question - description: " + initialDescription);
+        System.out.println("1st question - question type: " + initialQuestionType);
 
         Stage stage = (Stage) startButton.getScene().getWindow();
         stage.close();
@@ -134,6 +142,21 @@ public class WizardStartController {
             wizardController.setQuestions(question);
             wizardController.questionDescription.setText(initialDescription);
             wizardController.disableNextButton();
+            wizardController.setToggleGroup();
+            if (initialQuestionType.equals("True / False")) {
+                wizardController.radioButtonC.setDisable(true);
+                wizardController.radioButtonD.setDisable(true);
+
+                wizardController.radioButtonC.setVisible(false);
+                wizardController.radioButtonD.setVisible(false);
+            }
+            else if (initialQuestionType.equals("Multiple Choice")) {
+                wizardController.radioButtonC.setDisable(false);
+                wizardController.radioButtonD.setDisable(false);
+
+                wizardController.radioButtonC.setVisible(true);
+                wizardController.radioButtonD.setVisible(true);
+            }
         }
 
         catch (IOException e) {

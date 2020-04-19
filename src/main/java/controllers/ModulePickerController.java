@@ -25,7 +25,7 @@ public class ModulePickerController {
     @FXML private Button Module1Button, Module2Button, Module3Button, Module4Button,
             Module5Button, Module6Button, Module7Button, Module8Button, backButton;
 
-    @FXML public void initialize() throws SQLException {
+    @FXML public void initialize() {
         System.out.println("initializing");
         languagePickerController = new LanguagePickerController();
     }
@@ -34,48 +34,56 @@ public class ModulePickerController {
         if (getModuleFromLanguageAndNumber(1, languageName) != null) Module1Button.setText(getModuleNameFromID(1));
         if (Module1Button.getText().contains("Module 1")) {
             Module1Button.setDisable(true);
+            Module1Button.setVisible(false);
             Module1Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(2, languageName) != null) Module2Button.setText(getModuleNameFromID(2));
         if (Module2Button.getText().contains("Module 2")) {
             Module2Button.setDisable(true);
+            Module2Button.setVisible(false);
             Module2Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(3, languageName) != null) Module3Button.setText(getModuleNameFromID(3));
         if (Module3Button.getText().contains("Module 3")) {
             Module3Button.setDisable(true);
+            Module3Button.setVisible(false);
             Module3Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(4, languageName) != null) Module4Button.setText(getModuleNameFromID(4));
         if (Module4Button.getText().contains("Module 4")) {
             Module4Button.setDisable(true);
+            Module4Button.setVisible(false);
             Module4Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(5, languageName) != null) Module5Button.setText(getModuleNameFromID(5));
         if (Module5Button.getText().contains("Module 5")) {
             Module5Button.setDisable(true);
+            Module5Button.setVisible(false);
             Module5Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(6, languageName) != null) Module6Button.setText(getModuleNameFromID(6));
         if (Module6Button.getText().contains("Module 6")) {
             Module6Button.setDisable(true);
+            Module6Button.setVisible(false);
             Module6Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(7, languageName) != null) Module7Button.setText(getModuleNameFromID(7));
         if (Module7Button.getText().contains("Module 7")) {
             Module7Button.setDisable(true);
+            Module7Button.setVisible(false);
             Module7Button.setText("");
         }
 
         if (getModuleFromLanguageAndNumber(8, languageName) != null) Module8Button.setText(getModuleNameFromID(8));
         if (Module8Button.getText().contains("Module 8")) {
             Module8Button.setDisable(true);
+            Module8Button.setVisible(false);
             Module8Button.setText("");
         }
     }

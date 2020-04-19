@@ -27,6 +27,8 @@ public class LoginScreenController {
     @FXML private PasswordField passwordField;
     @FXML private Label lblFromController2;
 
+    AccountRegisterController accountRegisterController;
+
     @FXML public void initialize() {
         UserDBHandler userDBHandler = new UserDBHandler();
        // userMainScreenController = new UserMainScreenController();
@@ -95,15 +97,32 @@ public class LoginScreenController {
         }
     }
 
-    @FXML public void forgotPassword(ActionEvent actionEvent) throws IOException {
+    @FXML public void forgotPassword(ActionEvent actionEvent) {
 
         System.out.println("The account page has been loaded");
         SceneChange.sceneChangeButton("fxml/ForgotPasswordUI.fxml", forgotPassword);
     }
 
-    @FXML public void registerButton(ActionEvent actionEvent) throws IOException {
+    @FXML public void registerButton(ActionEvent actionEvent) {
 
         System.out.println("The account page has been loaded");
-        SceneChange.sceneChangeButton("fxml/AccountRegisterUI.fxml", registerButton);
+        Stage stage = (Stage) registerButton.getScene().getWindow();
+        stage.close();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/AccountRegisterUI.fxml"));
+            Parent parent = loader.load();
+
+            accountRegisterController = loader.getController();
+
+            Scene newScene = new Scene(parent);
+            stage.setTitle("Code Learner");
+            stage.setScene(newScene);
+            stage.show();
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

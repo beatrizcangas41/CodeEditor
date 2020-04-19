@@ -9,28 +9,23 @@ public class UserMainScreenController {
 
     @FXML public Button MyAccountButton, MyScoresButton, ModulesButton, MyPerformanceButton, LogOutButton;
 
-    @FXML
-    public void GoToMyAccount(ActionEvent actionEvent) {
+    @FXML public void GoToMyAccount(ActionEvent actionEvent) {
         // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
     }
 
-    @FXML
-    public void GoToScores(ActionEvent actionEvent) {
+    @FXML public void GoToScores(ActionEvent actionEvent) {
         // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
     }
 
-    @FXML
-    public void GoToModules(ActionEvent actionEvent) {
+    @FXML public void GoToModules(ActionEvent actionEvent) {
         SceneChange.sceneChangeButton("fxml/LanguagePickerUI.fxml", ModulesButton);
     }
 
-    @FXML
-    public void GoToPerformance(ActionEvent actionEvent) {
+    @FXML public void GoToPerformance(ActionEvent actionEvent) {
         // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
     }
 
-    @FXML
-    public void Logout(ActionEvent actionEvent) {
+    @FXML public void Logout(ActionEvent actionEvent) {
         SceneChange.sceneChangeButton("fxml/LoginScreenUI.fxml", LogOutButton);
     }
 }

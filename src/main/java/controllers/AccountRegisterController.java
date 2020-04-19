@@ -8,123 +8,122 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import util.DialogCreator;
 import util.SceneChange;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import static database.UserDBHandler.*;
+import static util.DialogCreator.displayErrorDialog;
 import static util.EmailValidator.emailValidator;
 
 public class AccountRegisterController {
 
     private UserDBHandler userDBHandler;
 
-    @FXML
-    private Button createAccountPressed, cancelButtonPressed;
+    @FXML private Button createAccountPressed, cancelButtonPressed;
+    @FXML private TextField nameTextField1, emailTextField1,
+            emailTextField2, usernameTextField1;
+    @FXML private PasswordField passwordField1, passwordField2;
 
-    @FXML
-    private TextField nameTextField1, emailTextField1, emailTextField2,
-            usernameTextField1, passwordField1, passwordField2;
+    String name1, email1, email2, uName1, pwrd1, pwrd2;
 
-    public void createAccountPressed() {
+    @FXML public void initialize() {
+        LoginScreenController loginScreenController = new LoginScreenController();
+    }
+
+    public void createAccountPressed() throws SQLException, IOException {
         Connection connection = DatabaseConnector.getConnection();
         Statement stmt2 = null;
 
-        String name1 = nameTextField1.getText();
-        String email1 = emailTextField1.getText();
-        String email2 = emailTextField2.getText();
-        String uName1 = usernameTextField1.getText();
-        String pwrd1 = passwordField1.getText();
-        String pwrd2 = passwordField2.getText();
+        if (connection != null) {
+            System.out.println("Connection Successful");
 
-        if (name1.isEmpty() || email1.isEmpty() || email2.isEmpty() ||
-                uName1.isEmpty() || pwrd1.isEmpty() || pwrd2.isEmpty()) {
-            System.out.println("missing credentials");
-
-            String message = "Something went wrong. Please verify your input(s), they may be empty. ";
-            DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-        }
-
-        else if (!name1.isEmpty() && !email1.isEmpty() && !email2.isEmpty() &&
-                !uName1.isEmpty() && !pwrd1.isEmpty() && !pwrd2.isEmpty()) {
-
-            if (!email1.equals(email2)) {
-                String message = "Email address is not a match. Please try again. ";
-                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-            }
-
-            else if (!pwrd1.equals(pwrd2)) {
-                String message = "Password is not a match. Please try again. ";
-                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-            }
-
-            else {
+            if(!hasErrors()) {
+                addUser(name1, email1, uName1, pwrd1);
                 System.out.println("Entered credentials : " + uName1 + " " + email1 + " " + name1 + " " + pwrd1);
 
-                if (connection != null) {
-                    System.out.println("Connection Successful");
+                Stage loginStage = (Stage) createAccountPressed.getScene().getWindow();
+                loginStage.close();
 
+                System.out.println("User Page");
 
-
-                    try {
-                        if (userExists(uName1) || verifyEmail(uName1, email1)) {
-                            if (userExists(uName1) && verifyEmail(uName1, email1)) {
-                                String message = "Username and email already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-                            }
-
-                            else if (userExists(uName1)) {
-                                String message = "Username already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-                            }
-
-                            else if(verifyEmail(uName1, email1)) {
-                                String message = "Email already taken. Please try again. ";
-                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-                            }
-                        }
-
-                        else {
-                            if (!emailValidator(email1)) {
-                                String message = "Invalid email, wrong format. Please try again. ";
-                                DialogCreator.displayErrorDialog("Error", "Input not valid", message);
-                            }
-
-                            else {
-
-                                addUser(name1, email1, uName1, pwrd1);
-
-                                Stage loginStage = (Stage) createAccountPressed.getScene().getWindow();
-                                loginStage.close();
-
-                                System.out.println("User Page");
-
-                                //Load second scene
-                                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LoginScreenUI.fxml"));
-                                Parent root = loader.load();
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                else {
-                    System.out.println("Connection Fails");
-                }
-
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LoginScreenUI.fxml"));
+                Parent root = loader.load();
             }
+
+        }
+
+        else {
+            System.out.println("Connection Fails");
+            String message = "Failed to Connect. Please try again. ";
+            DialogCreator.displayErrorDialog("Error", "Connection Error", message);
         }
     }
 
-    public void cancelButtonPressed(ActionEvent actionEvent) {
+    @FXML public void cancelButtonPressed(ActionEvent actionEvent) {
 
         System.out.println("Cancel Button Pressed");
 
         SceneChange.sceneChangeButton("fxml/LoginScreenUI.fxml", cancelButtonPressed);
     }
+
+    private boolean hasErrors() throws SQLException {
+
+        name1 = nameTextField1.getText();
+        email1 = emailTextField1.getText();
+        email2 = emailTextField2.getText();
+        uName1 = usernameTextField1.getText();
+        pwrd1 = passwordField1.getText();
+        pwrd2 = passwordField2.getText();
+
+        boolean hasErrors = false;
+        String errorMessage = "Please address the following error(s) before test can be run: \n";
+
+        if (name1.isEmpty() || email1.isEmpty() || email2.isEmpty() || uName1.isEmpty() || pwrd1.isEmpty() || pwrd2.isEmpty()) {
+            errorMessage += "\n    - Please verify your input(s), they may be empty. ";
+            hasErrors = true;
+        }
+
+        if (userExists(uName1)) {
+            errorMessage += "\n    - Username is already taken. ";
+            hasErrors = true;
+        }
+
+        if (verifyEmail(uName1, email1)) {
+            errorMessage += "\n    - Email is already taken. ";
+            hasErrors = true;
+        }
+
+        if (!email1.equals(email2)) {
+            errorMessage += "\n    - Email address is not a match.";
+            hasErrors = true;
+        }
+
+        if (!emailValidator(email1)) {
+            errorMessage += "\n    - Invalid email, wrong format.";
+            hasErrors = true;
+        }
+
+        if (!pwrd1.equals(pwrd2)) {
+            errorMessage += "\n    - Password is not a match. Please try again. ";
+            hasErrors = true;
+        }
+
+        if (pwrd1.length() < 8) {
+            System.out.println("pwrd1 length: " + pwrd1.length());
+            errorMessage += "\n    - Password must be at least 8 characters long. Please try again.  ";
+            hasErrors = true;
+        }
+
+        if (hasErrors) displayErrorDialog("Error", "Unable to Create your Account", errorMessage);
+        return hasErrors;
+    }
+
 }

@@ -4,12 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import model.Question;
 import util.DialogCreator;
+import util.SceneChange;
 
 import java.util.ArrayList;
 
@@ -18,7 +16,10 @@ public class WizardController {
     @FXML public TextField answerTextField, progressValue;
     @FXML public TextArea questionDescription;
     @FXML public ProgressBar progressBar;
+    @FXML public RadioButton radioButtonA, radioButtonB, radioButtonC, radioButtonD;
     @FXML private Button nextButton, backButton, finishButton;
+
+    ToggleGroup group = new ToggleGroup();
 
     ObservableList<Question> questions = FXCollections.observableArrayList();
     WizardStartController wizardStartController;
@@ -77,6 +78,13 @@ public class WizardController {
         backButton.setDisable(true);
     }
 
+    public final void setToggleGroup() {
+        radioButtonA.setToggleGroup(group);
+        radioButtonB.setToggleGroup(group);
+        radioButtonC.setToggleGroup(group);
+        radioButtonD.setToggleGroup(group);
+    }
+
     public double increasingQuestionArray() {
         return i++;
     }
@@ -98,6 +106,9 @@ public class WizardController {
             questNumber = (int) increasingQuestionArray();
             System.out.println("new question: " + i);
 
+            String questionType = questions.get(questNumber).getQuestion_type();
+            System.out.println("question type: " + questionType);
+
             backButton.setDisable(false);
 
             progressNumber = i / arraySize;
@@ -108,10 +119,27 @@ public class WizardController {
             System.out.println("Progress Number: " + progressNumber);
             System.out.println("Progress %: " + progressPercentage);
 
+
             if (questNumber < questions.size() - 1) {
                 questionDescription.setText(questions.get(questNumber).getDescription());
                 progressBar.setProgress(progressNumber);
                 progressValue.setText(percentageResult + '%');
+
+                if (questionType.equals("True / False")) {
+                    radioButtonC.setDisable(true);
+                    radioButtonD.setDisable(true);
+
+                    radioButtonC.setVisible(false);
+                    radioButtonD.setVisible(false);
+                }
+
+                else if (questionType.equals("Multiple Choice")) {
+                    radioButtonC.setDisable(false);
+                    radioButtonD.setDisable(false);
+
+                    radioButtonC.setVisible(true);
+                    radioButtonD.setVisible(true);
+                }
 
                 answerSubmitted = answerTextField.getText();
                 answerTextField.clear();
@@ -130,10 +158,39 @@ public class WizardController {
     }
 
     @FXML public void backButton(ActionEvent actionEvent) {
+        if(i == 1) backButton.setDisable(true);
+
+        else {
+            System.out.println("BACK Button Pressed");
+
+            arraySize = questions.size();
+            System.out.println("array size: " + arraySize);
+
+            System.out.println("old question: " + i);
+            questNumber = (int) decreasingQuestionArray();
+            System.out.println("new question: " + i);
+
+            progressNumber = i / arraySize;
+            progressPercentage = progressNumber * 100;
+
+            String percentageResult = String.format("%.2f", progressPercentage);
+
+            System.out.println("Progress Number: " + progressNumber);
+            System.out.println("Progress %: " + progressPercentage);
+
+            questionDescription.setText(questions.get(questNumber).getDescription());
+            progressBar.setProgress(progressNumber);
+            progressValue.setText(percentageResult + '%');
+
+            if (i == 1) backButton.setDisable(true);
+
+            answerSubmitted = answerTextField.getText();
+            answerTextField.clear();
+        }
 
     }
 
     @FXML public void finishButton(ActionEvent actionEvent) {
-
+        SceneChange.sceneChangeButton("fxml/WizardDoneUI.fxml", finishButton);
     }
 }
