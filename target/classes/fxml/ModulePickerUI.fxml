@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" cache="true" cacheHint="QUALITY" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModulePickerController">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="5.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="5.0" />
+    </columnConstraints>
+
+    <rowConstraints>
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints prefHeight="35.0" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="20.0" />
+    </rowConstraints>
+
+    <ImageView fitHeight="197.0" fitWidth="222.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets top="10.0" />
+        </GridPane.margin>
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
+    </ImageView>
+
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" cancelButton="true" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Go Back" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="15" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+        </GridPane.margin>
+        <padding>
+            <Insets left="5.0" right="5.0" />
+        </padding>
+    </Button>
+
+   <Button fx:id="Module1Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="708.0" layoutY="501.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module1" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 1" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+   <Button fx:id="Module2Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module2" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 2" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+   <Button fx:id="Module3Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module3" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 3" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+   <Button fx:id="Module4Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module4" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 4" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="13">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+   <Button fx:id="Module5Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="51.0" layoutY="190.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module5" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 5" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="7">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+    <Button fx:id="Module6Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="51.0" layoutY="424.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module6" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 6" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9">
+        <font>
+            <Font name="Verdana Bold" size="11.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets left="25.0" right="25.0" />
+        </GridPane.margin>
+    </Button>
+
+   <Button fx:id="Module7Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="51.0" layoutY="346.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module7" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 7" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="11">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+   <Button fx:id="Module8Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="405.0" layoutY="252.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module8" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 8" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="13">
+      <font>
+         <Font name="Verdana Bold" size="11.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+    <opaqueInsets>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+    </opaqueInsets>
+</GridPane>
