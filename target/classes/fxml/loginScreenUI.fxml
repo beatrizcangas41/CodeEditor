@@ -25,9 +25,9 @@
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="20.0" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="15.0" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="35.0" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="20.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
     </rowConstraints>
@@ -58,7 +58,7 @@
          <Font name="Verdana" size="14.0" />
       </font>
     </PasswordField>
-   <Button fx:id="forgotPassword" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;" text="Forgot Password ?" textFill="#1691dd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="10">
+   <Button fx:id="forgotPassword" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;" text="Forgot Password ?" textFill="#1691dd" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9">
       <font>
          <Font name="Verdana" size="14.0" />
       </font>
@@ -66,16 +66,19 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </Button>
-   <Button fx:id="registerButton" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="376.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="28.0" prefWidth="227.0" style="-fx-background-color: #ffffff;" text="Register" textFill="#1691dd" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+   <Button fx:id="registerButton" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="376.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="28.0" prefWidth="211.0" style="-fx-background-color: #ffffff;" text="REGISTER" textFill="#1691dd" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11">
       <font>
-         <Font name="Verdana" size="14.0" />
+         <Font name="Verdana Bold" size="14.0" />
       </font>
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>
+      <GridPane.margin>
+         <Insets right="15.0" />
+      </GridPane.margin>
    </Button>
 
-    <Button fx:id="loginButtonPressed" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#loginButtonPressed" prefHeight="62.0" prefWidth="207.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="LOGIN" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="10" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="loginButtonPressed" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#loginButtonPressed" prefHeight="35.0" prefWidth="333.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="LOGIN" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets />
         </GridPane.margin>

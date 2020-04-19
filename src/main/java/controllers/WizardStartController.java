@@ -133,6 +133,7 @@ public class WizardStartController {
             wizardController.setLanguageName(getLanguageName());
             wizardController.setQuestions(question);
             wizardController.questionDescription.setText(initialDescription);
+            wizardController.disableNextButton();
         }
 
         catch (IOException e) {
