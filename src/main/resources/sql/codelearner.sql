@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 19, 2020 at 05:29 AM
+-- Generation Time: Apr 19, 2020 at 11:30 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -35,8 +35,9 @@ CREATE TABLE IF NOT EXISTS `module` (
   `moduleID` int(10) NOT NULL,
   `moduleName` varchar(50) NOT NULL,
   `programming_language_ID` int(11) NOT NULL,
-  PRIMARY KEY (`moduleID`,`moduleName`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`moduleID`,`moduleName`),
+  KEY `programming_language_ID` (`programming_language_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `module`
@@ -61,8 +62,9 @@ DROP TABLE IF EXISTS `performance`;
 CREATE TABLE IF NOT EXISTS `performance` (
   `performance` double NOT NULL,
   `userID` int(10) NOT NULL,
-  PRIMARY KEY (`performance`,`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`performance`,`userID`),
+  KEY `userID` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,8 +77,9 @@ CREATE TABLE IF NOT EXISTS `programming_language` (
   `programming_language_ID` int(11) NOT NULL AUTO_INCREMENT,
   `programming_language_name` varchar(25) NOT NULL,
   `code_name` varchar(25) NOT NULL,
-  PRIMARY KEY (`programming_language_ID`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`programming_language_ID`) USING BTREE,
+  KEY `programming_language_ID` (`programming_language_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `programming_language`
@@ -87,10 +90,10 @@ INSERT INTO `programming_language` (`programming_language_ID`, `programming_lang
 (2, 'JavaScript', 'JavaScript'),
 (3, 'Ruby', 'Ruby'),
 (4, 'SQL', 'SQL'),
+(5, 'Java', 'Java'),
 (6, 'Python', 'Python'),
 (7, 'Swift', 'Swift'),
-(8, 'Objective-C', 'ObjectiveC'),
-(5, 'Java', 'Java');
+(8, 'Objective-C', 'ObjectiveC');
 
 -- --------------------------------------------------------
 
@@ -102,6 +105,10 @@ DROP TABLE IF EXISTS `question`;
 CREATE TABLE IF NOT EXISTS `question` (
   `questionID` int(10) NOT NULL AUTO_INCREMENT,
   `description` varchar(500) NOT NULL,
+  `option_A` varchar(50) NOT NULL,
+  `option_B` varchar(50) NOT NULL,
+  `option_C` varchar(50) NOT NULL,
+  `option_D` varchar(50) NOT NULL,
   `choice_solution` varchar(1) DEFAULT NULL,
   `solution` varchar(500) NOT NULL,
   `moduleID` int(10) NOT NULL,
@@ -110,50 +117,50 @@ CREATE TABLE IF NOT EXISTS `question` (
   PRIMARY KEY (`questionID`),
   KEY `moduleID` (`moduleID`),
   KEY `programming_language_ID` (`programming_language_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `question`
 --
 
-INSERT INTO `question` (`questionID`, `description`, `choice_solution`, `solution`, `moduleID`, `question_type`, `programming_language_ID`) VALUES
-(1, 'The following is an appropriate way to print a statement: cout << \"I love C++\";\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 1, 'True / False', 1),
-(8, 'The following is an appropriate way to declare a variable as an int: \r\n\r\n    int main() {\r\n        int a;\r\n        return 0;\r\n    } \r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
-(9, 'The following is an appropriate way to declare and initialize a variable as an integer:\r\n\r\nint main() {\r\n    int a = 5;\r\n}\r\n\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
-(10, 'The two following codes are equivalent:\r\n    \r\n   Code 1: double a, b, c;\r\n   \r\n   Code 2: \r\n           double a;\r\n           double b;\r\n           double c;\r\n\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
-(11, 'Which of the following is the appropriate variable type to use with the word \"float\" ? \r\n\r\n        a. Word                                                       \r\n        b. Char\r\n        c. String\r\n        d. Float', 'C', 'String', 4, 'Multiple Choice', 1),
-(7, 'The following is an appropriate way to declare a variable as an int:\r\n\r\n    int main() {\r\n        int = a;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'B', 'FALSE', 3, 'True / False', 1),
-(12, 'What is the correct statement ending character in c++?\r\n    a. :\r\n    b. #\r\n    c. /\r\n    d. ;', 'D', ';', 4, 'Multiple Choice', 1),
-(13, 'The following code will print Arnold Schwarzenegger to the screen:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n    \r\n    int main () {\r\n        string name;\r\n        name = \"Arnold Schwarzenegger\";\r\n        cout << name;\r\n        return 0;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 4, 'True / False', 1),
-(14, 'What will be the output of the following C++ code?\r\n\r\n     #include <iostream>\r\n     using namespace std;\r\n     int main() {\r\n         int i, j;\r\n         j = 10;\r\n         i = (j++, j + 100, 999 + j);\r\n         cout << i;\r\n         return 0;\r\n     }\r\n\r\n    a. 1000\r\n    b. 11\r\n    c. 1010\r\n    d. 1001\r\n', 'C', '1010', 6, 'Multiple Choice', 1),
-(15, 'What will be the output of the following C++ code?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n    int main () {\r\n        int n;\r\n\r\n        for (n = 5; n > 0; n--) {\r\n           cout << n;\r\n           if (n == 3) break;\r\n        }\r\n        \r\n        return 0;\r\n    }\r\n\r\n    a. 543\r\n    b. 54\r\n    c. 5432\r\n    d. 53\r\n', 'A', '543', 6, 'Multiple Choice', 1),
-(16, 'What will be the output of the following C++ code?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n\r\n        int main() {\r\n            int i;\r\n\r\n            for (i = 0; i < 10; i++) {\r\n                cout << i;\r\n           }\r\n        \r\n           return 0;\r\n    }\r\n\r\n    a. 0123456789\r\n    b. 10\r\n    c. 012345678910\r\n    d. compile time error\r\n', 'A', '0123456789', 6, 'Multiple Choice', 1),
-(17, 'The following code snippet will produce this result. \r\n\r\n    Code snippet:  cout << “a\\nb\\nc”;\r\n\r\n    Result:\r\n\r\n        a\r\n        b\r\n        c\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 5, 'True / False', 1),
-(18, 'Assigning a variable in c++ can be done using which of the following operators?\r\n\r\n    a. +\r\n    b. ==\r\n    c. //\r\n    d. =', 'D', '=', 6, 'Multiple Choice', 1),
-(19, 'What is the result of the following cout statement?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n\r\n        int main () {\r\n            int a = 5;\r\n            a+=3;        \r\n            cout << a;\r\n        }\r\n\r\n    a. Error\r\n    b. 5\r\n    c. 3\r\n    d. 8\r\n', 'D', '8', 7, 'Multiple Choice', 1),
-(20, 'Which of the following are the correct way(s) of incrementing the variable x by 1.  Assume the variable stores an integer value: \r\n\r\n    a. x += 1;\r\n    b. ++x;\r\n    c. x = x + 1;\r\n    d. All of the above\r\n', 'D', 'All of the above', 6, 'Multiple Choice', 1),
-(21, 'The operators ‘=’ and ‘==’ have the same meaning in c++:\r\n\r\n    a. TRUE\r\n    b. FALSE', 'B', 'FALSE', 6, 'True / False', 1),
-(22, '‘!=’ is an example of what type of operator?\r\n\r\n    a. Arithmetic\r\n    b. Assignment\r\n    c. Compound Assignment\r\n    d. Relational\r\n', 'D', 'Relational', 6, 'Multiple Choice', 1),
-(23, '‘||’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true:\r\n \r\n    a. TRUE\r\n    b. FALSE\r\n', 'B', 'FALSE', 6, 'True / False', 1),
-(24, '‘&&’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true:\r\n \r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 6, 'True / False', 1),
-(25, '‘||’ corresponds to the boolean (logical) operator OR, which yields true if either of its operands are true:\r\n \r\n    a. TRUE  \r\n    b. FALSE\r\n', 'A', 'TRUE', 6, 'True / False', 1),
-(26, 'The preprocessor directive that allows for standard input and output is:\r\n\r\n    #include iostream\r\n\r\n    a. TRUE \r\n    b. FALSE\r\n', 'B', 'FALSE', 2, 'True / False', 1),
-(27, 'The preprocessor directive that allows for standard input and output is:\r\n\r\n    #include <iostream>\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 2, 'True / False', 1),
-(28, 'Which of the following is the insertion operator?\r\n\r\n    a. >>\r\n    b. ==\r\n    c. <<\r\n    d. \\\\\r\n', 'C', '<<', 7, 'Multiple Choice', 1),
-(29, 'Which of the following is the extraction operator?\r\n\r\n    a. >>\r\n    b. ==\r\n    c. <<\r\n    d. \\\\\r\n', 'A', '>>', 7, 'Multiple Choice', 1),
-(30, 'The extraction operator is used with the standard input “cin”:\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 7, 'True / False', 1),
-(31, 'The insertion operator is used with the standard input “cin”:\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'B', 'FALSE', 7, 'True / False', 1),
-(32, 'The following code correctly accepts a user entered value into the string “hobby” and prints “Your favorite hobby is” followed by the hobby entered by the user:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n\r\n    int main () {\r\n        string hobby ;\r\n        cout << \"Please enter your favorite hobby: \";\r\n        cin >> hobby;\r\n        cout << \"Your favorite hobby is “ << hobby;\r\n        return 0;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 7, 'True / False', 1),
-(2, 'How do you create a block comment in c++?\r\n    a. //\r\n    b. /?\r\n    c. **\r\n    d. /*  */\r\n', 'D', '/*  */', 1, 'Multiple Choice', 1),
-(3, 'The \'#\' is used for comments in c++\r\n    a. T\r\n    b. F', 'B', 'FALSE', 1, 'True / False', 1),
-(34, 'Which of the following determines the operator that is processed prior to another operator? \r\n    a. Operator associativity \r\n    b. Operator precedence \r\n    c. Whether the operator is an arithmetic operator\r\n    d. None of these determine the order in which operators are processed', 'C', 'Whether the operator is an arithmetic operator', 1, 'Multiple Choice', 1),
-(33, 'When a loop is nested inside another loop, a break or continue statement terminates or restarts the outermost loop of the nested loop structure.\r\n    a. T\r\n    b. F', 'B', 'FALSE', 1, 'True / False', 1),
-(35, 'A switch statement must have\r\n    a. Default case \r\n    b. More than one non-default case\r\n    c. A break statement \r\n    d. None of the above', 'D', 'None of the above', 1, 'Multiple Choice', 1),
-(4, ' All preprocessor directives in c++ begin with “!”.\r\n    a. True\r\n    b. False\r\n', 'B', 'FALSE', 2, 'True / False', 1),
-(5, 'All preprocessor directives in c++ begin with “#”.\r\n    a. True\r\n    b. False\r\n', 'A', 'TRUE', 2, 'True / False', 1),
-(6, 'The following is an appropriate way to initialize a variable as an integer.\r\n\r\n    int main() {\r\n        a = int;\r\n    }\r\n\r\n    a. True\r\n    b. False', 'B', 'FALSE', 3, 'True / False', 1),
-(36, 'Which of the following is used as the escape character when printing a line:\r\n    \r\n    a. \'/\'\r\n    b. \'\\\'\r\n    c. \'|\'\r\n    d. \'//\'', 'B', '\'\\\'', 5, 'Multiple Choice', 1),
-(37, 'Generating a new line in c++ can be done using:\r\n\r\n    a. /n\r\n    b. \\n\r\n    c. ‘/n’\r\n    d. ‘\\n’', 'D', '‘\\n’', 5, 'Multiple Choice', 1);
+INSERT INTO `question` (`questionID`, `description`, `option_A`, `option_B`, `option_C`, `option_D`, `choice_solution`, `solution`, `moduleID`, `question_type`, `programming_language_ID`) VALUES
+(1, 'The following is an appropriate way to print a statement: cout << \"I love C++\";', 'True', 'False', '', '', 'A', 'TRUE', 1, 'True / False', 1),
+(2, 'How do you create a block comment in c++?\r\n', '//', '/?', '**', '/*  */', 'D', '/*  */', 1, 'Multiple Choice', 1),
+(3, 'The \'#\' is used for comments in c++', 'True', 'False', '', '', 'B', 'FALSE', 1, 'True / False', 1),
+(4, ' All preprocessor directives in c++ begin with “!”.', 'True', 'False', '', '', 'B', 'FALSE', 2, 'True / False', 1),
+(5, 'All preprocessor directives in c++ begin with “#”.', 'True', 'False', '', '', 'A', 'TRUE', 2, 'True / False', 1),
+(6, 'The following is an appropriate way to initialize a variable as an integer.\r\n\r\n    int main() {\r\n        a = int;\r\n    }', 'True', 'False', '', '', 'B', 'FALSE', 3, 'True / False', 1),
+(7, 'The following is an appropriate way to declare a variable as an int:\r\n\r\n    int main() {\r\n        int = a;\r\n    }', 'True', 'False', '', '', 'B', 'FALSE', 3, 'True / False', 1),
+(8, 'The following is an appropriate way to declare a variable as an int: \r\n\r\n    int main() {\r\n        int a;\r\n        return 0;\r\n    } ', 'True', 'False', '', '', 'A', 'TRUE', 3, 'True / False', 1),
+(9, 'The following is an appropriate way to declare and initialize a variable as an integer:\r\n\r\n    int main() {\r\n        int a = 5;\r\n    }', 'True', 'False', '', '', 'A', 'TRUE', 3, 'True / False', 1),
+(10, 'The two following codes are equivalent:\r\n    \r\n    Code snippet 1: double a, b, c;\r\n   \r\n    Code snippet 2: \r\n                    double a;\r\n                    double b;\r\n                    double c;', 'True', 'False', '', '', 'A', 'TRUE', 3, 'True / False', 1),
+(11, 'Which of the following is the appropriate variable type to use with the word \"float\" ?', 'Word', 'Char', 'String', 'FLoat', 'C', 'String', 4, 'Multiple Choice', 1),
+(12, 'What is the correct statement ending character in c++?', ':', '#', '/', ';', 'D', ';', 4, 'Multiple Choice', 1),
+(13, 'The following code will print Arnold Schwarzenegger to the screen:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n    \r\n    int main () {\r\n        string name;\r\n        name = \"Arnold Schwarzenegger\";\r\n        cout << name;\r\n        return 0;\r\n    }', 'True', 'False', '', '', 'A', 'TRUE', 4, 'True / False', 1),
+(14, 'What will be the output of the following C++ code?\r\n\r\n     #include <iostream>\r\n     using namespace std;\r\n     int main() {\r\n         int i, j;\r\n         j = 10;\r\n         i = (j++, j + 100, 999 + j);\r\n         cout << i;\r\n         return 0;\r\n     }', '1000', '11', '1010', '1001', 'C', '1010', 6, 'Multiple Choice', 1),
+(15, 'What will be the output of the following C++ code?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n    int main () {\r\n        int n;\r\n\r\n        for (n = 5; n > 0; n--) {\r\n           cout << n;\r\n           if (n == 3) break;\r\n        }\r\n        \r\n        return 0;\r\n    }', '543', '54', '5432', '53', 'A', '543', 6, 'Multiple Choice', 1),
+(16, 'What will be the output of the following C++ code?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n\r\n        int main() {\r\n            int i;\r\n\r\n            for (i = 0; i < 10; i++) {\r\n                cout << i;\r\n           }\r\n        \r\n           return 0;\r\n    }', '0123456789', '10', '012345678910', 'compile time error', 'A', '0123456789', 6, 'Multiple Choice', 1),
+(17, 'The following code snippet will produce this result. \r\n\r\n    Code snippet:  cout << “a\\nb\\nc”;\r\n\r\n    Result:\r\n            a\r\n            b\r\n            c', 'True', 'False', '', '', 'A', 'TRUE', 5, 'True / False', 1),
+(18, 'Assigning a variable in c++ can be done using which of the following operators?', '*', '==', '//', '=', 'D', '=', 6, 'Multiple Choice', 1),
+(19, 'What is the result of the following cout statement?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n\r\n        int main () {\r\n            int a = 5;\r\n            a+=3;        \r\n            cout << a;\r\n        }', 'Error', '5', '3', '8', 'D', '8', 7, 'Multiple Choice', 1),
+(20, 'Which of the following are the correct way(s) of incrementing the variable x by 1.  Assume the variable stores an integer value: ', 'x += 1;', '++x;', 'x = x + 1;', 'All of the above', 'D', 'All of the above', 6, 'Multiple Choice', 1),
+(21, 'The operators ‘=’ and ‘==’ have the same meaning in c++.', 'True', 'False', '', '', 'B', 'FALSE', 6, 'True / False', 1),
+(22, '‘!=’ is an example of what type of operator?', 'Arithmetic', 'Assignment', 'Compound Assignment', 'Relational', 'D', 'Relational', 6, 'Multiple Choice', 1),
+(23, '‘||’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true.', 'True', 'False', '', '', 'B', 'FALSE', 6, 'True / False', 1),
+(24, '‘&&’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true.', 'True', 'False', '', '', 'A', 'TRUE', 6, 'True / False', 1),
+(25, '‘||’ corresponds to the boolean (logical) operator OR, which yields true if either of its operands are true.', 'True', 'False', '', '', 'A', 'TRUE', 6, 'True / False', 1),
+(26, 'The preprocessor directive that allows for standard input and output is: #include iostream', 'True', 'False', '', '', 'B', 'FALSE', 2, 'True / False', 1),
+(27, 'The preprocessor directive that allows for standard input and output is: #include <iostream>', 'True', 'False', '', '', 'A', 'TRUE', 2, 'True / False', 1),
+(28, 'Which of the following is the insertion operator?', '>>', '==', '<<', '\\\\', 'C', '<<', 7, 'Multiple Choice', 1),
+(29, 'Which of the following is the extraction operator?\r\n', '>>', '==', '<<', '\\\\', 'A', '>>', 7, 'Multiple Choice', 1),
+(30, 'The extraction operator is used with the standard input “cin”', 'True', 'False', '', '', 'A', 'TRUE', 7, 'True / False', 1),
+(31, 'The insertion operator is used with the standard input “cin”', 'True', 'False', '', '', 'B', 'FALSE', 7, 'True / False', 1),
+(32, 'The following code correctly accepts a user entered value into the string “hobby” and prints “Your favorite hobby is” followed by the hobby entered by the user:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n\r\n    int main () {\r\n        string hobby ;\r\n        cout << \"Please enter your favorite hobby: \";\r\n        cin >> hobby;\r\n        cout << \"Your favorite hobby is “ << hobby;\r\n        return 0;\r\n    }', 'True', 'False', '', '', 'A', 'TRUE', 7, 'True / False', 1),
+(33, 'When a loop is nested inside another loop, a break or continue statement terminates or restarts the outermost loop of the nested loop structure.', 'True', 'False', '', '', 'B', 'FALSE', 1, 'True / False', 1),
+(34, 'Which of the following determines the operator that is processed prior to another operator? ', 'Operator associativity', 'Operator precedence', 'Whether the operator is an arithmetic operator', 'None of the Above', 'C', 'Whether the operator is an arithmetic operator', 1, 'Multiple Choice', 1),
+(35, 'A switch statement must have:', 'Default case', 'More than one non-default case', 'A break statement', 'None of the above', 'D', 'None of the above', 1, 'Multiple Choice', 1),
+(36, 'Which of the following is used as the escape character when printing a line:', '\'/\'', '\'\\\'', '\'|\'', '\'//\'', 'B', '\'\\\'', 5, 'Multiple Choice', 1),
+(37, 'Generating a new line in c++ can be done using:', '/n', '\\n', '‘/n’', '‘\\n’', 'D', '‘\\n’', 5, 'Multiple Choice', 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   UNIQUE KEY `userID` (`userID`),
   UNIQUE KEY `moduleID` (`moduleID`),
   UNIQUE KEY `user-module-ID` (`userID`,`moduleID`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(64) CHARACTER SET utf8mb4 NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -237,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`userID`, `createdOn`, `token`, `address`, `user_type`, `user_status`, `name`, `email`, `username`, `password`) VALUES
 (1, '2020-03-30 17:17:55', 'c06ea589-d704-4a96-831c-3ba4755f50bc', NULL, 'User', b'1', 'Beatriz', 'beatrizcangas41@gmail.com', 'beatriz', '$2a$10$X9NvMsPcL/1jVeDHcYC5AeTfnMU5o/e94d0qlhaXVRpTpOReDmzx.'),
-(2, '2020-04-04 19:30:55', NULL, NULL, 'User', b'1', 'asdf', 'beatrizcangas41@gmail.com', 'asdf', '$2a$10$F0XCymbScCqWfzyRkAwrNeKY1UlmFMYD1BV.5Z8DJ/eamvBxamjSq');
+(2, '2020-04-04 19:30:55', '4142842d-24ce-411d-8359-15d66490143c', NULL, 'User', b'1', 'asdf', 'beatrizcangas41@gmail.com', 'asdf', '$2a$10$rrYpRY8DEbZttOIDPbteDOwt/I2pw5imlnHlz/uDMEh7yQct4nwvy');
 
 -- --------------------------------------------------------
 
@@ -316,6 +323,36 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `user_score_performance`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `user_score_performance`  AS  select `u`.`userID` AS `userID`,`u`.`createdOn` AS `createdOn`,`u`.`token` AS `token`,`u`.`address` AS `address`,`u`.`user_type` AS `user_type`,`u`.`user_status` AS `user_status`,`u`.`name` AS `name`,`u`.`email` AS `email`,`u`.`username` AS `username`,`u`.`password` AS `password`,`s`.`score` AS `score`,`s`.`numberOfCorrectAnswers` AS `NumberOfCorrectAnswers`,`s`.`numberOfIncorrectAnswers` AS `NumberOfIncorrectAnswers`,`p`.`performance` AS `performance` from ((`user` `u` join `score` `s` on((`u`.`userID` = `s`.`userID`))) join `performance` `p` on((`u`.`userID` = `p`.`userID`))) ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `module`
+--
+ALTER TABLE `module`
+  ADD CONSTRAINT `module_ibfk_1` FOREIGN KEY (`programming_language_ID`) REFERENCES `programming_language` (`programming_language_ID`);
+
+--
+-- Constraints for table `performance`
+--
+ALTER TABLE `performance`
+  ADD CONSTRAINT `performance_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
+
+--
+-- Constraints for table `question`
+--
+ALTER TABLE `question`
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`),
+  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`programming_language_ID`) REFERENCES `programming_language` (`programming_language_ID`);
+
+--
+-- Constraints for table `score`
+--
+ALTER TABLE `score`
+  ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
+  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
