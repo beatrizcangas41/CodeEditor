@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 12, 2020 at 12:17 AM
+-- Generation Time: Apr 19, 2020 at 05:29 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -110,18 +110,18 @@ CREATE TABLE IF NOT EXISTS `question` (
   PRIMARY KEY (`questionID`),
   KEY `moduleID` (`moduleID`),
   KEY `programming_language_ID` (`programming_language_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`questionID`, `description`, `choice_solution`, `solution`, `moduleID`, `question_type`, `programming_language_ID`) VALUES
-(33, 'The following is an appropriate way to print a statement: cout << \"I love C++\";\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 1, 'True / False', 1),
+(1, 'The following is an appropriate way to print a statement: cout << \"I love C++\";\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 1, 'True / False', 1),
 (8, 'The following is an appropriate way to declare a variable as an int: \r\n\r\n    int main() {\r\n        int a;\r\n        return 0;\r\n    } \r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
 (9, 'The following is an appropriate way to declare and initialize a variable as an integer:\r\n\r\nint main() {\r\n    int a = 5;\r\n}\r\n\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
 (10, 'The two following codes are equivalent:\r\n    \r\n   Code 1: double a, b, c;\r\n   \r\n   Code 2: \r\n           double a;\r\n           double b;\r\n           double c;\r\n\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 3, 'True / False', 1),
-(11, 'Which of the following is the appropriate variable type to use with the word \"float\" ? \r\n\r\n        a. word                                                       \r\n        b. char\r\n        c. string\r\n        d. float', 'C', 'STRING', 4, 'Multiple Choice', 1),
+(11, 'Which of the following is the appropriate variable type to use with the word \"float\" ? \r\n\r\n        a. Word                                                       \r\n        b. Char\r\n        c. String\r\n        d. Float', 'C', 'String', 4, 'Multiple Choice', 1),
 (7, 'The following is an appropriate way to declare a variable as an int:\r\n\r\n    int main() {\r\n        int = a;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'B', 'FALSE', 3, 'True / False', 1),
 (12, 'What is the correct statement ending character in c++?\r\n    a. :\r\n    b. #\r\n    c. /\r\n    d. ;', 'D', ';', 4, 'Multiple Choice', 1),
 (13, 'The following code will print Arnold Schwarzenegger to the screen:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n    \r\n    int main () {\r\n        string name;\r\n        name = \"Arnold Schwarzenegger\";\r\n        cout << name;\r\n        return 0;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 4, 'True / False', 1),
@@ -131,9 +131,9 @@ INSERT INTO `question` (`questionID`, `description`, `choice_solution`, `solutio
 (17, 'The following code snippet will produce this result. \r\n\r\n    Code snippet:  cout << “a\\nb\\nc”;\r\n\r\n    Result:\r\n\r\n        a\r\n        b\r\n        c\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 5, 'True / False', 1),
 (18, 'Assigning a variable in c++ can be done using which of the following operators?\r\n\r\n    a. +\r\n    b. ==\r\n    c. //\r\n    d. =', 'D', '=', 6, 'Multiple Choice', 1),
 (19, 'What is the result of the following cout statement?\r\n\r\n    #include <iostream>\r\n    using namespace std;\r\n\r\n        int main () {\r\n            int a = 5;\r\n            a+=3;        \r\n            cout << a;\r\n        }\r\n\r\n    a. Error\r\n    b. 5\r\n    c. 3\r\n    d. 8\r\n', 'D', '8', 7, 'Multiple Choice', 1),
-(20, 'Which of the following are the correct way(s) of incrementing the variable x by 1.  Assume the variable stores an integer value: \r\n\r\n    a. x += 1;\r\n    b. ++x;\r\n    c. x = x + 1;\r\n    d. All of the above\r\n', 'D', 'ALL OF THE ABOVE', 6, 'Multiple Choice', 1),
+(20, 'Which of the following are the correct way(s) of incrementing the variable x by 1.  Assume the variable stores an integer value: \r\n\r\n    a. x += 1;\r\n    b. ++x;\r\n    c. x = x + 1;\r\n    d. All of the above\r\n', 'D', 'All of the above', 6, 'Multiple Choice', 1),
 (21, 'The operators ‘=’ and ‘==’ have the same meaning in c++:\r\n\r\n    a. TRUE\r\n    b. FALSE', 'B', 'FALSE', 6, 'True / False', 1),
-(22, '‘!=’ is an example of what type of operator?\r\n\r\n    a. Arithmetic\r\n    b. Assignment\r\n    c. Compound Assignment\r\n    d. Relational\r\n', 'D', 'RELATIONAL', 6, 'Multiple Choice', 1),
+(22, '‘!=’ is an example of what type of operator?\r\n\r\n    a. Arithmetic\r\n    b. Assignment\r\n    c. Compound Assignment\r\n    d. Relational\r\n', 'D', 'Relational', 6, 'Multiple Choice', 1),
 (23, '‘||’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true:\r\n \r\n    a. TRUE\r\n    b. FALSE\r\n', 'B', 'FALSE', 6, 'True / False', 1),
 (24, '‘&&’ corresponds to the boolean (logical) operator AND, which yields true if both its operands are true:\r\n \r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 6, 'True / False', 1),
 (25, '‘||’ corresponds to the boolean (logical) operator OR, which yields true if either of its operands are true:\r\n \r\n    a. TRUE  \r\n    b. FALSE\r\n', 'A', 'TRUE', 6, 'True / False', 1),
@@ -143,7 +143,17 @@ INSERT INTO `question` (`questionID`, `description`, `choice_solution`, `solutio
 (29, 'Which of the following is the extraction operator?\r\n\r\n    a. >>\r\n    b. ==\r\n    c. <<\r\n    d. \\\\\r\n', 'A', '>>', 7, 'Multiple Choice', 1),
 (30, 'The extraction operator is used with the standard input “cin”:\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'A', 'TRUE', 7, 'True / False', 1),
 (31, 'The insertion operator is used with the standard input “cin”:\r\n\r\n    a. TRUE\r\n    b. FALSE\r\n', 'B', 'FALSE', 7, 'True / False', 1),
-(32, 'The following code correctly accepts a user entered value into the string “hobby” and prints “Your favorite hobby is” followed by the hobby entered by the user:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n\r\n    int main () {\r\n        string hobby ;\r\n        cout << \"Please enter your favorite hobby: \";\r\n        cin >> hobby;\r\n        cout << \"Your favorite hobby is “ << hobby;\r\n        return 0;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 7, 'True / False', 1);
+(32, 'The following code correctly accepts a user entered value into the string “hobby” and prints “Your favorite hobby is” followed by the hobby entered by the user:\r\n\r\n    #include <iostream>\r\n    #include <string>\r\n    using namespace std;\r\n\r\n    int main () {\r\n        string hobby ;\r\n        cout << \"Please enter your favorite hobby: \";\r\n        cin >> hobby;\r\n        cout << \"Your favorite hobby is “ << hobby;\r\n        return 0;\r\n    }\r\n\r\n    a. TRUE\r\n    b. FALSE', 'A', 'TRUE', 7, 'True / False', 1),
+(2, 'How do you create a block comment in c++?\r\n    a. //\r\n    b. /?\r\n    c. **\r\n    d. /*  */\r\n', 'D', '/*  */', 1, 'Multiple Choice', 1),
+(3, 'The \'#\' is used for comments in c++\r\n    a. T\r\n    b. F', 'B', 'FALSE', 1, 'True / False', 1),
+(34, 'Which of the following determines the operator that is processed prior to another operator? \r\n    a. Operator associativity \r\n    b. Operator precedence \r\n    c. Whether the operator is an arithmetic operator\r\n    d. None of these determine the order in which operators are processed', 'C', 'Whether the operator is an arithmetic operator', 1, 'Multiple Choice', 1),
+(33, 'When a loop is nested inside another loop, a break or continue statement terminates or restarts the outermost loop of the nested loop structure.\r\n    a. T\r\n    b. F', 'B', 'FALSE', 1, 'True / False', 1),
+(35, 'A switch statement must have\r\n    a. Default case \r\n    b. More than one non-default case\r\n    c. A break statement \r\n    d. None of the above', 'D', 'None of the above', 1, 'Multiple Choice', 1),
+(4, ' All preprocessor directives in c++ begin with “!”.\r\n    a. True\r\n    b. False\r\n', 'B', 'FALSE', 2, 'True / False', 1),
+(5, 'All preprocessor directives in c++ begin with “#”.\r\n    a. True\r\n    b. False\r\n', 'A', 'TRUE', 2, 'True / False', 1),
+(6, 'The following is an appropriate way to initialize a variable as an integer.\r\n\r\n    int main() {\r\n        a = int;\r\n    }\r\n\r\n    a. True\r\n    b. False', 'B', 'FALSE', 3, 'True / False', 1),
+(36, 'Which of the following is used as the escape character when printing a line:\r\n    \r\n    a. \'/\'\r\n    b. \'\\\'\r\n    c. \'|\'\r\n    d. \'//\'', 'B', '\'\\\'', 5, 'Multiple Choice', 1),
+(37, 'Generating a new line in c++ can be done using:\r\n\r\n    a. /n\r\n    b. \\n\r\n    c. ‘/n’\r\n    d. ‘\\n’', 'D', '‘\\n’', 5, 'Multiple Choice', 1);
 
 -- --------------------------------------------------------
 
