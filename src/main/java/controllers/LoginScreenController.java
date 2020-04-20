@@ -28,6 +28,9 @@ public class LoginScreenController {
     @FXML private Label lblFromController2;
 
     AccountRegisterController accountRegisterController;
+    String username, password;
+
+    UserMainScreenController userMainScreenController;
 
     @FXML public void initialize() {
         UserDBHandler userDBHandler = new UserDBHandler();
@@ -36,16 +39,12 @@ public class LoginScreenController {
 
     @FXML public void loginButtonPressed() throws IOException {
 
-        String uName = usernameTextField.getText();
-        String pwrd = passwordField.getText();
-
-
         try {
-            if (userExists(uName)) {
-                if (!verifyLoginCredentials(uName, pwrd))
+            if (userExists(getUsername())) {
+                if (!verifyLoginCredentials(getUsername(), getPassword()))
                     displayErrorDialog("Error", "Input not valid", "Wrong Username or Password");
                 else {
-                    String user_type = getUserTypeFromUsername(uName);
+                    String user_type = getUserTypeFromUsername(getUsername());
 
                     if (user_type.equals("Admin")) {
                         System.out.println("Admin Page");
@@ -76,15 +75,15 @@ public class LoginScreenController {
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
                         Parent root = loader.load();
 
-                        Object userMainScreenController = loader.getController();
-                        // userMainScreenController.setName(uName);
+                        userMainScreenController = loader.getController();
 
                         //Show scene 2 in new window
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
-                        // stage.setScene(new Scene(root, 1200, 800));
                         stage.setTitle("Code Learner");
                         stage.show();
+
+                        userMainScreenController.setUsername(getUsername());
                     }
 
                     else displayErrorDialog("Error", "Error", "The user has not been classified ");
@@ -124,5 +123,28 @@ public class LoginScreenController {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public final void setUsername(String name) {
+        this.username = name;
+        System.out.println(" (set) assign Username to string variable: " + username);
+    }
+
+    public final String getUsername() {
+        username = usernameTextField.getText();
+        System.out.println("(get) username: " + username);
+        return username;
+    }
+
+    public final void setPassword(String pwrd) {
+        this.password = pwrd;
+        System.out.println(" (set) assign Password to string variable: " + password);
+    }
+
+    public final String getPassword() {
+        password = passwordField.getText();
+        System.out.println("(get) password: " + password);
+        return password;
     }
 }

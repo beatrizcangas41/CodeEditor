@@ -9,6 +9,10 @@ public class Performance extends Score {
     private List <Score> scores = new ArrayList<>();
     private double score;
 
+    public Performance(int questionId, int moduleId, int programmingLanguageId, String submittedAnswer) {
+        super(questionId, moduleId, programmingLanguageId, submittedAnswer);
+    }
+
     public double getPerformance() {
         for (Score s : scores) score = s.getScore();
         double sumOfScores = ++score;

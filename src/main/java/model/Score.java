@@ -5,18 +5,70 @@ import java.util.List;
 
 public class Score extends Question {
     private double score;
-    private int NumberOfCorrectAnswers, NumberOfIncorrectAnswers, totalNumberOfAnswers;
-    public List<Question> questions = new ArrayList<>();
 
-    public Score() {
-        this.score = 0;
-        this.NumberOfCorrectAnswers = 0;
-        this.NumberOfIncorrectAnswers = 0;
-        this.totalNumberOfAnswers = 0;
+    private int questionId, moduleId, programmingLanguageId,
+            NumberOfCorrectAnswers, NumberOfIncorrectAnswers, totalNumberOfAnswers;
+    private String submittedAnswer;
+    public List<Question> questions = new ArrayList<>();
+//    score = getNumberOfCorrectAnswers() / getTotalNumberOfQuestionsAnswered() * 100
+
+    public Score(int questionId, int moduleId, int programmingLanguageId, String submittedAnswer) {
+        this.questionId = questionId;
+        this.moduleId = moduleId;
+        this.programmingLanguageId = programmingLanguageId;
+        this.submittedAnswer = submittedAnswer;
+    }
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
+
+    public int getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(int moduleId) {
+        this.moduleId = moduleId;
+    }
+
+    public int getProgrammingLanguageId() {
+        return programmingLanguageId;
+    }
+
+    public void setProgrammingLanguageId(int programmingLanguageId) {
+        this.programmingLanguageId = programmingLanguageId;
+    }
+
+    public int getTotalNumberOfAnswers() {
+        return totalNumberOfAnswers;
+    }
+
+    public void setTotalNumberOfAnswers(int totalNumberOfAnswers) {
+        this.totalNumberOfAnswers = totalNumberOfAnswers;
+    }
+
+    public String getSubmittedAnswer() {
+        return submittedAnswer;
+    }
+
+    public void setSubmittedAnswer(String submittedAnswer) {
+        this.submittedAnswer = submittedAnswer;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
     public double getScore() {
-        return score = getNumberOfCorrectAnswers() / getTotalNumberOfQuestionsAnswered() * 100;
+        return score;
     }
 
     public void setScore(double score) {
@@ -48,5 +100,13 @@ public class Score extends Question {
 
     public void setNumberOfIncorrectAnswers(int incorrectAnswers) {
         this.NumberOfIncorrectAnswers = incorrectAnswers;
+    }
+
+    @Override
+    public String toString() {
+        return "Question #: " + questionId + "\n" +
+                "Module #: " + this.moduleId + "\n" +
+                "Programming Lang #: " + this.programmingLanguageId + "\n" +
+                "Submitted Answer: " + this.submittedAnswer + "\n\n";
     }
 }

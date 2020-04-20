@@ -28,7 +28,20 @@ public class UserDBHandler {
         return user;
     }
 
-    static User getUserByUsernameWithAddress(String username) throws SQLException{
+    public static int getUserIDByUsername(String username) throws SQLException {
+        String query1 = "SELECT userID FROM user WHERE username = '" + username + "'";
+        PreparedStatement pstmt = connection.prepareStatement(query1);
+        ResultSet results1 = pstmt.executeQuery(query1);
+
+        int userID = 0;
+
+        while (results1.next()) userID = results1.getInt("userID");
+        System.out.println("user_type: " + userID);
+
+        return userID;
+    }
+
+    public static User getUserByUsernameWithAddress(String username) throws SQLException{
         String query1 = "SELECT * FROM user WHERE username = '" + username + "'";
 
         PreparedStatement pstmt = connection.prepareStatement(query1);

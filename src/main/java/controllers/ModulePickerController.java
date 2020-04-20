@@ -17,7 +17,7 @@ import static database.ModuleDBHandler.getModuleNameFromID;
 
 public class ModulePickerController {
 
-    private String moduleName, languageName;
+    private String moduleName, languageName, username;
 
     WizardStartController wizardStartController;
     LanguagePickerController languagePickerController;
@@ -110,6 +110,16 @@ public class ModulePickerController {
         return moduleName;
     }
 
+    public final void setUsername(String name) {
+        this.username = name;
+        System.out.println(" (set) assign Username to string variable: " + username);
+    }
+
+    public final String getUsername() {
+        System.out.println("(get) username: " + username);
+        return username;
+    }
+
     @FXML public void goBack(ActionEvent actionEvent) {
         SceneChange.sceneChangeButton("fxml/LanguagePickerUI.fxml", backButton);
     }
@@ -139,6 +149,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {

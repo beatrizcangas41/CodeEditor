@@ -27,7 +27,7 @@ public class WizardStartController {
     ModulePickerController modulePickerController;
     WizardController wizardController;
 
-    String setModuleName, languageName;
+    String username, setModuleName, languageName;
 
     @FXML
     public void initialize() {
@@ -64,6 +64,16 @@ public class WizardStartController {
     public final String getLanguageName() {
         System.out.println("LPC - (get) Language Name: " + languageName);
         return languageName;
+    }
+
+    public final String getUsername() {
+        System.out.println("(get) username: " + username);
+        return username;
+    }
+
+    public final void setUsername(String name) {
+        this.username = name;
+        System.out.println(" (set) assign Username to string variable: " + username);
     }
 
     public void goBackButton(ActionEvent actionEvent) throws SQLException {
@@ -104,7 +114,7 @@ public class WizardStartController {
             System.out.println("questionNumber: " + Integer.parseInt(resultSet.getString("questionID")) + "\n" +
                     "description: " + resultSet.getString("description") + "\n" +
                     "questionType: " + resultSet.getString("question_Type") + "\n" +
-                    "choice_solution: " + resultSet.getString("choice_solution") + "\n" +
+                    "solution: " + resultSet.getString("solution") + "\n" +
                     "moduleID: " + resultSet.getString("moduleID") + "\n" +
                     "languageID: " + resultSet.getString("programming_language_ID") + "\n");
 
@@ -114,11 +124,19 @@ public class WizardStartController {
                     resultSet.getString("question_type"),
                     resultSet.getString("choice_solution"),
                     Integer.parseInt(resultSet.getString("moduleID")),
-                    Integer.parseInt(resultSet.getString("programming_language_ID"))));
+                    Integer.parseInt(resultSet.getString("programming_language_ID")),
+                    resultSet.getString("option_A"),
+                    resultSet.getString("option_B"),
+                    resultSet.getString("option_C"),
+                    resultSet.getString("option_D")));
         }
 
         String initialDescription = question.get(0).getDescription();
         String initialQuestionType = question.get(0).getQuestion_type();
+        String optionA = question.get(0).getOptionA();
+        String optionB = question.get(0).getOptionB();
+        String optionC = question.get(0).getOptionC();
+        String optionD = question.get(0).getOptionD();
 
         System.out.println("1st question - description: " + initialDescription);
         System.out.println("1st question - question type: " + initialQuestionType);
@@ -139,23 +157,28 @@ public class WizardStartController {
 
             wizardController.setModuleName(getModuleName());
             wizardController.setLanguageName(getLanguageName());
-            wizardController.setQuestions(question);
+            wizardController.setQuestions0(question);
             wizardController.questionDescription.setText(initialDescription);
+            wizardController.setUsername(getUsername());
             wizardController.disableNextButton();
             wizardController.setToggleGroup();
-            if (initialQuestionType.equals("True / False")) {
-                wizardController.radioButtonC.setDisable(true);
-                wizardController.radioButtonD.setDisable(true);
 
+            if (initialQuestionType.equals("True / False")) {
+
+                wizardController.radioButtonA.setText(optionA);
+                wizardController.radioButtonB.setText(optionB);
+
+                wizardController.radioButtonC.setDisable(true);
                 wizardController.radioButtonC.setVisible(false);
+
+                wizardController.radioButtonD.setDisable(true);
                 wizardController.radioButtonD.setVisible(false);
             }
             else if (initialQuestionType.equals("Multiple Choice")) {
-                wizardController.radioButtonC.setDisable(false);
-                wizardController.radioButtonD.setDisable(false);
-
-                wizardController.radioButtonC.setVisible(true);
-                wizardController.radioButtonD.setVisible(true);
+                wizardController.radioButtonA.setText(optionA);
+                wizardController.radioButtonB.setText(optionB);
+                wizardController.radioButtonC.setText(optionC);
+                wizardController.radioButtonD.setText(optionD);
             }
         }
 

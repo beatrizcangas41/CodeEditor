@@ -107,14 +107,6 @@
          <Insets left="50.0" />
       </GridPane.margin>
    </TextField>
-    <TextField fx:id="answerTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="choice" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-        <GridPane.margin>
-            <Insets />
-        </GridPane.margin>
-        <font>
-            <Font name="Verdana" size="14.0" />
-        </font>
-    </TextField>
    <TextArea fx:id="questionDescription" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="284.0" prefWidth="714.0" style="-fx-border-color: #ffffff;" text="Question Description Goes Here" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="6" GridPane.rowSpan="6">
       <font>
          <Font name="Verdana" size="13.0" />
@@ -126,17 +118,6 @@
          <Insets bottom="25.0" left="45.0" right="50.0" />
       </GridPane.margin>
    </TextArea>
-    <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="30.0" prefWidth="113.0" style="-fx-border-color: #ffffff;" text="Answer" GridPane.columnIndex="1" GridPane.rowIndex="14">
-        <font>
-            <Font name="Verdana Bold" size="14.0" />
-        </font>
-        <effect>
-            <ColorAdjust contrast="1.0" />
-        </effect>
-        <GridPane.margin>
-            <Insets />
-        </GridPane.margin>
-    </TextField>
    <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="24.0" prefWidth="413.0" text="A. " GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="65.0" />

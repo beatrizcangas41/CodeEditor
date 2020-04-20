@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 19, 2020 at 11:30 PM
+-- Generation Time: Apr 20, 2020 at 05:29 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -205,17 +205,34 @@ CREATE TABLE IF NOT EXISTS `question_module_language` (
 
 DROP TABLE IF EXISTS `score`;
 CREATE TABLE IF NOT EXISTS `score` (
-  `score` double NOT NULL,
-  `userID` int(11) NOT NULL,
-  `moduleID` int(11) NOT NULL,
+  `scoreID` int(11) NOT NULL AUTO_INCREMENT,
+  `score` decimal(10,2) NOT NULL,
+  `userID` int(10) NOT NULL,
+  `moduleID` int(10) NOT NULL,
+  `programming_language_ID` int(11) NOT NULL,
   `numberOfCorrectAnswers` int(11) NOT NULL,
   `numberOfIncorrectAnswers` int(11) NOT NULL,
   `totalNumberOfAnswers` int(11) NOT NULL,
-  PRIMARY KEY (`score`,`userID`,`moduleID`),
-  UNIQUE KEY `userID` (`userID`),
-  UNIQUE KEY `moduleID` (`moduleID`),
-  UNIQUE KEY `user-module-ID` (`userID`,`moduleID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`scoreID`,`score`,`userID`,`moduleID`,`programming_language_ID`) USING BTREE,
+  KEY `programming_language_ID` (`programming_language_ID`),
+  KEY `moduleID` (`moduleID`),
+  KEY `userID` (`userID`),
+  KEY `score` (`score`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `score`
+--
+
+INSERT INTO `score` (`scoreID`, `score`, `userID`, `moduleID`, `programming_language_ID`, `numberOfCorrectAnswers`, `numberOfIncorrectAnswers`, `totalNumberOfAnswers`) VALUES
+(1, '16.67', 2, 1, 1, 1, 5, 6),
+(2, '33.33', 2, 1, 1, 2, 4, 6),
+(3, '83.33', 2, 1, 1, 5, 1, 6),
+(4, '16.67', 2, 1, 1, 1, 5, 6),
+(5, '33.33', 2, 1, 1, 2, 4, 6),
+(6, '83.33', 2, 1, 1, 5, 1, 6),
+(7, '50.00', 2, 1, 1, 3, 3, 6),
+(8, '16.66', 2, 1, 1, 1, 5, 6);
 
 -- --------------------------------------------------------
 
@@ -254,9 +271,9 @@ INSERT INTO `user` (`userID`, `createdOn`, `token`, `address`, `user_type`, `use
 --
 DROP VIEW IF EXISTS `user_module_score`;
 CREATE TABLE IF NOT EXISTS `user_module_score` (
-`score` double
-,`userID` int(11)
-,`moduleID` int(11)
+`score` decimal(10,2)
+,`userID` int(10)
+,`moduleID` int(10)
 ,`numberOfCorrectAnswers` int(11)
 ,`numberOfIncorrectAnswers` int(11)
 ,`totalNumberOfAnswers` int(11)
@@ -282,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `user_score_performance` (
 ,`email` varchar(50)
 ,`username` varchar(50)
 ,`password` varchar(64)
-,`score` double
+,`score` decimal(10,2)
 ,`NumberOfCorrectAnswers` int(11)
 ,`NumberOfIncorrectAnswers` int(11)
 ,`performance` double
@@ -352,7 +369,8 @@ ALTER TABLE `question`
 --
 ALTER TABLE `score`
   ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`);
+  ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`),
+  ADD CONSTRAINT `score_ibfk_3` FOREIGN KEY (`programming_language_ID`) REFERENCES `programming_language` (`programming_language_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

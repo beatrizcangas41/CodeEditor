@@ -21,7 +21,7 @@ public class LanguagePickerController {
 
     ModulePickerController modulePickerController;
 
-    private String languageName;
+    private String languageName, username;
 
     public final void setLanguageName(String name) {
 
@@ -33,6 +33,16 @@ public class LanguagePickerController {
     public final String getLanguageName() {
         System.out.println("LPC - (get) Language Name: " + languageName);
         return languageName;
+    }
+
+    public final void setUsername(String name) {
+        this.username = name;
+        System.out.println(" (set) assign Username to string variable: " + username);
+    }
+
+    public final String getUsername() {
+        System.out.println("(get) username: " + username);
+        return username;
     }
 
     public void C_PlusPlus(ActionEvent actionEvent) throws SQLException {
@@ -58,6 +68,7 @@ public class LanguagePickerController {
             System.out.println("Setting Language Name in Module Picker: " + languageName);
             modulePickerController.setLanguageName(getLanguageName());
             modulePickerController.setButtonText(getLanguageName());
+            modulePickerController.setUsername(getUsername());
         }
 
         catch (IOException e) {
