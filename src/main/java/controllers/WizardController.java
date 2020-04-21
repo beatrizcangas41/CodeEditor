@@ -14,12 +14,13 @@ import model.Score;
 import util.DialogCreator;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static database.ModuleDBHandler.getModuleIDFromName;
 import static database.ProgrammingLanguageDBHandler.getLanguageIDFromName;
-import static database.ScoreDBHandler.addScore;
+import static database.ScoreAndPerfDBHandler.*;
 import static database.UserDBHandler.getUserIDByUsername;
 
 public class WizardController {
@@ -155,6 +156,7 @@ public class WizardController {
 
             if (questNumber < questions0.size() - 1) {
                 questionDescription.setText(questions0.get(questNumber).getDescription());
+                questionDescription.setWrapText(true);
                 progressBar.setProgress(progressNumber);
                 progressValue.setText(percentageResult + '%');
 
@@ -189,6 +191,7 @@ public class WizardController {
             else {
                 questionDescription.setText(questions0.get(questNumber).getDescription() +
                         '\n' + '\n' + "Press DONE when you are finished");
+                questionDescription.setWrapText(true);
                 progressBar.setProgress(progressNumber);
                 progressValue.setText(percentageResult + '%');
 
@@ -220,8 +223,8 @@ public class WizardController {
 
                 RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
                 answerSubmitted = selectedRadioButton.getText();
-
             }
+
             System.out.println("answer submitted: " + answerSubmitted);
             if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
             else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
@@ -232,7 +235,6 @@ public class WizardController {
 
             Toggle toggle = group.getSelectedToggle();
             group.getToggles().remove(toggle);
-
             setToggleGroup();
         }
     }
@@ -264,8 +266,9 @@ public class WizardController {
 
             if (i == 1) backButton.setDisable(true);
 
-            answerSubmitted = answerTextField.getText();
-            answerTextField.clear();
+            Toggle toggle = group.getSelectedToggle();
+            group.getToggles().remove(toggle);
+            setToggleGroup();
         }
 
     }
@@ -289,7 +292,7 @@ public class WizardController {
         System.out.println("total number of questions: " + (int) arraySize + "\n");
 
         System.out.println("score: " + score);
-        System.out.println("score %: " + "%.2f" + scorePercent + "\n");
+        System.out.println("score %: " + scorePercent + "\n");
 
         System.out.println("userName: " + getUsername());
         System.out.println("moduleName: " + getModuleName());
@@ -305,6 +308,35 @@ public class WizardController {
                 " " + languageID + " " + correctAnswers + " " + numberOfIncorrectAnswers + " " + totalNumberOfQuest);
 
         addScore(scorePercent, userID, moduleID, languageID, correctAnswers, numberOfIncorrectAnswers, totalNumberOfQuest);
+
+        ResultSet resultSet = getScoresOfUser(userID);
+        ArrayList<Double> scores1 = new ArrayList<>();
+        double performance = 0;
+
+        while (resultSet.next()) scores1.add(resultSet.getDouble("score"));
+        System.out.println("scores: " + scores1);
+
+        for (int a = 0; a < scores1.size(); a++) {
+            System.out.println("a: " + a);
+            System.out.println("scores1.get(a): " + scores1.get(a));
+            performance = performance + scores1.get(a);
+            System.out.println("perf sum: " + performance);
+        }
+
+        performance = (performance / scores1.size());
+        System.out.println("perf avg: " + performance);
+
+        String perfResult = String.format("%.2f", performance);
+
+        if (checkIfUserExistsInPerformance(userID)) {
+            System.out.println("user exists - UPDATE");
+            updatePerformance(performance, userID);
+        }
+
+        else {
+            System.out.println("user does NOT exist - CREATE");
+            addPerformance(performance, userID);
+        }
 
         Stage stage = (Stage) finishButton.getScene().getWindow();
         stage.close();
@@ -322,8 +354,7 @@ public class WizardController {
 
             System.out.println("score: " + scorePercentage);
             wizardDoneController.setText("SCORE: " + scorePercentage + " %\n\n" +
-                                         "PERFORMANCE: " + scorePercentage + " %");
-
+                                         "PERFORMANCE: " + perfResult + " %");
         }
 
         catch (IOException e) {

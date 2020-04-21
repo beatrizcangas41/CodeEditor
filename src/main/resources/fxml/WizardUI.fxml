@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #ffcc99;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WizardController">
+<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: #ffcc99;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WizardController">
 
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -29,34 +29,36 @@
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="25.0" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="25.0" />
     </rowConstraints>
 
     <columnConstraints>
         <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="40.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="120.0" />
-        <ColumnConstraints minWidth="10.0" prefWidth="120.0" />
-        <ColumnConstraints minWidth="10.0" prefWidth="120.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="40.0" />
         <ColumnConstraints />
     </columnConstraints>
 
 
-    <ImageView fitHeight="107.0" fitWidth="136.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+    <ImageView fitHeight="107.0" fitWidth="136.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets right="10.0" top="10.0" />
         </GridPane.margin>
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
-    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <font>
             <Font name="Verdana Bold" size="13.0" />
         </font>
@@ -68,7 +70,7 @@
         </GridPane.margin>
     </Button>
 
-    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#nextButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
+    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#nextButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
         <font>
             <Font name="Verdana Bold" size="13.0" />
         </font>
@@ -80,7 +82,7 @@
         </GridPane.margin>
     </Button>
 
-    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#finishButton" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#finishButton" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets left="15.0" />
         </GridPane.margin>
@@ -91,12 +93,12 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-   <ProgressBar fx:id="progressBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="575.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <ProgressBar fx:id="progressBar" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="835.0" progress="0.0" GridPane.columnIndex="1" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
-         <Insets left="20.0" />
+         <Insets left="50.0" right="30.0" />
       </GridPane.margin>
    </ProgressBar>
-   <TextField fx:id="progressValue" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="40.0" prefWidth="243.0" style="-fx-border-color: #ffffff;" text="0 %" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <TextField fx:id="progressValue" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="40.0" prefWidth="243.0" style="-fx-border-color: #ffffff;" text="0 %" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <font>
          <Font name="Verdana Bold" size="14.0" />
       </font>
@@ -107,7 +109,7 @@
          <Insets left="10.0" />
       </GridPane.margin>
    </TextField>
-   <TextArea fx:id="questionDescription" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="284.0" prefWidth="714.0" style="-fx-border-color: #ffffff;" text="Question Description Goes Here" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="6" GridPane.rowSpan="6">
+   <TextArea fx:id="questionDescription" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="284.0" prefWidth="714.0" style="-fx-border-color: #ffffff;" text="Question Description Goes Here" GridPane.columnIndex="1" GridPane.columnSpan="8" GridPane.rowIndex="6" GridPane.rowSpan="6">
       <font>
          <Font name="Verdana" size="13.0" />
       </font>
@@ -118,22 +120,22 @@
          <Insets bottom="25.0" left="45.0" right="50.0" />
       </GridPane.margin>
    </TextArea>
-   <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="24.0" prefWidth="413.0" text="A. " GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="24.0" prefWidth="413.0" text="A. " GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="65.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="403.0" text="C. " GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="403.0" text="C. " GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="65.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="347.0" text="B. " GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="347.0" text="B. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="50.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="367.0" text="D. " GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="367.0" text="D. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="50.0" />
       </GridPane.margin>

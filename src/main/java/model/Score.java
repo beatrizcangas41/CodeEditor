@@ -12,6 +12,10 @@ public class Score extends Question {
     public List<Question> questions = new ArrayList<>();
 //    score = getNumberOfCorrectAnswers() / getTotalNumberOfQuestionsAnswered() * 100
 
+    public Score(int score) {
+        this.score = score;
+    }
+
     public Score(int questionId, int moduleId, int programmingLanguageId, String submittedAnswer) {
         this.questionId = questionId;
         this.moduleId = moduleId;
