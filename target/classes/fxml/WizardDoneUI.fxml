@@ -21,14 +21,12 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="45.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="45.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="45.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="45.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="45.0" />
         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="10.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" />
@@ -37,17 +35,39 @@
 
     <columnConstraints>
         <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="50.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="110.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="110.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="110.0" />
-        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="110.0" />
-        <ColumnConstraints minWidth="10.0" prefWidth="110.0" />
-        <ColumnConstraints minWidth="10.0" prefWidth="110.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="25.0" />
         <ColumnConstraints />
     </columnConstraints>
 
-    <TextArea fx:id="questionDescription" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="284.0" prefWidth="714.0" style="-fx-border-color: #ffffff;" text="Results" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="6" GridPane.rowSpan="6">
+    <ImageView fitHeight="138.0" fitWidth="171.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets right="10.0" top="10.0" />
+        </GridPane.margin>
+        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
+    </ImageView>
+
+    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#finishButton" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <GridPane.margin>
+            <Insets left="5.0" right="5.0" />
+        </GridPane.margin>
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <padding>
+            <Insets left="5.0" right="5.0" />
+        </padding>
+    </Button>
+
+    <TextArea fx:id="questionDescription" editable="false" layoutX="61.0" layoutY="159.0" prefHeight="284.0" prefWidth="714.0" style="-fx-border-color: #ffffff;" text="Results" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="5" GridPane.rowSpan="7">
         <font>
             <Font name="Verdana" size="24.0" />
         </font>
@@ -58,57 +78,5 @@
             <Insets bottom="25.0" left="45.0" right="50.0" />
         </GridPane.margin>
     </TextArea>
-
-    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets left="5.0" right="5.0" />
-        </GridPane.margin>
-        <padding>
-            <Insets left="5.0" right="5.0" />
-        </padding>
-    </Button>
-
-    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" disable="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.rowIndex="16">
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <padding>
-            <Insets left="5.0" right="5.0" />
-        </padding>
-        <GridPane.margin>
-            <Insets left="5.0" right="5.0" />
-        </GridPane.margin>
-    </Button>
-
-    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-        <GridPane.margin>
-            <Insets left="5.0" right="5.0" />
-        </GridPane.margin>
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <padding>
-            <Insets left="5.0" right="5.0" />
-        </padding>
-    </Button>
-
-    <ImageView fitHeight="151.0" fitWidth="285.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
-        <GridPane.margin>
-            <Insets right="10.0" top="10.0" />
-        </GridPane.margin>
-        <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
-    </ImageView>
 
 </GridPane>

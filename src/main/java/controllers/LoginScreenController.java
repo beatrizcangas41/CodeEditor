@@ -128,7 +128,7 @@ public class LoginScreenController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public final String getUsername() {
@@ -139,7 +139,7 @@ public class LoginScreenController {
 
     public final void setPassword(String pwrd) {
         this.password = pwrd;
-        System.out.println(" (set) assign Password to string variable: " + password);
+        System.out.println("(set) assign Password to string variable: " + password);
     }
 
     public final String getPassword() {

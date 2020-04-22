@@ -58,7 +58,7 @@ public class WizardStartController {
 
         this.languageName = name;
         // moduleName = Module1Button.getText();
-        System.out.println(" (set) assign Language Name to string variable: " + languageName);
+        System.out.println("(set) assign Language Name to string variable: " + languageName);
     }
 
     public final String getLanguageName() {
@@ -73,7 +73,7 @@ public class WizardStartController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public void goBackButton(ActionEvent actionEvent) throws SQLException {
@@ -162,6 +162,7 @@ public class WizardStartController {
             wizardController.setUsername(getUsername());
             wizardController.disableNextButton();
             wizardController.setToggleGroup();
+            wizardController.setQuestNumber(1);
 
             if (initialQuestionType.equals("True / False")) {
 

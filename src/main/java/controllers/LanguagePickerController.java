@@ -27,7 +27,7 @@ public class LanguagePickerController {
 
         this.languageName = name;
         // moduleName = Module1Button.getText();
-        System.out.println(" (set) assign Language Name to string variable: " + languageName);
+        System.out.println("(set) assign Language Name to string variable: " + languageName);
     }
 
     public final String getLanguageName() {
@@ -37,7 +37,7 @@ public class LanguagePickerController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public final String getUsername() {

@@ -97,12 +97,12 @@ public class ModulePickerController {
         System.out.println("string passed: " + name);
         // languageName = name;
         this.languageName = name;
-        System.out.println(" (set) assign Language Name to string variable: " + languageName);
+        System.out.println("(set) assign Language Name to string variable: " + languageName);
     }
 
     public final void setModuleName(String name) {
         this.moduleName = name;
-        System.out.println(" (set) assign Module Name to string variable: " + moduleName);
+        System.out.println("(set) assign Module Name to string variable: " + moduleName);
     }
 
     public final String getModuleName() {
@@ -112,7 +112,7 @@ public class ModulePickerController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public final String getUsername() {
@@ -182,6 +182,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -213,6 +214,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -244,6 +246,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -275,6 +278,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -306,6 +310,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -337,6 +342,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {
@@ -368,6 +374,7 @@ public class ModulePickerController {
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
+            wizardStartController.setUsername(getUsername());
         }
 
         catch (IOException e) {

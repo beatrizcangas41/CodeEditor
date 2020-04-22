@@ -61,7 +61,7 @@ public class UserMainScreenController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public final String getUsername() {

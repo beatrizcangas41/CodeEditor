@@ -41,12 +41,12 @@ public class WizardController {
 
     String username, moduleName, languageName, answerSubmitted, scorePercentage;
     ArrayList<String> answers;
-    double progressNumber, progressPercentage, arraySize, i = 1;
+    double progressNumber, progressPercentage, arraySize;
     double numberOfCorrectAnswers = 0, score, scorePercent;
-    int questNumber;
-    String letterChoice = null;
+    int questNumber, arrayNumber;
+    String letterChoice = null, questionType;
 
-    @FXML public void initialize()  {
+    @FXML public void initialize() {
         wizardStartController = new WizardStartController();
         System.out.println("language: " + languageName + "\n" + "module: " + moduleName);
     }
@@ -71,7 +71,7 @@ public class WizardController {
 
         this.languageName = name;
         // moduleName = Module1Button.getText();
-        System.out.println(" (set) assign Language Name to string variable: " + languageName);
+        System.out.println("(set) assign Language Name to string variable: " + languageName);
     }
 
     public final String getLanguageName() {
@@ -79,9 +79,21 @@ public class WizardController {
         return languageName;
     }
 
+    public final void setQuestNumber(int questNumber) {
+
+        this.questNumber = questNumber;
+        // moduleName = Module1Button.getText();
+        System.out.println("(set) assign Quest #: " + questNumber);
+    }
+
+    public final int getQuestNumber() {
+        System.out.println("(get) Quest #: " + questNumber);
+        return questNumber;
+    }
+
     public final void setModuleName(String name) {
         this.moduleName = name;
-        System.out.println(" (set) assign Module Name to string variable: " + moduleName);
+        System.out.println("(set) assign Module Name to string variable: " + moduleName);
     }
 
     public final String getModuleName() {
@@ -91,7 +103,7 @@ public class WizardController {
 
     public final void setUsername(String name) {
         this.username = name;
-        System.out.println(" (set) assign Username to string variable: " + username);
+        System.out.println("(set) assign Username to string variable: " + username);
     }
 
     public final String getUsername() {
@@ -111,119 +123,90 @@ public class WizardController {
         radioButtonD.setToggleGroup(group);
     }
 
-    public double increasingQuestionArray() {
-        return i++;
+    public void deselectAllToggleGroup() {
+        radioButtonA.setSelected(false);
+        radioButtonB.setSelected(false);
+        radioButtonC.setSelected(false);
+        radioButtonD.setSelected(false);
+//      Toggle toggle = group.getSelectedToggle();
+//      group.getToggles().remove(toggle);
     }
-
-    public double decreasingQuestionArray() { return i--; }
 
     @FXML public void nextButton(ActionEvent actionEvent) throws SQLException {
 
-        if(group.getSelectedToggle() == null)
-            DialogCreator.displayErrorDialog("Answer missing", "No Answer has been Provided" , "Please try again");
+        if (group.getSelectedToggle() == null)
+            DialogCreator.displayErrorDialog("Answer missing", "No Answer has been Provided", "Please try again");
 
         else {
             System.out.println("NEXT Button Pressed");
 
             arraySize = questions0.size();
             System.out.println("array size: " + arraySize);
+            System.out.println("old question: " + questNumber);
+            questNumber++;
+            System.out.println("new question: " + questNumber);
+            arrayNumber = questNumber - 1;
 
-            System.out.println("old question: " + i);
-            questNumber = (int) increasingQuestionArray();
-            System.out.println("new question: " + i);
-            int j = (int) i;
+            if (questNumber > 1 && questNumber < arraySize) {
+                nextButton.setDisable(false);
+                backButton.setDisable(false);
+            }
+            else if (questNumber == 1) backButton.setDisable(true);
+            else if (questNumber == arraySize) nextButton.setDisable(true);
 
-            String questionType = questions0.get(questNumber).getQuestion_type();
+            questionType = questions0.get(arrayNumber).getQuestion_type();
             System.out.println("question type: " + questionType);
 
-            backButton.setDisable(false);
-
-            progressNumber = i / arraySize;
+            progressNumber = questNumber / arraySize;
             progressPercentage = progressNumber * 100;
 
             String percentageResult = String.format("%.2f", progressPercentage);
-
-            System.out.println("Progress Number: " + progressNumber);
             System.out.println("Progress %: " + progressPercentage);
 
-            String optionA = questions0.get(questNumber).getOptionA();
-            String optionB = questions0.get(questNumber).getOptionB();
-            String optionC = questions0.get(questNumber).getOptionC();
-            String optionD = questions0.get(questNumber).getOptionD();
-
-            int moduleID = getModuleIDFromName(getModuleName());
-            int languageID = getLanguageIDFromName(getLanguageName());
-
-            if (questNumber < questions0.size() - 1) {
-                questionDescription.setText(questions0.get(questNumber).getDescription());
-                questionDescription.setWrapText(true);
-                progressBar.setProgress(progressNumber);
-                progressValue.setText(percentageResult + '%');
-
-                if (questionType.equals("True / False")) {
-                    radioButtonC.setDisable(true);
-                    radioButtonD.setDisable(true);
-
-                    radioButtonC.setVisible(false);
-                    radioButtonD.setVisible(false);
-
-                    radioButtonA.setText(optionA);
-                    radioButtonB.setText(optionB);
-                }
-                else if (questionType.equals("Multiple Choice")) {
-                    radioButtonC.setDisable(false);
-                    radioButtonD.setDisable(false);
-
-                    radioButtonC.setVisible(true);
-                    radioButtonD.setVisible(true);
-
-                    radioButtonA.setText(optionA);
-                    radioButtonB.setText(optionB);
-                    radioButtonC.setText(optionC);
-                    radioButtonD.setText(optionD);
-                }
-
-                RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
-                answerSubmitted = selectedRadioButton.getText();
-
-            }
-
-            else {
-                questionDescription.setText(questions0.get(questNumber).getDescription() +
+            if (questNumber < questions0.size()) questionDescription.setText(questions0.get(arrayNumber).getDescription());
+            else if (questNumber == questions0.size()) {
+                questionDescription.setText(questions0.get(arrayNumber).getDescription() +
                         '\n' + '\n' + "Press DONE when you are finished");
-                questionDescription.setWrapText(true);
-                progressBar.setProgress(progressNumber);
-                progressValue.setText(percentageResult + '%');
 
                 finishButton.setDisable(false);
                 nextButton.setDisable(true);
-
-                if (questionType.equals("True / False")) {
-                    radioButtonC.setDisable(true);
-                    radioButtonD.setDisable(true);
-
-                    radioButtonC.setVisible(false);
-                    radioButtonD.setVisible(false);
-
-                    radioButtonA.setText(optionA);
-                    radioButtonB.setText(optionB);
-                }
-                else if (questionType.equals("Multiple Choice")) {
-                    radioButtonC.setDisable(false);
-                    radioButtonD.setDisable(false);
-
-                    radioButtonC.setVisible(true);
-                    radioButtonD.setVisible(true);
-
-                    radioButtonA.setText(optionA);
-                    radioButtonB.setText(optionB);
-                    radioButtonC.setText(optionC);
-                    radioButtonD.setText(optionD);
-                }
-
-                RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
-                answerSubmitted = selectedRadioButton.getText();
             }
+
+            questionDescription.setWrapText(true);
+            progressBar.setProgress(progressNumber);
+            progressValue.setText(percentageResult + '%');
+
+            setToggleGroup();
+            String optionA = questions0.get(arrayNumber).getOptionA(),
+                    optionB = questions0.get(arrayNumber).getOptionB(),
+                    optionC = questions0.get(arrayNumber).getOptionC(),
+                    optionD = questions0.get(arrayNumber).getOptionD();
+
+            if (questionType.equals("True / False")) {
+                radioButtonC.setDisable(true);
+                radioButtonD.setDisable(true);
+
+                radioButtonC.setVisible(false);
+                radioButtonD.setVisible(false);
+
+                radioButtonA.setText(optionA);
+                radioButtonB.setText(optionB);
+            }
+            else if (questionType.equals("Multiple Choice")) {
+                radioButtonC.setDisable(false);
+                radioButtonD.setDisable(false);
+
+                radioButtonC.setVisible(true);
+                radioButtonD.setVisible(true);
+
+                radioButtonA.setText(optionA);
+                radioButtonB.setText(optionB);
+                radioButtonC.setText(optionC);
+                radioButtonD.setText(optionD);
+            }
+
+            RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+            answerSubmitted = selectedRadioButton.getText();
 
             System.out.println("answer submitted: " + answerSubmitted);
             if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
@@ -231,134 +214,183 @@ public class WizardController {
             else if (answerSubmitted.equals(radioButtonC.getText())) letterChoice = "C";
             else if (answerSubmitted.equals(radioButtonD.getText())) letterChoice = "D";
 
-            scores.add(new Score(j, moduleID, languageID, letterChoice));
+            int moduleID = getModuleIDFromName(getModuleName());
+            int languageID = getLanguageIDFromName(getLanguageName());
 
-            Toggle toggle = group.getSelectedToggle();
-            group.getToggles().remove(toggle);
-            setToggleGroup();
+            scores.add(new Score(questNumber, moduleID, languageID, letterChoice));
+            deselectAllToggleGroup();
         }
     }
 
-    @FXML public void backButton(ActionEvent actionEvent) {
-        if(i == 1) backButton.setDisable(true);
+    @FXML public void backButton(ActionEvent actionEvent) throws SQLException {
+        System.out.println("BACK Button Pressed");
 
-        else {
-            System.out.println("BACK Button Pressed");
+        System.out.println("old question: " + questNumber);
+        questNumber--;
+        System.out.println("new question: " + questNumber);
+        arrayNumber = questNumber - 1;
 
-            arraySize = questions0.size();
-            System.out.println("array size: " + arraySize);
+        arraySize = questions0.size();
+        System.out.println("array size: " + arraySize);
 
-            System.out.println("old question: " + i);
-            questNumber = (int) decreasingQuestionArray();
-            System.out.println("new question: " + i);
+        if (questNumber == 1) backButton.setDisable(true);
+        if (questNumber == questions0.size()) nextButton.setDisable(false);
 
-            progressNumber = i / arraySize;
-            progressPercentage = progressNumber * 100;
+        questionType = questions0.get(arrayNumber).getQuestion_type();
+        System.out.println("question type: " + questionType);
 
-            String percentageResult = String.format("%.2f", progressPercentage);
+        progressNumber = questNumber / arraySize;
+        progressPercentage = progressNumber * 100;
 
-            System.out.println("Progress Number: " + progressNumber);
-            System.out.println("Progress %: " + progressPercentage);
+        String percentageResult = String.format("%.2f", progressPercentage);
+        System.out.println("Progress %: " + progressPercentage);
 
-            questionDescription.setText(questions0.get(questNumber).getDescription());
-            progressBar.setProgress(progressNumber);
-            progressValue.setText(percentageResult + '%');
+        questionDescription.setText(questions0.get(arrayNumber).getDescription());
+        questionDescription.setWrapText(true);
+        progressBar.setProgress(progressNumber);
+        progressValue.setText(percentageResult + '%');
 
-            if (i == 1) backButton.setDisable(true);
+        String optionA = questions0.get(arrayNumber).getOptionA();
+        String optionB = questions0.get(arrayNumber).getOptionB();
+        String optionC = questions0.get(arrayNumber).getOptionC();
+        String optionD = questions0.get(arrayNumber).getOptionD();
 
-            Toggle toggle = group.getSelectedToggle();
-            group.getToggles().remove(toggle);
-            setToggleGroup();
+        setToggleGroup();
+
+        if (questionType.equals("True / False")) {
+            radioButtonC.setDisable(true);
+            radioButtonD.setDisable(true);
+
+            radioButtonC.setVisible(false);
+            radioButtonD.setVisible(false);
+
+            radioButtonA.setText(optionA);
+            radioButtonB.setText(optionB);
+        }
+        else if (questionType.equals("Multiple Choice")) {
+            radioButtonC.setDisable(false);
+            radioButtonD.setDisable(false);
+
+            radioButtonC.setVisible(true);
+            radioButtonD.setVisible(true);
+
+            radioButtonA.setText(optionA);
+            radioButtonB.setText(optionB);
+            radioButtonC.setText(optionC);
+            radioButtonD.setText(optionD);
         }
 
+        RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+
+        if (!selectedRadioButton.getText().isEmpty()) {
+            answerSubmitted = selectedRadioButton.getText();
+            System.out.println("answer submitted: " + answerSubmitted);
+
+            if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
+            else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
+            else if (answerSubmitted.equals(radioButtonC.getText())) letterChoice = "C";
+            else if (answerSubmitted.equals(radioButtonD.getText())) letterChoice = "D";
+
+            int moduleID = getModuleIDFromName(getModuleName());
+            int languageID = getLanguageIDFromName(getLanguageName());
+
+//              if (scores.get(arrayNumber).getScore() != null) scores.set(questNumber, questNumber, moduleID, languageID, letterChoice);
+//              else scores.add(new Score((int) i, moduleID, languageID, letterChoice));
+
+            deselectAllToggleGroup();
+        }
     }
 
     @FXML public void finishButton(ActionEvent actionEvent) throws SQLException {
 
-        System.out.println("questions array: " + questions0);
-        System.out.println("submitted questions: " + scores);
-
-        for (int j = 0; j < arraySize - 1; j++)
-            if (questions0.get(j).getSolution().equals(scores.get(j).getSubmittedAnswer())) numberOfCorrectAnswers++;
-
-        score = numberOfCorrectAnswers / arraySize;
-        scorePercent = score * 100;
-        scorePercentage = String.format("%.2f", scorePercent);
-
-        int numberOfIncorrectAnswers = (int) (arraySize - numberOfCorrectAnswers);
-
-        System.out.println("number of correct questions: " + (int) numberOfCorrectAnswers);
-        System.out.println("number of incorrect questions: " + numberOfIncorrectAnswers);
-        System.out.println("total number of questions: " + (int) arraySize + "\n");
-
-        System.out.println("score: " + score);
-        System.out.println("score %: " + scorePercent + "\n");
-
-        System.out.println("userName: " + getUsername());
-        System.out.println("moduleName: " + getModuleName());
-        System.out.println("languageName: " + getLanguageName() + "\n");
-
-        int userID = getUserIDByUsername(getUsername());
-        int moduleID = getModuleIDFromName(getModuleName());
-        int languageID = getLanguageIDFromName(getLanguageName());
-        int correctAnswers = (int) numberOfCorrectAnswers;
-        int totalNumberOfQuest = (int) arraySize;
-
-        System.out.println("Entered score : " + scorePercent + " " + userID + " " + moduleID +
-                " " + languageID + " " + correctAnswers + " " + numberOfIncorrectAnswers + " " + totalNumberOfQuest);
-
-        addScore(scorePercent, userID, moduleID, languageID, correctAnswers, numberOfIncorrectAnswers, totalNumberOfQuest);
-
-        ResultSet resultSet = getScoresOfUser(userID);
-        ArrayList<Double> scores1 = new ArrayList<>();
-        double performance = 0;
-
-        while (resultSet.next()) scores1.add(resultSet.getDouble("score"));
-        System.out.println("scores: " + scores1);
-
-        for (int a = 0; a < scores1.size(); a++) {
-            System.out.println("a: " + a);
-            System.out.println("scores1.get(a): " + scores1.get(a));
-            performance = performance + scores1.get(a);
-            System.out.println("perf sum: " + performance);
-        }
-
-        performance = (performance / scores1.size());
-        System.out.println("perf avg: " + performance);
-
-        String perfResult = String.format("%.2f", performance);
-
-        if (checkIfUserExistsInPerformance(userID)) {
-            System.out.println("user exists - UPDATE");
-            updatePerformance(performance, userID);
-        }
+        if (group.getSelectedToggle() == null)
+            DialogCreator.displayErrorDialog("Answer missing", "No Answer has been Provided", "Please try again");
 
         else {
-            System.out.println("user does NOT exist - CREATE");
-            addPerformance(performance, userID);
-        }
+            System.out.println("questions array: " + questions0);
+            System.out.println("submitted questions: " + scores);
 
-        Stage stage = (Stage) finishButton.getScene().getWindow();
-        stage.close();
+            for (int j = 0; j < arraySize - 1; j++)
+                if (questions0.get(j).getSolution().equals(scores.get(j).getSubmittedAnswer()))
+                    numberOfCorrectAnswers++;
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardDoneUI.fxml"));
-            Parent parent = loader.load();
+            score = numberOfCorrectAnswers / arraySize;
+            scorePercent = score * 100;
+            scorePercentage = String.format("%.2f", scorePercent);
 
-            wizardDoneController = loader.getController();
+            int numberOfIncorrectAnswers = (int) (arraySize - numberOfCorrectAnswers);
 
-            Scene newScene = new Scene(parent);
-            stage.setTitle("Code Learner");
-            stage.setScene(newScene);
-            stage.show();
+            System.out.println("number of correct questions: " + (int) numberOfCorrectAnswers);
+            System.out.println("number of incorrect questions: " + numberOfIncorrectAnswers);
+            System.out.println("total number of questions: " + (int) arraySize + "\n");
+            System.out.println("score: " + score);
+            System.out.println("score %: " + scorePercent + "\n");
+            System.out.println("userName: " + getUsername());
+            System.out.println("moduleName: " + getModuleName());
+            System.out.println("languageName: " + getLanguageName() + "\n");
 
-            System.out.println("score: " + scorePercentage);
-            wizardDoneController.setText("SCORE: " + scorePercentage + " %\n\n" +
-                                         "PERFORMANCE: " + perfResult + " %");
-        }
+            int userID = getUserIDByUsername(getUsername());
+            int moduleID = getModuleIDFromName(getModuleName());
+            int languageID = getLanguageIDFromName(getLanguageName());
+            int correctAnswers = (int) numberOfCorrectAnswers;
+            int totalNumberOfQuest = (int) arraySize;
 
-        catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Entered score : " + scorePercent + " " + userID + " " + moduleID +
+                    " " + languageID + " " + correctAnswers + " " + numberOfIncorrectAnswers + " " + totalNumberOfQuest);
+
+            addScore(scorePercent, userID, moduleID, languageID, correctAnswers, numberOfIncorrectAnswers, totalNumberOfQuest);
+
+            System.out.println("userID: " + userID);
+
+            ResultSet resultSet = getScoresOfUser(userID);
+            boolean userExists = checkIfUserExistsInPerformance(userID);
+            ArrayList<Double> scores1 = new ArrayList<>();
+            double performance = 0;
+
+            while (resultSet.next()) scores1.add(resultSet.getDouble("score"));
+            System.out.println("scores: " + scores1);
+
+            for (int a = 0; a < scores1.size(); a++) {
+                System.out.println("a: " + a);
+                System.out.println("scores1.get(a): " + scores1.get(a));
+                performance = performance + scores1.get(a);
+                System.out.println("perf sum: " + performance);
+            }
+
+            performance = (performance / scores1.size());
+            System.out.println("perf avg: " + performance);
+            String perfResult = String.format("%.2f", performance);
+
+            if (userExists) {
+                System.out.println("user exists - UPDATE");
+                updatePerformance(performance, userID);
+            }
+
+            else {
+                System.out.println("user does NOT exist - CREATE");
+                addPerformance(performance, userID);
+            }
+
+            Stage stage = (Stage) finishButton.getScene().getWindow();
+            stage.close();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardDoneUI.fxml"));
+                Parent parent = loader.load();
+
+                wizardDoneController = loader.getController();
+
+                Scene newScene = new Scene(parent);
+                stage.setTitle("Code Learner");
+                stage.setScene(newScene);
+                stage.show();
+
+                System.out.println("score: " + scorePercentage);
+                wizardDoneController.setText("SCORE: " + scorePercentage + " %\n\n" +
+                        "PERFORMANCE: " + perfResult + " %");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
