@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static database.ModuleDBHandler.getModuleIDFromName;
 import static database.ProgrammingLanguageDBHandler.getLanguageIDFromName;
@@ -34,7 +35,7 @@ public class WizardController {
     ToggleGroup group = new ToggleGroup();
 
     ObservableList<Question> questions0 = FXCollections.observableArrayList();
-    ObservableList<Score> scores = FXCollections.observableArrayList();
+    List<Score> scores = new ArrayList<>();
 
     WizardStartController wizardStartController;
     WizardDoneController wizardDoneController;
@@ -294,8 +295,10 @@ public class WizardController {
             int moduleID = getModuleIDFromName(getModuleName());
             int languageID = getLanguageIDFromName(getLanguageName());
 
-//              if (scores.get(arrayNumber).getScore() != null) scores.set(questNumber, questNumber, moduleID, languageID, letterChoice);
-//              else scores.add(new Score((int) i, moduleID, languageID, letterChoice));
+            if (scores.get(arrayNumber).getSubmittedAnswer() != null && !answerSubmitted.isEmpty()) {
+                scores.remove(arrayNumber);
+            }
+            scores.add(new Score(questNumber, moduleID, languageID, letterChoice));
 
             deselectAllToggleGroup();
         }
