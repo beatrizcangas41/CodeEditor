@@ -30,6 +30,7 @@
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" />
         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="25.0" />
@@ -58,7 +59,7 @@
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
-    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="116.0" layoutY="391.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#backButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="BACK" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="15" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <font>
             <Font name="Verdana Bold" size="13.0" />
         </font>
@@ -70,7 +71,7 @@
         </GridPane.margin>
     </Button>
 
-    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#nextButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="14">
+    <Button fx:id="nextButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#nextButton" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="NEXT" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="15">
         <font>
             <Font name="Verdana Bold" size="13.0" />
         </font>
@@ -82,7 +83,7 @@
         </GridPane.margin>
     </Button>
 
-    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#finishButton" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+    <Button fx:id="finishButton" cache="true" cacheHint="QUALITY" defaultButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#finishButton" prefWidth="75.0" style="-fx-background-color: #42E695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="DONE" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="15" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets left="15.0" />
         </GridPane.margin>
@@ -120,24 +121,24 @@
          <Insets bottom="25.0" left="45.0" right="50.0" />
       </GridPane.margin>
    </TextArea>
-   <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="24.0" prefWidth="413.0" text="A. " GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="24.0" prefWidth="611.0" text="A. " GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
       <GridPane.margin>
-         <Insets left="65.0" />
+         <Insets right="100.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="403.0" text="C. " GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="555.0" text="C. " GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
       <GridPane.margin>
-         <Insets left="65.0" />
+         <Insets right="100.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="347.0" text="B. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="556.0" text="B. " GridPane.columnIndex="5" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
       <GridPane.margin>
-         <Insets left="50.0" />
+         <Insets left="20.0" right="80.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="367.0" text="D. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="659.0" text="D. " GridPane.columnIndex="5" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
       <GridPane.margin>
-         <Insets left="50.0" />
+         <Insets left="20.0" right="80.0" />
       </GridPane.margin>
    </RadioButton>
 

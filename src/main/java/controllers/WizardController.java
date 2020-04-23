@@ -230,8 +230,8 @@ public class WizardController {
                 radioButtonA.setText(optionA);
                 radioButtonB.setText(optionB);
 
-                radioButtonA.wrapTextProperty();
-                radioButtonB.wrapTextProperty();
+                radioButtonA.setWrapText(true);
+                radioButtonB.setWrapText(true);
             }
             else if (questionType.equals("Multiple Choice")) {
                 radioButtonC.setDisable(false);
@@ -245,10 +245,10 @@ public class WizardController {
                 radioButtonC.setText(optionC);
                 radioButtonD.setText(optionD);
 
-                radioButtonA.wrapTextProperty();
-                radioButtonB.wrapTextProperty();
-                radioButtonC.wrapTextProperty();
-                radioButtonD.wrapTextProperty();
+                radioButtonA.setWrapText(true);
+                radioButtonB.setWrapText(true);
+                radioButtonC.setWrapText(true);
+                radioButtonD.setWrapText(true);
             }
         }
 
