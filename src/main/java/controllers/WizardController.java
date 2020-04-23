@@ -166,11 +166,6 @@ public class WizardController {
             questionType = questions0.get(arrayNumber).getQuestion_type();
             System.out.println("question type: " + questionType);
 
-            progressNumber = questNumber / arraySize;
-            progressPercentage = progressNumber * 100;
-            String percentageResult = String.format("%.2f", progressPercentage);
-            System.out.println("Progress %: " + progressPercentage);
-
             setToggleGroup();
             String optionA = questions0.get(arrayNumber).getOptionA(),
                     optionB = questions0.get(arrayNumber).getOptionB(),
@@ -221,6 +216,11 @@ public class WizardController {
             System.out.println("new question: " + questNumber);
             arrayNumber = questNumber - 1;
             int NextQuestSelectedToggle;
+
+            progressNumber = questNumber / arraySize;
+            progressPercentage = progressNumber * 100;
+            String percentageResult = String.format("%.2f", progressPercentage);
+            System.out.println("Progress %: " + progressPercentage);
 
             System.out.println("scores.size: " + scores.size());
 

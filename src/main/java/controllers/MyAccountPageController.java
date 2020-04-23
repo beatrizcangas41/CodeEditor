@@ -34,6 +34,7 @@ public class MyAccountPageController {
     }
 
     @FXML public void confirmPassword(ActionEvent actionEvent) {
+
     }
 
     @FXML public void goBack(ActionEvent actionEvent) {
