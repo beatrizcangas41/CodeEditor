@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 20, 2020 at 05:29 AM
+-- Generation Time: Apr 23, 2020 at 12:04 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -60,11 +60,18 @@ INSERT INTO `module` (`moduleID`, `moduleName`, `programming_language_ID`) VALUE
 
 DROP TABLE IF EXISTS `performance`;
 CREATE TABLE IF NOT EXISTS `performance` (
-  `performance` double NOT NULL,
+  `performance` decimal(10,2) NOT NULL,
   `userID` int(10) NOT NULL,
   PRIMARY KEY (`performance`,`userID`),
   KEY `userID` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `performance`
+--
+
+INSERT INTO `performance` (`performance`, `userID`) VALUES
+('41.46', 2);
 
 -- --------------------------------------------------------
 
@@ -218,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `score` (
   KEY `moduleID` (`moduleID`),
   KEY `userID` (`userID`),
   KEY `score` (`score`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `score`
@@ -232,7 +239,41 @@ INSERT INTO `score` (`scoreID`, `score`, `userID`, `moduleID`, `programming_lang
 (5, '33.33', 2, 1, 1, 2, 4, 6),
 (6, '83.33', 2, 1, 1, 5, 1, 6),
 (7, '50.00', 2, 1, 1, 3, 3, 6),
-(8, '16.66', 2, 1, 1, 1, 5, 6);
+(8, '16.66', 2, 1, 1, 1, 5, 6),
+(11, '33.33', 2, 1, 1, 2, 4, 6),
+(13, '0.00', 2, 1, 1, 0, 6, 6),
+(14, '33.33', 2, 1, 1, 2, 4, 6),
+(15, '33.33', 2, 1, 1, 2, 4, 6),
+(16, '33.33', 2, 1, 1, 2, 4, 6),
+(17, '33.33', 2, 1, 1, 2, 4, 6),
+(18, '50.00', 2, 1, 1, 3, 3, 6),
+(19, '16.67', 2, 1, 1, 1, 5, 6),
+(20, '33.33', 2, 1, 1, 2, 4, 6),
+(21, '16.67', 2, 1, 1, 1, 5, 6),
+(22, '50.00', 2, 1, 1, 3, 3, 6),
+(23, '66.67', 2, 1, 1, 4, 2, 6),
+(24, '33.33', 2, 1, 1, 2, 4, 6),
+(25, '66.67', 2, 1, 1, 4, 2, 6),
+(26, '50.00', 2, 1, 1, 3, 3, 6),
+(27, '50.00', 2, 1, 1, 3, 3, 6),
+(28, '50.00', 2, 1, 1, 3, 3, 6),
+(29, '50.00', 2, 1, 1, 3, 3, 6),
+(30, '33.33', 2, 1, 1, 2, 4, 6),
+(31, '50.00', 2, 1, 1, 3, 3, 6),
+(32, '66.67', 2, 1, 1, 4, 2, 6),
+(33, '66.67', 2, 1, 1, 4, 2, 6),
+(35, '33.33', 2, 1, 1, 2, 4, 6),
+(36, '50.00', 2, 1, 1, 3, 3, 6),
+(37, '50.00', 2, 1, 1, 3, 3, 6),
+(38, '16.67', 2, 1, 1, 1, 5, 6),
+(39, '66.67', 2, 1, 1, 4, 2, 6),
+(40, '50.00', 2, 1, 1, 3, 3, 6),
+(41, '50.00', 2, 1, 1, 3, 3, 6),
+(44, '33.33', 2, 1, 1, 2, 4, 6),
+(46, '50.00', 2, 1, 1, 3, 3, 6),
+(50, '0.00', 2, 5, 1, 0, 3, 3),
+(51, '33.33', 0, 5, 1, 1, 2, 3),
+(52, '50.00', 2, 2, 1, 2, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -245,23 +286,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userID` int(10) NOT NULL AUTO_INCREMENT,
   `createdOn` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `token` char(36) DEFAULT NULL,
-  `address` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
   `user_type` enum('User','Admin') NOT NULL DEFAULT 'User',
   `user_status` bit(1) NOT NULL DEFAULT b'1',
-  `name` varchar(100) NOT NULL,
+  `firstName` varchar(25) NOT NULL,
+  `lastName` varchar(25) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(64) CHARACTER SET utf8mb4 NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userID`, `createdOn`, `token`, `address`, `user_type`, `user_status`, `name`, `email`, `username`, `password`) VALUES
-(1, '2020-03-30 17:17:55', 'c06ea589-d704-4a96-831c-3ba4755f50bc', NULL, 'User', b'1', 'Beatriz', 'beatrizcangas41@gmail.com', 'beatriz', '$2a$10$X9NvMsPcL/1jVeDHcYC5AeTfnMU5o/e94d0qlhaXVRpTpOReDmzx.'),
-(2, '2020-04-04 19:30:55', '4142842d-24ce-411d-8359-15d66490143c', NULL, 'User', b'1', 'asdf', 'beatrizcangas41@gmail.com', 'asdf', '$2a$10$rrYpRY8DEbZttOIDPbteDOwt/I2pw5imlnHlz/uDMEh7yQct4nwvy');
+INSERT INTO `user` (`userID`, `createdOn`, `token`, `user_type`, `user_status`, `firstName`, `lastName`, `email`, `username`, `password`) VALUES
+(1, '2020-03-30 17:17:55', 'c06ea589-d704-4a96-831c-3ba4755f50bc', 'User', b'1', 'Beatriz', '', 'beatrizcangas41@gmail.com', 'beatriz', '$2a$10$X9NvMsPcL/1jVeDHcYC5AeTfnMU5o/e94d0qlhaXVRpTpOReDmzx.'),
+(2, '2020-04-04 19:30:55', '4142842d-24ce-411d-8359-15d66490143c', 'User', b'1', 'asdf', '', 'beatrizcangas41@gmail.com', 'asdf', '$2a$10$rrYpRY8DEbZttOIDPbteDOwt/I2pw5imlnHlz/uDMEh7yQct4nwvy');
 
 -- --------------------------------------------------------
 
@@ -271,14 +312,6 @@ INSERT INTO `user` (`userID`, `createdOn`, `token`, `address`, `user_type`, `use
 --
 DROP VIEW IF EXISTS `user_module_score`;
 CREATE TABLE IF NOT EXISTS `user_module_score` (
-`score` decimal(10,2)
-,`userID` int(10)
-,`moduleID` int(10)
-,`numberOfCorrectAnswers` int(11)
-,`numberOfIncorrectAnswers` int(11)
-,`totalNumberOfAnswers` int(11)
-,`name` varchar(100)
-,`moduleName` varchar(50)
 );
 
 -- --------------------------------------------------------
@@ -289,20 +322,6 @@ CREATE TABLE IF NOT EXISTS `user_module_score` (
 --
 DROP VIEW IF EXISTS `user_score_performance`;
 CREATE TABLE IF NOT EXISTS `user_score_performance` (
-`userID` int(10)
-,`createdOn` datetime
-,`token` char(36)
-,`address` varchar(100)
-,`user_type` enum('User','Admin')
-,`user_status` bit(1)
-,`name` varchar(100)
-,`email` varchar(50)
-,`username` varchar(50)
-,`password` varchar(64)
-,`score` decimal(10,2)
-,`NumberOfCorrectAnswers` int(11)
-,`NumberOfIncorrectAnswers` int(11)
-,`performance` double
 );
 
 -- --------------------------------------------------------
@@ -368,7 +387,6 @@ ALTER TABLE `question`
 -- Constraints for table `score`
 --
 ALTER TABLE `score`
-  ADD CONSTRAINT `score_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
   ADD CONSTRAINT `score_ibfk_2` FOREIGN KEY (`moduleID`) REFERENCES `module` (`moduleID`),
   ADD CONSTRAINT `score_ibfk_3` FOREIGN KEY (`programming_language_ID`) REFERENCES `programming_language` (`programming_language_ID`);
 COMMIT;
