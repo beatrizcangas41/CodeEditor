@@ -46,52 +46,29 @@ public class LoginScreenController {
                 else {
                     String user_type = getUserTypeFromUsername(getUsername());
 
-                    if (user_type.equals("Admin")) {
-                        System.out.println("Admin Page");
+                    Stage loginStage = (Stage) passwordField.getScene().getWindow();
+                    loginStage.close();
 
-                        Stage stage = (Stage) loginButtonPressed.getScene().getWindow();
-                        stage.close();
+                    System.out.println("User Page");
 
-                        Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/AdminMainScreenUI.fxml")));
-                        Scene scene = new Scene(page, 800, 500);
-                        Stage newStage = new Stage();
-                        newStage.setTitle("Code Learner");
+                    //Load second scene
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+                    Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
+                    Parent root = loader.load();
 
-                        newStage.setScene(scene);
-                        newStage.show();
+                    userMainScreenController = loader.getController();
 
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/AdminMainScreenUI.fxml"));
-                        Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setResizable(false);
 
+                    stage.getIcons().add(img);
 
-                    } else if (user_type.equals("User")) {
+                    stage.setTitle("Code Learner");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    stage.setOnCloseRequest(event -> System.exit(0));
 
-                        Stage loginStage = (Stage) passwordField.getScene().getWindow();
-                        loginStage.close();
-
-                        System.out.println("User Page");
-
-                        //Load second scene
-                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
-                        Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
-                        Parent root = loader.load();
-
-                        userMainScreenController = loader.getController();
-
-                        Stage stage = new Stage();
-                        stage.setResizable(false);
-
-                        stage.getIcons().add(img);
-
-                        stage.setTitle("Code Learner");
-                        stage.setScene(new Scene(root));
-                        stage.show();
-                        stage.setOnCloseRequest(event -> System.exit(0));
-
-                        userMainScreenController.setUsername(getUsername());
-                    }
-
-                    else displayErrorDialog("Error", "Error", "The user has not been classified ");
+                    userMainScreenController.setUsername(getUsername());
                 }
             }
             else displayErrorDialog("Error", "user does not exist", "please try again");

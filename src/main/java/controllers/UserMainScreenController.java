@@ -24,11 +24,13 @@ public class UserMainScreenController {
     MyAccountPageController myAccountPageController;
     LanguagePickerController languagePickerController;
     ScoresAndPerformanceController scoresAndPerformanceController;
+    WizardDoneController wizardDoneController;
 
     @FXML public void initialize() {
         myAccountPageController = new MyAccountPageController();
         languagePickerController = new LanguagePickerController();
         scoresAndPerformanceController = new ScoresAndPerformanceController();
+        wizardDoneController = new WizardDoneController();
     }
 
     @FXML public void GoToModules(ActionEvent actionEvent) {
@@ -40,15 +42,20 @@ public class UserMainScreenController {
 
             //Load second scene
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LanguagePickerUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent root = loader.load();
 
             languagePickerController = loader.getController();
 
-            //Show scene 2 in new window
             Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
+            stage.setScene(new Scene(root));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             languagePickerController.setUsername(getUsername());
         } catch (IOException e) {
@@ -68,7 +75,6 @@ public class UserMainScreenController {
 
             scoresAndPerformanceController = loader.getController();
 
-            //Show scene 2 in new window
             Stage stage = new Stage();
             stage.setResizable(false);
 
@@ -94,14 +100,20 @@ public class UserMainScreenController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MyAccountPageUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             myAccountPageController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             myAccountPageController.firstName.setText(user.getFirstName());
             myAccountPageController.lastName.setText(user.getLastName());

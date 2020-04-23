@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import util.SceneChange;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ScoresAndPerformanceController {
 
@@ -28,15 +31,20 @@ public class ScoresAndPerformanceController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent root = loader.load();
 
             userMainScreenController = loader.getController();
 
-            //Show scene 2 in new window
             Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
+            stage.setScene(new Scene(root));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             userMainScreenController.setUsername(getUsername());
         } catch (IOException e) {

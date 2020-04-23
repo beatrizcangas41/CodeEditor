@@ -5,9 +5,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class DialogCreator {
@@ -38,10 +40,15 @@ public class DialogCreator {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.CANCEL) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(fxml));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
-            Scene newScene = new Scene(parent, 800, 500);
+            Scene newScene = new Scene(parent);
             Stage newStage = new Stage();
+            newStage.setResizable(false);
+            newStage.getIcons().add(img);
+            newStage.setTitle("Code Learner");
+            newStage.setOnCloseRequest(event -> System.exit(0));
 
             newStage.setScene(newScene);
             newStage.show();
