@@ -34,6 +34,7 @@ public class WizardController {
     @FXML public ProgressBar progressBar;
     @FXML public RadioButton radioButtonA, radioButtonB, radioButtonC, radioButtonD;
     @FXML public Button nextButton, backButton, finishButton;
+    @FXML public TextField resultMessage;
 
     ToggleGroup group = new ToggleGroup();
 
@@ -207,6 +208,13 @@ public class WizardController {
             int languageID = getLanguageIDFromName(getLanguageName());
 
             scores.add(new Score(questNumber, moduleID, languageID, letterChoice));
+
+            System.out.println("letter choice: " + letterChoice);
+            System.out.println("solution: " + questions0.get(arrayNumber).getSolution());
+
+            if (letterChoice.equals(questions0.get(arrayNumber).getSolution()))
+                DialogCreator.displayConfirmationDialogResult("Congratulations!", "Correct Answer", "Great job! Keep it up.");
+            else DialogCreator.displayErrorDialogResult("Error", "Incorrect Answer", "Sorry that is Incorrect.");
 
             if (questNumber > 1 && questNumber < arraySize) {
                 enableButton(nextButton);

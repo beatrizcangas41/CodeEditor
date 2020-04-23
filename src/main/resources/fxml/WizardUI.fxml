@@ -7,7 +7,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -125,21 +124,18 @@
       <GridPane.margin>
          <Insets left="65.0" />
       </GridPane.margin>
-      <toggleGroup>
-         <ToggleGroup fx:id="group" />
-      </toggleGroup>
    </RadioButton>
-   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="403.0" text="C. " toggleGroup="$group" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonC" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="403.0" text="C. " GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="65.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="347.0" text="B. " toggleGroup="$group" GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonB" layoutX="186.0" layoutY="384.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="347.0" text="B. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="50.0" />
       </GridPane.margin>
    </RadioButton>
-   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="367.0" text="D. " toggleGroup="$group" GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+   <RadioButton fx:id="radioButtonD" layoutX="186.0" layoutY="419.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="367.0" text="D. " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="12" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
       <GridPane.margin>
          <Insets left="50.0" />
       </GridPane.margin>
