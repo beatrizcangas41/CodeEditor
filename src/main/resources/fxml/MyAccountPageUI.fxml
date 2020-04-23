@@ -201,12 +201,13 @@
             <GridPane style="-fx-background-color: WHITE;">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
                 </columnConstraints>
                 <rowConstraints>
@@ -223,9 +224,9 @@
                     <RowConstraints />
                 </rowConstraints>
 
-                <PasswordField fx:id="password1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="new password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                <PasswordField fx:id="password1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="new password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                     <GridPane.margin>
-                        <Insets left="20.0" right="50.0" />
+                        <Insets left="20.0" right="80.0" />
                     </GridPane.margin>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -235,9 +236,9 @@
                     </font>
                 </PasswordField>
 
-                <PasswordField fx:id="password2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="confirm new password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                <PasswordField fx:id="password2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="confirm new password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                     <GridPane.margin>
-                        <Insets left="20.0" right="50.0" />
+                        <Insets left="20.0" right="80.0" />
                     </GridPane.margin>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -247,7 +248,7 @@
                     </font>
                 </PasswordField>
 
-                <PasswordField fx:id="currentPassword" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="current password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                <TextField fx:id="token" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="current password" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                     <GridPane.margin>
                         <Insets left="20.0" right="50.0" />
                     </GridPane.margin>
@@ -257,7 +258,7 @@
                     <font>
                         <Font name="Verdana" size="14.0" />
                     </font>
-                </PasswordField>
+                </TextField>
 
                 <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="49.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="NEW Password" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                     <font>
@@ -277,7 +278,7 @@
                     </effect>
                 </TextField>
 
-                <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="45.0" prefWidth="147.0" style="-fx-border-color: #ffffff;" text="CURRENT Password" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="45.0" prefWidth="147.0" style="-fx-border-color: #ffffff;" text="TOKEN" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                     <font>
                         <Font name="Verdana Bold" size="12.0" />
                     </font>
@@ -285,17 +286,28 @@
                         <ColorAdjust contrast="1.0" />
                     </effect>
                 </TextField>
-                <Button fx:id="confirmPassword" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmPassword" style="-fx-background-color: #42E695; -fx-text-fill: #80807E;" text="CONFIRM" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="2">
+                <Button fx:id="confirmPassword" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#confirmPassword" style="-fx-background-color: #42E695; -fx-text-fill: #80807E;" text="CONFIRM" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="7" GridPane.rowSpan="2">
                     <font>
                         <Font name="Verdana Bold" size="14.0" />
                     </font>
                     <GridPane.margin>
-                        <Insets bottom="25.0" top="15.0" />
+                        <Insets bottom="25.0" left="50.0" right="50.0" top="15.0" />
                     </GridPane.margin>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
+            <Button fx:id="requestToken" cache="true" cacheHint="QUALITY" cancelButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#requestToken" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #80807e; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Request TOKEN" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets left="50.0" right="80.0" />
+               </GridPane.margin>
+            </Button>
             </GridPane>
         </Tab>
         <Tab style="-fx-background-color: white;" text="Email Update">
@@ -395,5 +407,5 @@
             </GridPane>
         </Tab>
     </TabPane>
-   <Line endX="561.2929077148438" endY="0.7928932309150696" startX="-100.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="15" />
+   <Line endX="573.2929077148438" endY="-1.0000580549240112" startX="-100.0" style="-fx-fill: #80807e;" GridPane.columnSpan="2147483647" GridPane.rowIndex="15" />
 </GridPane>

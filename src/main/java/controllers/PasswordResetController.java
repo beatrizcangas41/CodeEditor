@@ -3,15 +3,23 @@ package controllers;
 import database.DatabaseConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import util.SceneChange;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static util.DialogCreator.displayErrorDialog;
 import static util.DialogCreator.displayInformationDialog;
@@ -57,7 +65,24 @@ public class PasswordResetController {
                         System.out.println("password updated");
                         displayInformationDialog("Error", "Confirmation", "your password has been updated. ");
 
-                        sceneChangeButton("fxml/LoginScreenUI.fxml", confirmPassword);
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LoginScreenUI.fxml"));
+                            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
+                            Parent root = loader.load();
+
+                            Stage stage = new Stage();
+                            stage.setResizable(false);
+
+                            stage.getIcons().add(img);
+
+                            stage.setTitle("Code Learner");
+                            stage.setScene(new Scene(root));
+                            stage.show();
+                            stage.setOnCloseRequest(event -> System.exit(0));
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -65,7 +90,24 @@ public class PasswordResetController {
 
         else {
             displayErrorDialog("Error", "Input not valid", "Verify your credentials. Please try again. ");
-            sceneChangeButton("fxml/ForgotPasswordUI.fxml", confirmPassword);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ForgotPasswordUI.fxml"));
+                Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setResizable(false);
+
+                stage.getIcons().add(img);
+
+                stage.setTitle("Code Learner");
+                stage.setScene(new Scene(root));
+                stage.show();
+                stage.setOnCloseRequest(event -> System.exit(0));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
