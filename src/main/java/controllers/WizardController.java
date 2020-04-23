@@ -154,6 +154,12 @@ public class WizardController {
 
             arraySize = questions0.size();
             System.out.println("array size: " + arraySize);
+            System.out.println("old question: " + questNumber);
+
+            progressNumber = questNumber / arraySize;
+            progressPercentage = progressNumber * 100;
+            String percentageResult = String.format("%.2f", progressPercentage);
+            System.out.println("Progress %: " + progressPercentage);
 
             questionType = questions0.get(arrayNumber).getQuestion_type();
             System.out.println("question type: " + questionType);
@@ -191,7 +197,6 @@ public class WizardController {
 
             RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
             answerSubmitted = selectedRadioButton.getText();
-
             System.out.println("answer submitted: " + answerSubmitted);
             if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
             else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
@@ -202,40 +207,6 @@ public class WizardController {
             int languageID = getLanguageIDFromName(getLanguageName());
 
             scores.add(new Score(questNumber, moduleID, languageID, letterChoice));
-
-            System.out.println("old question: " + questNumber);
-            questNumber++;
-            System.out.println("new question: " + questNumber);
-            arrayNumber = questNumber - 1;
-            group.getToggles().clear();
-
-            System.out.println("array number: " + (arrayNumber));
-            String tempAnswer = scores.get(arrayNumber - 1).getSubmittedAnswer();
-            System.out.println("temp answer: " + tempAnswer);
-
-            progressNumber = questNumber / arraySize;
-            progressPercentage = progressNumber * 100;
-            String percentageResult = String.format("%.2f", progressPercentage);
-            System.out.println("Progress %: " + progressPercentage);
-
-            System.out.println("scores.size: " + scores.size());
-
-//            switch (tempAnswer) {
-//                case "A": selectedRadioButton(radioButtonA);
-//                    System.out.println("radioButtonA");
-//                    break;
-//                case "B": selectedRadioButton(radioButtonB);
-//                    System.out.println("radioButtonB");
-//                    break;
-//
-//                case "C": selectedRadioButton(radioButtonC);
-//                    System.out.println("radioButtonC");
-//                    break;
-//
-//                case "D": selectedRadioButton(radioButtonD);
-//                    System.out.println("radioButtonD");
-//                    break;
-//            }
 
             if (questNumber > 1 && questNumber < arraySize) {
                 enableButton(nextButton);
@@ -252,8 +223,13 @@ public class WizardController {
             progressBar.setProgress(progressNumber);
             progressValue.setText(percentageResult + '%');
 
-            deselectAllToggleGroup();
+            questNumber++;
+            System.out.println("new question: " + questNumber);
+            arrayNumber = questNumber - 1;
+            System.out.println("array number: " + (arrayNumber));
         }
+
+        deselectAllToggleGroup();
     }
 
     @FXML public void backButton(ActionEvent actionEvent) throws SQLException {
