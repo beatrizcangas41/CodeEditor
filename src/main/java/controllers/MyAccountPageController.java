@@ -63,15 +63,28 @@ public class MyAccountPageController {
         return usernameString;
     }
 
-    @FXML public void confirmEmail(ActionEvent actionEvent) {
+    @FXML public void confirmEmail(ActionEvent actionEvent) throws SQLException {
         Connection conn = DatabaseConnector.getConnection();
         Statement stmt = null;
 
         if (conn != null) {
             System.out.println("Connection was Successful");
+            if (!hasErrors_EMAIL()) {
+                String query = "UPDATE user SET email = ? where username = ?";
+                PreparedStatement pstmt1 = conn.prepareStatement(query);
+                pstmt1.setString(1, getEmailEntered1);
+                pstmt1.setString(2, getUsername());
 
-        } else {
+                if (!pstmt1.execute()) {
+                    System.out.println("Email Updated");
+                    email.setText(getEmailEntered1);
+                    displayInformationDialog("Email Updated.", "Confirmation", "Congratulations, your email has been updated successfully! ");
+                }
+            }
+        }
 
+        else {
+            displayErrorDialog("Error", "Something went wrong", "Could not Connect to Database. Please try again. ");
         }
     }
 
@@ -83,7 +96,7 @@ public class MyAccountPageController {
 
             if (!hasErrors_PASSWORD()) {
 
-                String query2 = "SELECT * FROM user WHERE token = '" + getToken + "'";
+                String query2 = "SELECT * FROM user WHERE username = '" + getUsername() + "' AND token = '" + getToken + "'";
                 PreparedStatement pstmt = conn.prepareStatement(query2);
                 ResultSet results2 = pstmt.executeQuery(query2);
 
@@ -107,7 +120,7 @@ public class MyAccountPageController {
                     if (!pstmt1.execute()) {
 
                         System.out.println("password updated");
-                        displayInformationDialog("Error", "Confirmation", "your password has been updated. ");
+                        displayInformationDialog("Password Updated.", "Confirmation", "Congratulations, your password has been updated successfully! ");
                     }
                 }
 

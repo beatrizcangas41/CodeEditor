@@ -63,7 +63,7 @@ public class PasswordResetController {
                     if (!pstmt1.execute()) {
 
                         System.out.println("password updated");
-                        displayInformationDialog("Error", "Confirmation", "your password has been updated. ");
+                        displayInformationDialog("Password Updated.", "Confirmation", "Congratulations, your password has been updated successfully! ");
 
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LoginScreenUI.fxml"));
