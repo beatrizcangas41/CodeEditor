@@ -153,6 +153,7 @@ public class WizardController {
         else {
             System.out.println("NEXT Button Pressed");
 
+
             arraySize = questions0.size();
             System.out.println("array size: " + arraySize);
             System.out.println("old question: " + questNumber);
@@ -162,42 +163,15 @@ public class WizardController {
             String percentageResult = String.format("%.2f", progressPercentage);
             System.out.println("Progress %: " + progressPercentage);
 
-            questionType = questions0.get(arrayNumber).getQuestion_type();
-            System.out.println("question type: " + questionType);
-
-            setToggleGroup();
-
-            String optionA = questions0.get(arrayNumber).getOptionA(),
-                    optionB = questions0.get(arrayNumber).getOptionB(),
-                    optionC = questions0.get(arrayNumber).getOptionC(),
-                    optionD = questions0.get(arrayNumber).getOptionD();
-
-            if (questionType.equals("True / False")) {
-                radioButtonC.setDisable(true);
-                radioButtonD.setDisable(true);
-
-                radioButtonC.setVisible(false);
-                radioButtonD.setVisible(false);
-
-                radioButtonA.setText(optionA);
-                radioButtonB.setText(optionB);
-            }
-
-            else if (questionType.equals("Multiple Choice")) {
-                radioButtonC.setDisable(false);
-                radioButtonD.setDisable(false);
-
-                radioButtonC.setVisible(true);
-                radioButtonD.setVisible(true);
-
-                radioButtonA.setText(optionA);
-                radioButtonB.setText(optionB);
-                radioButtonC.setText(optionC);
-                radioButtonD.setText(optionD);
-            }
-
             RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
             answerSubmitted = selectedRadioButton.getText();
+
+            System.out.println("answer submitted: " + answerSubmitted);
+            if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
+            else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
+            else if (answerSubmitted.equals(radioButtonC.getText())) letterChoice = "C";
+            else if (answerSubmitted.equals(radioButtonD.getText())) letterChoice = "D";
+
             System.out.println("answer submitted: " + answerSubmitted);
             if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
             else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
@@ -226,15 +200,56 @@ public class WizardController {
                 disableButton(nextButton);
             }
 
+            setToggleGroup();
+            questNumber++;
+            System.out.println("new question: " + questNumber);
+            arrayNumber = questNumber - 1;
+            System.out.println("array number: " + (arrayNumber));
+
+            questionType = questions0.get(arrayNumber).getQuestion_type();
+            System.out.println("question type: " + questionType);
+
             questionDescription.setText(questions0.get(arrayNumber).getDescription());
             questionDescription.setWrapText(true);
             progressBar.setProgress(progressNumber);
             progressValue.setText(percentageResult + '%');
 
-            questNumber++;
-            System.out.println("new question: " + questNumber);
-            arrayNumber = questNumber - 1;
-            System.out.println("array number: " + (arrayNumber));
+            String optionA = questions0.get(arrayNumber).getOptionA(),
+                    optionB = questions0.get(arrayNumber).getOptionB(),
+                    optionC = questions0.get(arrayNumber).getOptionC(),
+                    optionD = questions0.get(arrayNumber).getOptionD();
+
+
+            if (questionType.equals("True / False")) {
+                radioButtonC.setDisable(true);
+                radioButtonD.setDisable(true);
+
+                radioButtonC.setVisible(false);
+                radioButtonD.setVisible(false);
+
+                radioButtonA.setText(optionA);
+                radioButtonB.setText(optionB);
+
+                radioButtonA.wrapTextProperty();
+                radioButtonB.wrapTextProperty();
+            }
+            else if (questionType.equals("Multiple Choice")) {
+                radioButtonC.setDisable(false);
+                radioButtonD.setDisable(false);
+
+                radioButtonC.setVisible(true);
+                radioButtonD.setVisible(true);
+
+                radioButtonA.setText(optionA);
+                radioButtonB.setText(optionB);
+                radioButtonC.setText(optionC);
+                radioButtonD.setText(optionD);
+
+                radioButtonA.wrapTextProperty();
+                radioButtonB.wrapTextProperty();
+                radioButtonC.wrapTextProperty();
+                radioButtonD.wrapTextProperty();
+            }
         }
 
         deselectAllToggleGroup();
