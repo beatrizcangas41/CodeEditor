@@ -27,6 +27,23 @@ public class ScoreAndPerfDBHandler {
         return pstmt.executeQuery(query);
     }
 
+    public static ResultSet getEverythingFromScores(int userID) throws SQLException {
+        String query = "SELECT * FROM score WHERE userID = '" + userID + "'";
+        PreparedStatement pstmt = ModuleDBHandler.connection.prepareStatement(query);
+        return pstmt.executeQuery(query);
+    }
+
+    public static double getPerformanceOfUser(int userId) throws SQLException {
+        String query = "SELECT performance FROM performance WHERE userID = '" + userId + "'";
+        PreparedStatement pstmt = ModuleDBHandler.connection.prepareStatement(query);
+        ResultSet resultSet = pstmt.executeQuery(query);
+        double performance = 0;
+        while (resultSet.next()) {
+            performance = resultSet.getDouble("performance");
+        }
+        return performance;
+    }
+
     public static boolean checkIfUserExistsInPerformance(int userID) throws SQLException {
 
         String query = "SELECT userID FROM performance WHERE userID = '" + userID + "'";

@@ -41,24 +41,6 @@ public class UserDBHandler {
         return userID;
     }
 
-    public static User getUserByUsernameWithAddress(String username) throws SQLException{
-        String query1 = "SELECT * FROM user WHERE username = '" + username + "'";
-
-        PreparedStatement pstmt = connection.prepareStatement(query1);
-        ResultSet results = pstmt.executeQuery(query1);
-
-        User user = null;
-        while (results.next()){
-            String firstName = results.getString("firstName");
-            String lastName = results.getString("lastName");
-            String email = results.getString("email");
-            String username1 = results.getString("username1");
-            user = new User(firstName, lastName, username, email);
-        }
-
-        return user;
-    }
-
     public static String getUserTypeFromUsername(String username) throws SQLException {
         String query1 = "SELECT user_type FROM user WHERE username = '" + username + "'";
         PreparedStatement pstmt = connection.prepareStatement(query1);
@@ -77,22 +59,6 @@ public class UserDBHandler {
         else System.out.println("User not classified");
 
         return usertype;
-    }
-
-    public static String getAddressFromUsername(String username) throws SQLException {
-        String query1 = "SELECT address FROM user WHERE username = '" + username + "'";
-        PreparedStatement pstmt = connection.prepareStatement(query1);
-        ResultSet results1 = pstmt.executeQuery(query1);
-
-        String address = null;
-
-        while (results1.next()) {
-            address = results1.getString("address");
-        }
-
-        System.out.println("address: " + address);
-
-        return address;
     }
 
     public static void addUser(String firstName, String lastName, String email, String username, String password) throws SQLException {
@@ -236,6 +202,7 @@ public class UserDBHandler {
     }
 
     // NOT UTILIZED AT THE MOMENT BECAUSE THERE IS NOTHING THAT INVOLVES SHIPPING
+
 //    public static void updateAddress(String address, String username) throws SQLException {
 //
 //        String query = "UPDATE user SET address = ? where username = ?";
@@ -245,6 +212,41 @@ public class UserDBHandler {
 //        pstmt1.setString(2, username);
 //
 //        pstmt1.execute();
+//    }
+
+//    public static String getAddressFromUsername(String username) throws SQLException {
+//        String query1 = "SELECT address FROM user WHERE username = '" + username + "'";
+//        PreparedStatement pstmt = connection.prepareStatement(query1);
+//        ResultSet results1 = pstmt.executeQuery(query1);
+//
+//        String address = null;
+//
+//        while (results1.next()) {
+//            address = results1.getString("address");
+//        }
+//
+//        System.out.println("address: " + address);
+//
+//        return address;
+//    }
+
+
+//    public static User getUserByUsernameWithAddress(String username) throws SQLException{
+//        String query1 = "SELECT * FROM user WHERE username = '" + username + "'";
+//
+//        PreparedStatement pstmt = connection.prepareStatement(query1);
+//        ResultSet results = pstmt.executeQuery(query1);
+//
+//        User user = null;
+//        while (results.next()){
+//            String firstName = results.getString("firstName");
+//            String lastName = results.getString("lastName");
+//            String email = results.getString("email");
+//            String username1 = results.getString("username1");
+//            user = new User(firstName, lastName, username, email);
+//        }
+//
+//        return user;
 //    }
 
 }

@@ -7,10 +7,12 @@ public class Score extends Question {
     private double score;
 
     private int questionId, moduleId, programmingLanguageId,
-            NumberOfCorrectAnswers, NumberOfIncorrectAnswers, totalNumberOfAnswers;
+            numberOfCorrectAnswers, numberOfIncorrectAnswers, totalNumberOfAnswers;
     private String submittedAnswer;
-    public List<Question> questions = new ArrayList<>();
-//    score = getNumberOfCorrectAnswers() / getTotalNumberOfQuestionsAnswered() * 100
+    private String programmingLanguage;
+    private String moduleName;
+    private String lastName;
+    private String firstName;
 
     public Score(int score) {
         this.score = score;
@@ -22,6 +24,41 @@ public class Score extends Question {
         this.programmingLanguageId = programmingLanguageId;
         this.submittedAnswer = submittedAnswer;
     }
+
+    public String getProgrammingLanguage() {
+        return programmingLanguage;
+    }
+
+    public void setProgrammingLanguage(String programmingLanguage) {
+        this.programmingLanguage = programmingLanguage;
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public List<Question> questions = new ArrayList<>();
+//    score = getNumberOfCorrectAnswers() / getTotalNumberOfQuestionsAnswered() * 100
 
     public int getQuestionId() {
         return questionId;
@@ -89,21 +126,21 @@ public class Score extends Question {
     }
 
     private int getNumberOfCorrectAnswers() {
-        for (Question q : questions) if (isQuestionCorrect()) ++NumberOfCorrectAnswers;
-        return NumberOfCorrectAnswers;
+        for (Question q : questions) if (isQuestionCorrect()) ++numberOfCorrectAnswers;
+        return numberOfCorrectAnswers;
     }
 
     public void setNumberOfCorrectAnswers(int incorrectAnswers) {
-        this.NumberOfIncorrectAnswers = incorrectAnswers;
+        this.numberOfIncorrectAnswers = incorrectAnswers;
     }
 
     public int getNumberOfIncorrectAnswers() {
-        NumberOfIncorrectAnswers = totalNumberOfAnswers - NumberOfCorrectAnswers;
+        numberOfIncorrectAnswers = totalNumberOfAnswers - numberOfCorrectAnswers;
         return totalNumberOfAnswers;
     }
 
     public void setNumberOfIncorrectAnswers(int incorrectAnswers) {
-        this.NumberOfIncorrectAnswers = incorrectAnswers;
+        this.numberOfIncorrectAnswers = incorrectAnswers;
     }
 
     @Override
@@ -112,5 +149,6 @@ public class Score extends Question {
                 "Module #: " + this.moduleId + "\n" +
                 "Programming Lang #: " + this.programmingLanguageId + "\n" +
                 "Submitted Answer: " + this.submittedAnswer + "\n\n";
+
     }
 }

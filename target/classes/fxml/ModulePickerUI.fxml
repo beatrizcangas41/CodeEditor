@@ -49,18 +49,6 @@
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
-    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" cancelButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="GO BACK" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
-        </GridPane.margin>
-    </Button>
-
    <Button fx:id="Module1Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="708.0" layoutY="501.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Module1" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Module 1" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6">
       <font>
          <Font name="Verdana Bold" size="11.0" />
@@ -154,6 +142,18 @@
          <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
+
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" cancelButton="true" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="GO BACK" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+        </GridPane.margin>
+    </Button>
 
     <cursor>
         <Cursor fx:constant="DEFAULT" />

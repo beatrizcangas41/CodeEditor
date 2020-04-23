@@ -44,7 +44,6 @@ public class LoginScreenController {
                 if (!verifyLoginCredentials(getUsername(), getPassword()))
                     displayErrorDialog("Error", "Input not valid", "Wrong Username or Password");
                 else {
-                    String user_type = getUserTypeFromUsername(getUsername());
 
                     Stage loginStage = (Stage) passwordField.getScene().getWindow();
                     loginStage.close();
@@ -68,6 +67,7 @@ public class LoginScreenController {
                     stage.show();
                     stage.setOnCloseRequest(event -> System.exit(0));
 
+                    System.out.println("login page username: " + getUsername());
                     userMainScreenController.setUsername(getUsername());
                 }
             }

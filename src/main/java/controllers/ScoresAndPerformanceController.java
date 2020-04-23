@@ -6,26 +6,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import util.SceneChange;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class ScoresAndPerformanceController {
 
     @FXML public Button backButton;
+    @FXML public TextField performance;
+
+    @FXML TextArea textArea;
     String username;
 
     UserMainScreenController userMainScreenController;
 
-    @FXML public void initialize() {
+    @FXML public void initialize() throws SQLException {
         userMainScreenController = new UserMainScreenController();
     }
 
-    @FXML
-    public void goBack(ActionEvent actionEvent) {
+    @FXML public void goBack(ActionEvent actionEvent) {
         Stage loginStage = (Stage) backButton.getScene().getWindow();
         loginStage.close();
 
@@ -61,4 +66,5 @@ public class ScoresAndPerformanceController {
         System.out.println("(get) username: " + username);
         return username;
     }
+
 }

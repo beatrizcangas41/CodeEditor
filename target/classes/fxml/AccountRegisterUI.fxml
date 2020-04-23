@@ -67,6 +67,14 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </TextField>
+   <TextField fx:id="nameTextField2" layoutX="326.0" layoutY="221.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="last name" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="50.0" right="50.0" />
+      </GridPane.margin>
+   </TextField>
     <TextField fx:id="emailTextField1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="email address" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="9" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
         <GridPane.margin>
             <Insets left="50.0" right="50.0" />
@@ -137,6 +145,17 @@
          <Insets right="75.0" />
       </GridPane.margin>
    </TextField>
+   <TextField alignment="CENTER_RIGHT" editable="false" layoutX="66.0" layoutY="221.0" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="LAST NAME" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7">
+      <font>
+         <Font name="Verdana Bold" size="14.0" />
+      </font>
+      <effect>
+         <ColorAdjust contrast="1.0" />
+      </effect>
+      <GridPane.margin>
+         <Insets right="75.0" />
+      </GridPane.margin>
+   </TextField>
 
     <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="EMAIL ADDRESS" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="9">
         <font> <Font name="Verdana Bold" size="14.0" /> </font>
@@ -177,25 +196,6 @@
          <Insets right="75.0" />
       </GridPane.margin>
     </TextField>
-   <TextField alignment="CENTER_RIGHT" editable="false" layoutX="66.0" layoutY="221.0" prefHeight="59.0" prefWidth="200.0" style="-fx-border-color: #ffffff;" text="LAST NAME" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7">
-      <font>
-         <Font name="Verdana Bold" size="14.0" />
-      </font>
-      <effect>
-         <ColorAdjust contrast="1.0" />
-      </effect>
-      <GridPane.margin>
-         <Insets right="75.0" />
-      </GridPane.margin>
-   </TextField>
-   <TextField fx:id="nameTextField2" layoutX="326.0" layoutY="221.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="last name" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.halignment="RIGHT" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-      <cursor>
-         <Cursor fx:constant="HAND" />
-      </cursor>
-      <GridPane.margin>
-         <Insets left="50.0" right="50.0" />
-      </GridPane.margin>
-   </TextField>
    <TextArea accessibleRole="TEXT_FIELD" editable="false" prefHeight="45.0" prefWidth="411.0" style="-fx-border-color: white; -fx-background-color: white;" text="We encourage you to choose a strong password containing a capital letter, lowercase letter, a symbol, and a number" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="18" GridPane.rowSpan="2">
       <GridPane.margin>
          <Insets bottom="10.0" left="135.0" right="135.0" top="10.0" />

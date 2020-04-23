@@ -48,18 +48,6 @@
         <Image url="@../images/FullColor_TransparentBg_1280x1024_72dpi.png" />
     </ImageView>
 
-    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="GO BACK" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="13" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
-        </GridPane.margin>
-    </Button>
-
     <Button fx:id="C_PlusPlus_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#C_PlusPlus" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="C++" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
         <font>
             <Font name="Verdana Bold" size="13.0" />
@@ -94,30 +82,7 @@
             <Insets left="25.0" right="25.0" />
         </GridPane.margin>
     </Button>
-
-    <Button fx:id="SQL_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="51.0" layoutY="424.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#SQL" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="SQL" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
-        <font>
-            <Font name="Verdana Bold" size="13.0" />
-        </font>
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <GridPane.margin>
-            <Insets left="25.0" right="25.0" />
-        </GridPane.margin>
-    </Button>
-   <Button fx:id="Swift_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="105.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Swift" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Swift" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9">
-      <font>
-         <Font name="Verdana Bold" size="13.0" />
-      </font>
-      <cursor>
-         <Cursor fx:constant="HAND" />
-      </cursor>
-      <GridPane.margin>
-         <Insets left="25.0" right="25.0" />
-      </GridPane.margin>
-   </Button>
-   <Button fx:id="ObjectiveC_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#ObjectiveC" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Objective-C" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="11">
+   <Button fx:id="Python_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="274.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Python" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Python" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="7">
       <font>
          <Font name="Verdana Bold" size="13.0" />
       </font>
@@ -139,7 +104,7 @@
          <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
-   <Button fx:id="Python_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="274.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Python" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Python" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="7">
+   <Button fx:id="Swift_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="105.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#Swift" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Swift" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9">
       <font>
          <Font name="Verdana Bold" size="13.0" />
       </font>
@@ -150,6 +115,41 @@
          <Insets left="25.0" right="25.0" />
       </GridPane.margin>
    </Button>
+
+    <Button fx:id="SQL_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="51.0" layoutY="424.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#SQL" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="SQL" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="11">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets left="25.0" right="25.0" />
+        </GridPane.margin>
+    </Button>
+   <Button fx:id="ObjectiveC_Button" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" layoutX="409.0" layoutY="208.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#ObjectiveC" prefWidth="75.0" style="-fx-background-color: #80807E; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-background-radius: 100;" text="Objective-C" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="11">
+      <font>
+         <Font name="Verdana Bold" size="13.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <GridPane.margin>
+         <Insets left="25.0" right="25.0" />
+      </GridPane.margin>
+   </Button>
+
+    <Button fx:id="backButton" cache="true" cacheHint="QUALITY" graphicTextGap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goBack" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: #42e695; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="GO BACK" textAlignment="CENTER" textFill="#80807e" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="13" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+        <font>
+            <Font name="Verdana Bold" size="13.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <GridPane.margin>
+            <Insets bottom="5.0" left="40.0" right="40.0" top="5.0" />
+        </GridPane.margin>
+    </Button>
 
     <cursor>
         <Cursor fx:constant="DEFAULT" />
