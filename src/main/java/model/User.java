@@ -3,39 +3,45 @@ package model;
 public class User {
 
     private int userID;
-    private String name, username, password, address, email, user_type;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String password;
+    private String email;
+    private String user_type;
 
-    public User(String name, String username, String email, String password) {
-        this.name = name;
+    public User(String firstName, String lastName, String username, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public User(String name, String username, String email, String password, String address) {
-        this.name = name;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-    }
-
-    public User(int userID, String name, String username, String password, String address, String email, String user_type) {
+    public User(int userID, String firstName, String lastName, String username, String password, String email, String user_type) {
         this.userID = userID;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.address = address;
         this.email = email;
         this.user_type = user_type;
     }
 
-    public String getAddress() {
-        return address;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getUser_type() {
+        return user_type;
     }
 
     public String getName() {
-        return name;
+        return firstName;
     }
 
     public String getUsername() {
@@ -54,16 +60,16 @@ public class User {
         return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setUser_type(String user_type) {
@@ -85,9 +91,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "firstName='" + firstName + '\'' +
+                ",lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", user_type='" + user_type + '\'' +
                 '}';

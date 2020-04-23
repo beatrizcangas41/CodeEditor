@@ -30,11 +30,11 @@ public class ModuleDBHandler {
         return moduleName;
     }
 
-    public static int getModuleIDFromName(String name) throws SQLException {
+    public static int getModuleIDFromName(String moduleName) throws SQLException {
 
         int moduleID = 0;
 
-        String query2 = "SELECT moduleID FROM module WHERE moduleName = '" + name + "'";
+        String query2 = "SELECT moduleID FROM module WHERE moduleName = '" + moduleName + "'";
         PreparedStatement pstmt2 = connection.prepareStatement(query2);
         ResultSet results2 = pstmt2.executeQuery(query2);
         while (results2.next()) moduleID = Integer.parseInt(results2.getString("moduleID"));

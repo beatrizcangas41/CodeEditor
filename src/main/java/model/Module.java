@@ -48,8 +48,8 @@ public class Module extends Question {
         this.moduleQuestions = moduleQuestions;
     }
 
-    public String getID(String name) {
-        if(this.moduleName.equals(name)) return this.moduleName;
+    public String getID(String moduleName) {
+        if(this.moduleName.equals(moduleName)) return this.moduleName;
         else return null;
     }
 

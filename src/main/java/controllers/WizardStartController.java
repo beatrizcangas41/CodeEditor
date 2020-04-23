@@ -54,9 +54,9 @@ public class WizardStartController {
         System.out.println("text field: " + getModuleName());
     }
 
-    public final void setLanguageName(String name) {
+    public final void setLanguageName(String languageName) {
 
-        this.languageName = name;
+        this.languageName = languageName;
         // moduleName = Module1Button.getText();
         System.out.println("(set) assign Language Name to string variable: " + languageName);
     }

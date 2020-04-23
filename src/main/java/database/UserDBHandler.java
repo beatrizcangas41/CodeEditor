@@ -18,11 +18,12 @@ public class UserDBHandler {
 
         User user = null;
         while (results.next()){
-            String name = results.getString("name");
+            String firstName = results.getString("firstName");
+            String lastName = results.getString("lastName");
             String email = results.getString("email");
             String user_type = results.getString("user_type");
             String password = results.getString("password");
-            user = new User(name, username, email, password);
+            user = new User(firstName, lastName, username, email, password);
         }
 
         return user;
@@ -96,13 +97,13 @@ public class UserDBHandler {
         return address;
     }
 
-    public static void addUser(String name, String email, String username, String password) throws SQLException {
+    public static void addUser(String firstName, String lastName, String email, String username, String password) throws SQLException {
 
         Statement s = connection.createStatement();
         password = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        s.executeUpdate("INSERT INTO `user`(name, email, username, password)" +
-                " VALUE ('" + name + "' , '" + email + "', '" + username + "', '" + password + "')");
+        s.executeUpdate("INSERT INTO `user`(firstName, lastName, email, username, password)" +
+                " VALUE ('" + firstName + "' , '" + lastName + "' , '" + email + "', '" + username + "', '" + password + "')");
     }
 
     public static void addUserAdmin(String name, String email, String username, String password, String user_type) throws SQLException {
@@ -143,6 +144,7 @@ public class UserDBHandler {
             System.out.println("username: " + username);
             System.out.println("dbUname: " + uName);
         }
+
         if (uName != null && username != null) {
             if (uName.equals(username)) {
                 System.out.println("User exists");
@@ -218,7 +220,7 @@ public class UserDBHandler {
         System.out.println("token: " + token);
         System.out.println("dbToken: " + token1);
 
-        if (token1.equals(getToken())) {
+        if (token1 != null && token1.equals(getToken())) {
             System.out.println("token is a match. ");
             return true;
         }
@@ -226,6 +228,7 @@ public class UserDBHandler {
             System.out.println("wrong input");
             return false;
         }
+
     }
 
     public static ResultSet verifyUsernameAndEmail (String username, String email) throws SQLException {
@@ -238,15 +241,16 @@ public class UserDBHandler {
         return pstmt.executeQuery(query2);
     }
 
-    public static void updateAddress(String address, String username) throws SQLException {
-
-        String query = "UPDATE user SET address = ? where username = ?";
-        PreparedStatement pstmt1 = connection.prepareStatement(query);
-
-        pstmt1.setString(1, address);
-        pstmt1.setString(2, username);
-
-        pstmt1.execute();
-    }
+    // NOT UTILIZED AT THE MOMENT BECAUSE THERE IS NOTHING THAT INVOLVES SHIPPING
+//    public static void updateAddress(String address, String username) throws SQLException {
+//
+//        String query = "UPDATE user SET address = ? where username = ?";
+//        PreparedStatement pstmt1 = connection.prepareStatement(query);
+//
+//        pstmt1.setString(1, address);
+//        pstmt1.setString(2, username);
+//
+//        pstmt1.execute();
+//    }
 
 }

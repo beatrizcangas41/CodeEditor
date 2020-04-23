@@ -13,21 +13,13 @@ import java.io.IOException;
 
 public class UserMainScreenController {
 
-    @FXML public Button MyAccountButton, MyScoresButton, ModulesButton, MyPerformanceButton, LogOutButton;
+    @FXML public Button AccountDetails, GoToModules, ScoresAndPerformance, LogOutButton;
     String username;
 
     LanguagePickerController languagePickerController;
 
-    @FXML public void GoToMyAccount(ActionEvent actionEvent) {
-        // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
-    }
-
-    @FXML public void GoToScores(ActionEvent actionEvent) {
-        // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
-    }
-
     @FXML public void GoToModules(ActionEvent actionEvent) {
-        Stage loginStage = (Stage) ModulesButton.getScene().getWindow();
+        Stage loginStage = (Stage) GoToModules.getScene().getWindow();
         loginStage.close();
 
         System.out.println("User Page");
@@ -51,8 +43,12 @@ public class UserMainScreenController {
         }
     }
 
-    @FXML public void GoToPerformance(ActionEvent actionEvent) {
-        // SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
+    @FXML public void ScoresAndPerformance(ActionEvent actionEvent) {
+        SceneChange.sceneChangeButton("fxml/ScoresAndPerformanceUI.fxml", LogOutButton);
+    }
+
+    @FXML public void GoToMyAccount(ActionEvent actionEvent) {
+        SceneChange.sceneChangeButton("fxml/MyAccountPageUI.fxml", LogOutButton);
     }
 
     @FXML public void Logout(ActionEvent actionEvent) {

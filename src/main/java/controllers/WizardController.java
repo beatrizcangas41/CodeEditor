@@ -26,11 +26,16 @@ import static database.UserDBHandler.getUserIDByUsername;
 
 public class WizardController {
 
-    @FXML public TextField answerTextField, progressValue;
-    @FXML public TextArea questionDescription;
-    @FXML public ProgressBar progressBar;
-    @FXML public RadioButton radioButtonA, radioButtonB, radioButtonC, radioButtonD;
-    @FXML private Button nextButton, backButton, finishButton;
+    @FXML
+    public TextField answerTextField, progressValue;
+    @FXML
+    public TextArea questionDescription;
+    @FXML
+    public ProgressBar progressBar;
+    @FXML
+    public RadioButton radioButtonA, radioButtonB, radioButtonC, radioButtonD;
+    @FXML
+    private Button nextButton, backButton, finishButton;
 
     ToggleGroup group = new ToggleGroup();
 
@@ -47,9 +52,11 @@ public class WizardController {
     int questNumber, arrayNumber;
     String letterChoice = null, questionType;
 
-    @FXML public void initialize() {
+    @FXML
+    public void initialize() {
         wizardStartController = new WizardStartController();
-        System.out.println("language: " + languageName + "\n" + "module: " + moduleName);
+        enableButton(nextButton);
+        enableButton(backButton);
     }
 
     public final void setQuestions0(ObservableList<Question> questions0) {
@@ -133,6 +140,18 @@ public class WizardController {
 //      group.getToggles().remove(toggle);
     }
 
+    private void selectedRadioButton(RadioButton button) {
+        button.setSelected(true);
+    }
+
+    public void enableButton(Button button) {
+        button.setDisable(false);
+    }
+
+    public void disableButton(Button button) {
+        button.setDisable(true);
+    }
+
     @FXML public void nextButton(ActionEvent actionEvent) throws SQLException {
 
         if (group.getSelectedToggle() == null)
@@ -143,39 +162,14 @@ public class WizardController {
 
             arraySize = questions0.size();
             System.out.println("array size: " + arraySize);
-            System.out.println("old question: " + questNumber);
-            questNumber++;
-            System.out.println("new question: " + questNumber);
-            arrayNumber = questNumber - 1;
-
-            if (questNumber > 1 && questNumber < arraySize) {
-                nextButton.setDisable(false);
-                backButton.setDisable(false);
-            }
-            else if (questNumber == 1) backButton.setDisable(true);
-            else if (questNumber == arraySize) nextButton.setDisable(true);
 
             questionType = questions0.get(arrayNumber).getQuestion_type();
             System.out.println("question type: " + questionType);
 
             progressNumber = questNumber / arraySize;
             progressPercentage = progressNumber * 100;
-
             String percentageResult = String.format("%.2f", progressPercentage);
             System.out.println("Progress %: " + progressPercentage);
-
-            if (questNumber < questions0.size()) questionDescription.setText(questions0.get(arrayNumber).getDescription());
-            else if (questNumber == questions0.size()) {
-                questionDescription.setText(questions0.get(arrayNumber).getDescription() +
-                        '\n' + '\n' + "Press DONE when you are finished");
-
-                finishButton.setDisable(false);
-                nextButton.setDisable(true);
-            }
-
-            questionDescription.setWrapText(true);
-            progressBar.setProgress(progressNumber);
-            progressValue.setText(percentageResult + '%');
 
             setToggleGroup();
             String optionA = questions0.get(arrayNumber).getOptionA(),
@@ -193,6 +187,7 @@ public class WizardController {
                 radioButtonA.setText(optionA);
                 radioButtonB.setText(optionB);
             }
+
             else if (questionType.equals("Multiple Choice")) {
                 radioButtonC.setDisable(false);
                 radioButtonD.setDisable(false);
@@ -220,11 +215,54 @@ public class WizardController {
 
             scores.add(new Score(questNumber, moduleID, languageID, letterChoice));
             deselectAllToggleGroup();
+
+            System.out.println("old question: " + questNumber);
+            questNumber++;
+            System.out.println("new question: " + questNumber);
+            arrayNumber = questNumber - 1;
+            int NextQuestSelectedToggle;
+
+            System.out.println("scores.size: " + scores.size());
+
+            if (scores.size() == questNumber) {
+                String tempAnswer = scores.get(arrayNumber).getSubmittedAnswer();
+
+                if (!tempAnswer.isEmpty() && tempAnswer.equals("A")) selectedRadioButton(radioButtonA);
+                else if (!tempAnswer.isEmpty() && tempAnswer.equals("B")) selectedRadioButton(radioButtonB);
+                else if (!tempAnswer.isEmpty() && tempAnswer.equals("C")) selectedRadioButton(radioButtonC);
+                else if (!tempAnswer.isEmpty() && tempAnswer.equals("D")) selectedRadioButton(radioButtonD);
+            }
+
+            if (questNumber > 1 && questNumber < arraySize) {
+                enableButton(nextButton);
+                enableButton(backButton);
+            }
+            else if (questNumber == 1) disableButton(backButton);
+            else if (questNumber == arraySize) disableButton(nextButton);
+
+            if (questNumber < questions0.size()) questionDescription.setText(questions0.get(arrayNumber).getDescription());
+            else if (questNumber == questions0.size()) {
+                questionDescription.setText(questions0.get(arrayNumber).getDescription() +
+                        '\n' + '\n' + "Press DONE when you are finished");
+
+                finishButton.setDisable(false);
+                nextButton.setDisable(true);
+            }
+
+            questionDescription.setWrapText(true);
+            progressBar.setProgress(progressNumber);
+            progressValue.setText(percentageResult + '%');
         }
     }
 
     @FXML public void backButton(ActionEvent actionEvent) throws SQLException {
         System.out.println("BACK Button Pressed");
+
+        System.out.println("array number - 1: " + (arrayNumber));
+        String tempAnswer = scores.get(arrayNumber - 1).getSubmittedAnswer();
+        System.out.println("temp answer: " + tempAnswer);
+
+        enableButton(nextButton);
 
         System.out.println("old question: " + questNumber);
         questNumber--;
@@ -233,9 +271,8 @@ public class WizardController {
 
         arraySize = questions0.size();
         System.out.println("array size: " + arraySize);
-
-        if (questNumber == 1) backButton.setDisable(true);
-        if (questNumber == questions0.size()) nextButton.setDisable(false);
+        if (questNumber == 1) disableButton(backButton);
+        if (questNumber == questions0.size()) disableButton(nextButton);
 
         questionType = questions0.get(arrayNumber).getQuestion_type();
         System.out.println("question type: " + questionType);
@@ -251,12 +288,11 @@ public class WizardController {
         progressBar.setProgress(progressNumber);
         progressValue.setText(percentageResult + '%');
 
+        setToggleGroup();
         String optionA = questions0.get(arrayNumber).getOptionA();
         String optionB = questions0.get(arrayNumber).getOptionB();
         String optionC = questions0.get(arrayNumber).getOptionC();
         String optionD = questions0.get(arrayNumber).getOptionD();
-
-        setToggleGroup();
 
         if (questionType.equals("True / False")) {
             radioButtonC.setDisable(true);
@@ -281,11 +317,28 @@ public class WizardController {
             radioButtonD.setText(optionD);
         }
 
+        switch (tempAnswer) {
+            case "A": selectedRadioButton(radioButtonA);
+                System.out.println("radioButtonA");
+                break;
+            case "B": selectedRadioButton(radioButtonB);
+                System.out.println("radioButtonB");
+                break;
+
+            case "C": selectedRadioButton(radioButtonC);
+                System.out.println("radioButtonC");
+                break;
+
+            case "D": selectedRadioButton(radioButtonD);
+                System.out.println("radioButtonD");
+                break;
+        }
+
         RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+        answerSubmitted = selectedRadioButton.getText();
+        System.out.println("answer submitted: " + answerSubmitted);
 
         if (!selectedRadioButton.getText().isEmpty()) {
-            answerSubmitted = selectedRadioButton.getText();
-            System.out.println("answer submitted: " + answerSubmitted);
 
             if (answerSubmitted.equals(radioButtonA.getText())) letterChoice = "A";
             else if (answerSubmitted.equals(radioButtonB.getText())) letterChoice = "B";
@@ -391,6 +444,7 @@ public class WizardController {
                 System.out.println("score: " + scorePercentage);
                 wizardDoneController.setText("SCORE: " + scorePercentage + " %\n\n" +
                         "PERFORMANCE: " + perfResult + " %");
+                wizardDoneController.questionDescription.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-text-inner-color:  #80807E");
             } catch (IOException e) {
                 e.printStackTrace();
             }

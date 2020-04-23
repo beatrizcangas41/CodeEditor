@@ -10,6 +10,7 @@
       <w>pwrd</w>
       <w>smtp</w>
       <w>starttls</w>
+      <w>uname</w>
     </words>
   </dictionary>
 </component>

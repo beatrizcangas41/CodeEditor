@@ -5,8 +5,6 @@ import database.DatabaseConnector;
 import database.UserDBHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -14,7 +12,6 @@ import javafx.stage.Stage;
 import util.DialogCreator;
 import util.SceneChange;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,17 +25,17 @@ public class AccountRegisterController {
     private UserDBHandler userDBHandler;
 
     @FXML private Button createAccountPressed, cancelButtonPressed;
-    @FXML private TextField nameTextField1, emailTextField1,
-            emailTextField2, usernameTextField1;
+    @FXML private TextField nameTextField1, nameTextField2, emailTextField1,
+                            emailTextField2, usernameTextField1;
     @FXML private PasswordField passwordField1, passwordField2;
 
-    String name1, email1, email2, uName1, pwrd1, pwrd2;
+    String firstName, lastName, email1, email2, uName1, pwrd1, pwrd2;
 
     @FXML public void initialize() {
         LoginScreenController loginScreenController = new LoginScreenController();
     }
 
-    public void createAccountPressed() throws SQLException, IOException {
+    @FXML public void createAccountPressed() throws SQLException {
         Connection connection = DatabaseConnector.getConnection();
         Statement stmt2 = null;
 
@@ -46,16 +43,15 @@ public class AccountRegisterController {
             System.out.println("Connection Successful");
 
             if(!hasErrors()) {
-                addUser(name1, email1, uName1, pwrd1);
-                System.out.println("Entered credentials : " + uName1 + " " + email1 + " " + name1 + " " + pwrd1);
+                addUser(firstName, lastName, email1, uName1, pwrd1);
+                System.out.println("Entered credentials : " + uName1 + " " + email1 + " " + firstName + " " + lastName + " " + pwrd1);
 
                 Stage loginStage = (Stage) createAccountPressed.getScene().getWindow();
                 loginStage.close();
 
                 System.out.println("User Page");
 
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LoginScreenUI.fxml"));
-                Parent root = loader.load();
+                SceneChange.sceneChangeButton("fxml/LoginScreenUI.fxml", createAccountPressed);
             }
 
         }
@@ -70,13 +66,13 @@ public class AccountRegisterController {
     @FXML public void cancelButtonPressed(ActionEvent actionEvent) {
 
         System.out.println("Cancel Button Pressed");
-
         SceneChange.sceneChangeButton("fxml/LoginScreenUI.fxml", cancelButtonPressed);
     }
 
     private boolean hasErrors() throws SQLException {
 
-        name1 = nameTextField1.getText();
+        firstName = nameTextField1.getText();
+        lastName = nameTextField2.getText();
         email1 = emailTextField1.getText();
         email2 = emailTextField2.getText();
         uName1 = usernameTextField1.getText();
@@ -86,7 +82,7 @@ public class AccountRegisterController {
         boolean hasErrors = false;
         String errorMessage = "Please address the following error(s) before test can be run: \n";
 
-        if (name1.isEmpty() || email1.isEmpty() || email2.isEmpty() || uName1.isEmpty() || pwrd1.isEmpty() || pwrd2.isEmpty()) {
+        if (firstName.isEmpty() || lastName.isEmpty() || email1.isEmpty() || email2.isEmpty() || uName1.isEmpty() || pwrd1.isEmpty() || pwrd2.isEmpty()) {
             errorMessage += "\n    - Please verify your input(s), they may be empty. ";
             hasErrors = true;
         }

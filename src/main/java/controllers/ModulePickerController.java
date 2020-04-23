@@ -93,15 +93,14 @@ public class ModulePickerController {
         return languageName;
     }
 
-    public void setLanguageName(String name) {
-        System.out.println("string passed: " + name);
-        // languageName = name;
-        this.languageName = name;
+    public void setLanguageName(String languageName) {
+        System.out.println("string passed: " + languageName);
+        this.languageName = languageName;
         System.out.println("(set) assign Language Name to string variable: " + languageName);
     }
 
-    public final void setModuleName(String name) {
-        this.moduleName = name;
+    public final void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
         System.out.println("(set) assign Module Name to string variable: " + moduleName);
     }
 
@@ -110,8 +109,8 @@ public class ModulePickerController {
         return moduleName;
     }
 
-    public final void setUsername(String name) {
-        this.username = name;
+    public final void setUsername(String username) {
+        this.username = username;
         System.out.println("(set) assign Username to string variable: " + username);
     }
 

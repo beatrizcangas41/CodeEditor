@@ -96,7 +96,6 @@ public class ForgotPasswordController {
 
     @FXML void goBackButton(ActionEvent actionEvent) {
         System.out.println("Go Back Button Pressed");
-
         SceneChange.sceneChangeButton("fxml/loginScreenUI.fxml", goBackButton);
     }
 
