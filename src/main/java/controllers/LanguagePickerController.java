@@ -6,13 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import util.DialogCreator;
 import util.SceneChange;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class LanguagePickerController {
 
@@ -20,8 +21,13 @@ public class LanguagePickerController {
             SQL_Button, Swift_Button, ObjectiveC_Button, Ruby_Button, Python_Button;
 
     ModulePickerController modulePickerController;
+    UserMainScreenController userMainScreenController;
 
     private String languageName, username;
+
+    @FXML public void initialize() {
+        modulePickerController = new ModulePickerController();
+    }
 
     public final void setLanguageName(String languageName) {
 
@@ -57,12 +63,18 @@ public class LanguagePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/ModulePickerUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             modulePickerController = loader.getController();
             System.out.println("Setting Language Name in Module Picker: " + languageName);
@@ -133,10 +145,31 @@ public class LanguagePickerController {
     }
 
     public void goBack(ActionEvent actionEvent) {
-        String buttonText = ((Button)actionEvent.getSource()).getText();
-        System.out.println("Button text : " + buttonText);
-        languageName = buttonText;
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
 
-        SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
+            Parent root = loader.load();
+
+            userMainScreenController = loader.getController();
+
+            //Show scene 2 in new window
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
+            stage.setTitle("Code Learner");
+            stage.setScene(new Scene(root));
+            stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
+
+            userMainScreenController.setUsername(getUsername());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

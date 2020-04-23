@@ -1,5 +1,9 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class User {
 
     private int userID;
@@ -9,13 +13,22 @@ public class User {
     private String password;
     private String email;
     private String user_type;
+    private Date accountOpen;
 
-    public User(String firstName, String lastName, String username, String email, String password) {
+    public User(String firstName, String lastName, String username, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
-        this.password = password;
+    }
+
+    public User(String firstName, String lastName, String username, String email, Date openDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy:HH:mm:ss");
+        this.accountOpen = openDate;
     }
 
     public User(int userID, String firstName, String lastName, String username, String password, String email, String user_type) {
@@ -58,6 +71,14 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public Date getAccountOpen() {
+        return accountOpen;
+    }
+
+    public void setAccountOpen(Date accountOpen) {
+        this.accountOpen = accountOpen;
     }
 
     public void setFirstName(String firstName) {

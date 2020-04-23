@@ -3,14 +3,18 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import util.SceneChange;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MyAccountPageController {
-    public Button confirmEmail;
-    public Button confirmPassword;
+    public Button confirmEmail, confirmPassword, backButton;
     public TextField username;
     public TextField firstName;
     public TextField lastName;
@@ -24,8 +28,23 @@ public class MyAccountPageController {
     public TextField email1;
     public TextField email2;
     public TextField currentEmail;
-    public Button backButton;
 
+    String usernameString;
+    UserMainScreenController userMainScreenController;
+
+    @FXML public void initialize() {
+        userMainScreenController = new UserMainScreenController();
+    }
+
+    public final void setUsername(String name) {
+        this.usernameString = name;
+        System.out.println("(set) assign Username to string variable: " + usernameString);
+    }
+
+    public final String getUsername() {
+        System.out.println("(get) username: " + usernameString);
+        return usernameString;
+    }
 
     @FXML public void confirm(ActionEvent actionEvent) {
     }
@@ -38,7 +57,24 @@ public class MyAccountPageController {
     }
 
     @FXML public void goBack(ActionEvent actionEvent) {
-        SceneChange.sceneChangeButton("fxml/UserMainScreenUI.fxml", backButton);
-    }
+        Stage loginStage = (Stage) backButton.getScene().getWindow();
+        loginStage.close();
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+            Parent root = loader.load();
+
+            userMainScreenController = loader.getController();
+
+            //Show scene 2 in new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Code Learner");
+            stage.show();
+
+            userMainScreenController.setUsername(getUsername());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

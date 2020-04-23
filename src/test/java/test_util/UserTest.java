@@ -1,7 +1,5 @@
 package test_util;
 
-import model.User;
-
 import java.sql.SQLException;
 
 import static database.UserDBHandler.*;
@@ -38,10 +36,5 @@ public class UserTest {
         System.out.print("testB: ");
         System.out.println(verifyLoginCredentials("admin_Beatriz", "test"));
         System.out.println();
-
-        // Test # 5: Add User
-        System.out.println("Test 5: ");
-        User user = new User("admin", "B", "admin_B@test.com", "admin_B", "admin_B");
-        System.out.println(getUserByUsername("admin_B"));
     }
 }

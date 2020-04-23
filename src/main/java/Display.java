@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Question;
 import model.User;
+import util.SceneChange;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Display extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent page = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/loginScreenUI.fxml")));
         primaryStage.setResizable(false);
-        Image img = new Image(getClass().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg"));
+        Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
         primaryStage.getIcons().add(img);
         primaryStage.setTitle("Code Learner");
         primaryStage.setScene(new Scene(page));

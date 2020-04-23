@@ -6,11 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import util.SceneChange;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static database.ModuleDBHandler.getModuleFromLanguageAndNumber;
 import static database.ModuleDBHandler.getModuleNameFromID;
@@ -28,6 +30,21 @@ public class ModulePickerController {
     @FXML public void initialize() {
         System.out.println("initializing");
         languagePickerController = new LanguagePickerController();
+    }
+
+    public final String getUsername() {
+        System.out.println("(get) username: " + username);
+        return username;
+    }
+
+    public final String getModuleName() {
+        System.out.println("(get) Module Name: " + moduleName);
+        return moduleName;
+    }
+
+    public final String getLanguageName() {
+        System.out.println("MPC - (get) Language Name: " + languageName);
+        return languageName;
     }
 
     public void setButtonText(String languageName) throws SQLException {
@@ -88,12 +105,7 @@ public class ModulePickerController {
         }
     }
 
-    public String getLanguageName() {
-        System.out.println("MPC - (get) Language Name: " + languageName);
-        return languageName;
-    }
-
-    public void setLanguageName(String languageName) {
+    public final void setLanguageName(String languageName) {
         System.out.println("string passed: " + languageName);
         this.languageName = languageName;
         System.out.println("(set) assign Language Name to string variable: " + languageName);
@@ -104,23 +116,38 @@ public class ModulePickerController {
         System.out.println("(set) assign Module Name to string variable: " + moduleName);
     }
 
-    public final String getModuleName() {
-        System.out.println("(get) Module Name: " + moduleName);
-        return moduleName;
-    }
-
     public final void setUsername(String username) {
         this.username = username;
         System.out.println("(set) assign Username to string variable: " + username);
     }
 
-    public final String getUsername() {
-        System.out.println("(get) username: " + username);
-        return username;
-    }
-
     @FXML public void goBack(ActionEvent actionEvent) {
-        SceneChange.sceneChangeButton("fxml/LanguagePickerUI.fxml", backButton);
+        Stage stage = (Stage) Module1Button.getScene().getWindow();
+        stage.close();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/LanguagePickerUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
+            Parent parent = loader.load();
+
+            languagePickerController = loader.getController();
+
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
+            stage.setTitle("Code Learner");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
+
+            languagePickerController.setUsername(getUsername());
+        }
+
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML public void Module1(ActionEvent actionEvent) {
@@ -137,14 +164,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -170,14 +203,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -202,14 +241,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -234,15 +279,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
-            stage.setTitle("Code Learner");
-            stage.setScene(newScene);
-            stage.show();
+            stage = new Stage();
+            stage.setResizable(false);
 
+            stage.getIcons().add(img);
+
+            stage.setTitle("Code Learner");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
             wizardStartController.setUsername(getUsername());
@@ -266,14 +316,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -298,14 +354,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -330,14 +392,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());
@@ -362,14 +430,20 @@ public class ModulePickerController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/WizardStartUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             wizardStartController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
 
             wizardStartController.setModuleName(getModuleName());
             wizardStartController.setLanguageName(getLanguageName());

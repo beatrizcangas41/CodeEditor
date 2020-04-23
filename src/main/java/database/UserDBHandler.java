@@ -21,9 +21,8 @@ public class UserDBHandler {
             String firstName = results.getString("firstName");
             String lastName = results.getString("lastName");
             String email = results.getString("email");
-            String user_type = results.getString("user_type");
-            String password = results.getString("password");
-            user = new User(firstName, lastName, username, email, password);
+            Date openDate = results.getDate("createdOn");
+            user = new User(firstName, lastName, username, email, openDate);
         }
 
         return user;
@@ -50,12 +49,11 @@ public class UserDBHandler {
 
         User user = null;
         while (results.next()){
-            String name = results.getString("name");
+            String firstName = results.getString("firstName");
+            String lastName = results.getString("lastName");
             String email = results.getString("email");
-            String user_type = results.getString("user_type");
-            String password = results.getString("password");
-            String address = results.getString("address");
-            user = new User(name, username, email, password, address);
+            String username1 = results.getString("username1");
+            user = new User(firstName, lastName, username, email);
         }
 
         return user;
@@ -74,8 +72,8 @@ public class UserDBHandler {
 
         System.out.println("user_type: " + usertype);
 
-        if (usertype.equals("Admin")) System.out.println("Admin Page");
-        else if (usertype.equals("User")) System.out.println("User Page");
+        if (usertype != null && usertype.equals("Admin")) System.out.println("Admin Page");
+        else if (usertype != null && usertype.equals("User")) System.out.println("User Page");
         else System.out.println("User not classified");
 
         return usertype;
@@ -133,10 +131,6 @@ public class UserDBHandler {
         ResultSet results = pstmt.executeQuery(query1);
 
         String uName = null;
-
-        System.out.println("username: " + username);
-        System.out.println("dbUname: " + uName);
-
 
         while (results.next()) {
             uName = results.getString("username");

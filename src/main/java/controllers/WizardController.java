@@ -215,7 +215,10 @@ public class WizardController {
             questNumber++;
             System.out.println("new question: " + questNumber);
             arrayNumber = questNumber - 1;
-            int NextQuestSelectedToggle;
+
+            System.out.println("array number: " + (arrayNumber));
+            String tempAnswer = scores.get(arrayNumber - 1).getSubmittedAnswer();
+            System.out.println("temp answer: " + tempAnswer);
 
             progressNumber = questNumber / arraySize;
             progressPercentage = progressNumber * 100;
@@ -224,14 +227,22 @@ public class WizardController {
 
             System.out.println("scores.size: " + scores.size());
 
-            if (scores.size() == questNumber) {
-                String tempAnswer = scores.get(arrayNumber).getSubmittedAnswer();
-
-                if (!tempAnswer.isEmpty() && tempAnswer.equals("A")) selectedRadioButton(radioButtonA);
-                else if (!tempAnswer.isEmpty() && tempAnswer.equals("B")) selectedRadioButton(radioButtonB);
-                else if (!tempAnswer.isEmpty() && tempAnswer.equals("C")) selectedRadioButton(radioButtonC);
-                else if (!tempAnswer.isEmpty() && tempAnswer.equals("D")) selectedRadioButton(radioButtonD);
-            }
+//            switch (tempAnswer) {
+//                case "A": selectedRadioButton(radioButtonA);
+//                    System.out.println("radioButtonA");
+//                    break;
+//                case "B": selectedRadioButton(radioButtonB);
+//                    System.out.println("radioButtonB");
+//                    break;
+//
+//                case "C": selectedRadioButton(radioButtonC);
+//                    System.out.println("radioButtonC");
+//                    break;
+//
+//                case "D": selectedRadioButton(radioButtonD);
+//                    System.out.println("radioButtonD");
+//                    break;
+//            }
 
             if (questNumber > 1 && questNumber < arraySize) {
                 enableButton(nextButton);
@@ -258,7 +269,7 @@ public class WizardController {
     @FXML public void backButton(ActionEvent actionEvent) throws SQLException {
         System.out.println("BACK Button Pressed");
 
-        System.out.println("array number - 1: " + (arrayNumber));
+        System.out.println("array number: " + (arrayNumber));
         String tempAnswer = scores.get(arrayNumber - 1).getSubmittedAnswer();
         System.out.println("temp answer: " + tempAnswer);
 

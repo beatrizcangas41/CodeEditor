@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import util.SceneChange;
 
@@ -34,7 +35,6 @@ public class LoginScreenController {
 
     @FXML public void initialize() {
         UserDBHandler userDBHandler = new UserDBHandler();
-       // userMainScreenController = new UserMainScreenController();
     }
 
     @FXML public void loginButtonPressed() throws IOException {
@@ -73,15 +73,20 @@ public class LoginScreenController {
 
                         //Load second scene
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/UserMainScreenUI.fxml"));
+                        Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
                         Parent root = loader.load();
 
                         userMainScreenController = loader.getController();
 
-                        //Show scene 2 in new window
                         Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
+                        stage.setResizable(false);
+
+                        stage.getIcons().add(img);
+
                         stage.setTitle("Code Learner");
+                        stage.setScene(new Scene(root));
                         stage.show();
+                        stage.setOnCloseRequest(event -> System.exit(0));
 
                         userMainScreenController.setUsername(getUsername());
                     }
@@ -110,21 +115,26 @@ public class LoginScreenController {
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/AccountRegisterUI.fxml"));
+            Image img = new Image(Objects.requireNonNull(SceneChange.class.getClassLoader().getResourceAsStream("images/FullColor_IconOnly_1280x1024_72dpi.jpg")));
             Parent parent = loader.load();
 
             accountRegisterController = loader.getController();
 
-            Scene newScene = new Scene(parent);
+            stage = new Stage();
+            stage.setResizable(false);
+
+            stage.getIcons().add(img);
+
             stage.setTitle("Code Learner");
-            stage.setScene(newScene);
+            stage.setScene(new Scene(parent));
             stage.show();
+            stage.setOnCloseRequest(event -> System.exit(0));
         }
 
         catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     public final void setUsername(String name) {
         this.username = name;
