@@ -1,4 +1,6 @@
-# CodeEditor
+# CodeLearner
+
+<img src="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/images/FullColor_1280x1024_72dpi.png" width="400" height="300"> </img> 
 
 <p> A free, interactive, and educational software tool available for anyone with internet and computer access. 
     Code Learner is a Java-based application that was built using IntelliJ, an open source IDE owned by JetBrains. 
@@ -21,10 +23,5 @@
     interactive coding games, and projects that will help the user understand what they are doing.
 </p> <br>
 
-<h3> Contributors: </h3>
-<h4> <t>     1. Beatriz Cangas - Perez </h4>
-<h4> <t>     2. Efrem Yohannes - Mason </h4>
-<h4> <t>     3. Daniel Franquiz </h4>
-<h4> <t>     4. Merkure Latortue </h4>
-<h4> <t>     5. Jonathan Rene </h4>
-<h4> <t>     6. Rood Jacques </h4>
+<h3> Contributors: <p><i><b> NOTE: </b></i> For the purpose of this school project, roles were assigned. </p> </h3>
+    <img src="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/images/roles.JPG" raw=true> </img> 
