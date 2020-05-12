@@ -27,3 +27,5 @@
 <p><i><b> NOTE </b></i>: For the purpose of this school project, roles were assigned. </p> 
 <h3> </h3>
 <img src="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/images/roles.JPG" raw=true> </img> 
+
+Set up Instructions can be found here:  🔰 <a href="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/Set-Up%20Instructions%20(1).pdf" target="_blank" style="text-decoration: none;"> INSTRUCTIONS </a> 🔰
