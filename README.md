@@ -19,4 +19,12 @@
     application would also like to be implemented in the future. If given more time, we would also like to incorporate a more 
     robust progression and scoring system for the user. Other implementations will include learning tutorials through videos, 
     interactive coding games, and projects that will help the user understand what they are doing.
-</p>
+</p> <br>
+
+<h3> Contributors: </h3>
+<h4> <t>     1. Beatriz Cangas - Perez </h4>
+<h4> <t>     2. Efrem Yohannes - Mason </h4>
+<h4> <t>     3. Daniel Franquiz </h4>
+<h4> <t>     4. Merkure Latortue </h4>
+<h4> <t>     5. Jonathan Rene </h4>
+<h4> <t>     6. Rood Jacques </h4>
