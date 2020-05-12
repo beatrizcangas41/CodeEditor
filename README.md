@@ -23,5 +23,7 @@
     interactive coding games, and projects that will help the user understand what they are doing.
 </p> <br>
 
-<h3> Contributors: <p><i><b> NOTE: </b></i> For the purpose of this school project, roles were assigned. </p> </h3>
-    <img src="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/images/roles.JPG" raw=true> </img> 
+<h3> Contributors: </h3>
+<p><i><b> NOTE: </b></i> For the purpose of this school project, roles were assigned. </p> 
+<h3> </h3>
+<img src="https://github.com/beatrizcangas41/CodeEditor/blob/master/src/main/resources/images/roles.JPG" raw=true> </img> 
